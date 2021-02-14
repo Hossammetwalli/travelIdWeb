@@ -1,14 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:webapptrial/const/colors.dart';
-import 'package:webapptrial/screens/users/middle_row_small_screen.dart';
+import 'package:webapptrial/screens/users/second_page_screen_small.dart';
 import 'package:webapptrial/widgets/responsive.dart';
 import 'package:webapptrial/const/const_string.dart';
 import 'package:webapptrial/const/text_style.dart';
 
 
-class MiddleRowScreen extends StatelessWidget {
-  const MiddleRowScreen({
+class SecondPage extends StatelessWidget {
+  const SecondPage({
     Key key,
     @required this.screenSize,
   }) : super(key: key);
@@ -19,17 +18,17 @@ class MiddleRowScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     return ResponsiveWidget.isSmallScreen(context)
-        ? MiddleRowSmallScreen(screenSize: screenSize)
+        ? SecondPageScreenSmall(screenSize: screenSize)
         : PreferredSize(
             preferredSize: Size(screenSize.width, 1000),
-            child: MiddleRowLargeScreen(screenSize: screenSize),
+            child: SecondPageScreenLarge(screenSize: screenSize),
           );
   }
 }
 
 
-class MiddleRowLargeScreen extends StatelessWidget {
-  const MiddleRowLargeScreen({
+class SecondPageScreenLarge extends StatelessWidget {
+  const SecondPageScreenLarge({
     Key key,
     @required this.screenSize,
   }) : super(key: key);
@@ -44,7 +43,7 @@ class MiddleRowLargeScreen extends StatelessWidget {
           width: 1200,
           height: 1000,
           margin: const EdgeInsets.all(50),
-          color: AppColors.greyColor,
+
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -71,7 +70,7 @@ class MiddleRowLargeScreen extends StatelessWidget {
                         children: [
                           Text(
                             ConstString.middleRowTitle3,
-                            style: AppTextStyles.subHeadlineBlue,
+                            style: AppTextStyles.subTitleBlack,
                             textAlign: TextAlign.center,
                           ),
                           SizedBox(
@@ -79,7 +78,7 @@ class MiddleRowLargeScreen extends StatelessWidget {
                           ),
                           Text(
                             ConstString.middleRowContent3,
-                            style: AppTextStyles.mainContentBlack,
+                            style: AppTextStyles.contentBlack,
                             textAlign: TextAlign.justify,
                           ),
                         ],
@@ -115,7 +114,7 @@ class MiddleRowLargeScreen extends StatelessWidget {
                             children: [
                               Text(
                                 ConstString.whyMiddleRow1,
-                                style: AppTextStyles.headlineBlue,
+                                style: AppTextStyles.titleBlack,
                                 textAlign: TextAlign.center,
                               ),
                             ],
@@ -140,7 +139,7 @@ class MiddleRowLargeScreen extends StatelessWidget {
                           children: [
                             Text(
                               ConstString.middleRowTitle4,
-                              style: AppTextStyles.subHeadlineBlue,
+                              style: AppTextStyles.subTitleBlack,
                               textAlign: TextAlign.center,
                             ),
                             const SizedBox(
@@ -149,7 +148,7 @@ class MiddleRowLargeScreen extends StatelessWidget {
                             Expanded(
                                 child: Text(
                                   ConstString.middleRowContent4,
-                                  style: AppTextStyles.mainContentBlack,
+                                  style: AppTextStyles.contentBlack,
                                   textAlign: TextAlign.justify,
                                 )),
                           ],
@@ -183,7 +182,7 @@ class MiddleRowLargeScreen extends StatelessWidget {
                         children: [
                           Text(
                             ConstString.middleRowTitle2,
-                            style: AppTextStyles.subHeadlineBlue,
+                            style: AppTextStyles.subTitleBlack,
                             textAlign: TextAlign.center,
                           ),
                           const SizedBox(
@@ -191,7 +190,7 @@ class MiddleRowLargeScreen extends StatelessWidget {
                           ),
                           Text(
                             ConstString.middleRowContent2,
-                            style: AppTextStyles.mainContentBlack,
+                            style: AppTextStyles.contentBlack,
                             textAlign: TextAlign.justify,
                           ),
                         ],

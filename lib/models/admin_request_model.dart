@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:traveler_id/widgets/exports_packages.dart';
+import 'package:webapptrial/const/constant_property_info_firestore.dart';
+
 
 
 class AdminRequestModel {

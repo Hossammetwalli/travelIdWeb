@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:intl/intl.dart';
-import 'package:traveler_id/widgets/exports_packages.dart';
-
-
-
+import 'package:webapptrial/const/colors.dart';
+import 'package:webapptrial/const/text_style.dart';
+import 'package:form_builder_phone_field/form_builder_phone_field.dart';
+import 'package:country_code_picker/country_code_picker.dart';
 
 // ignore: must_be_immutable
 class AppFormTextField extends StatelessWidget {
@@ -12,11 +12,9 @@ class AppFormTextField extends StatelessWidget {
   final String labelText;
   final hintText;
   final int maximumLines, maximumLength, formValidatorMinLength;
-    final FormFieldSetter onSave;
-   final  bool emailValidator;
+  final FormFieldSetter onSave;
+  final bool emailValidator;
   final bool numericInput;
-
-
 
   AppFormTextField({
     Key key,
@@ -28,70 +26,87 @@ class AppFormTextField extends StatelessWidget {
     @required this.initialValue,
     @required this.labelText,
     this.hintText,
-    this.formValidatorMinLength, this.emailValidator, this.numericInput,
+    this.formValidatorMinLength,
+    this.emailValidator,
+    this.numericInput,
   }) : super(key: key);
 
-
   @override
-
-
   Widget build(BuildContext context) {
     return Material(
-      child:  FormBuilderTextField(
+      child: FormBuilderTextField(
+        name: "Text",
         keyboardType: TextInputType.text,
         maxLines: maximumLines,
         maxLength: maximumLength,
         decoration: buildFormTextDecoration(hintText, labelText),
-        style: AppTextStyles.titlePrimary,
+        style: AppTextStyles.businessSubtitleNavy,
         onSaved: onSave,
-        attribute:  "Text Field",
-        cursorColor: AppColors.primaryColorBlended,
+        cursorColor: AppColors.blackColor,
         textCapitalization: TextCapitalization.sentences,
         initialValue: initialValue,
         autovalidateMode: AutovalidateMode.onUserInteraction,
-        validators: [
-          numericInput == true ? FormBuilderValidators.numeric(): FormBuilderValidators.required() ,
-          FormBuilderValidators.required(),
-          FormBuilderValidators.minLength(formValidatorMinLength),
-        ],
+        validator: FormBuilderValidators.compose(
+          [
+            numericInput == true
+                ? FormBuilderValidators.numeric(context)
+                : FormBuilderValidators.required(context),
+            FormBuilderValidators.required(context),
+            FormBuilderValidators.minLength(context, formValidatorMinLength),
+          ],
+        ),
       ),
-
     );
   }
 }
 
-
-
-
 // ignore: must_be_immutable
 class AppFormCountryPicker extends StatelessWidget {
+  final ValueChanged<CountryCode> onSave;
+  final double width, height, searchPaddingLeft, searchPaddingRigh;
 
-  final String initialValue;
-  final String labelText, hintText;
-  final FormFieldSetter onSave;
-
-
-  AppFormCountryPicker(
-      {@required this.initialValue,
-        @required this.onSave,
-        @required this.labelText, this.hintText});
+  AppFormCountryPicker({
+    @required this.onSave,
+    @required this.width,
+    @required this.height,
+    this.searchPaddingLeft,
+    this.searchPaddingRigh,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Material(
-      child: FormBuilderCountryPicker(
+      child: Container(
+        width: width,
+        height: height,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(7),
+          border: Border.all(
+            width: 1.0,
+            color: AppColors.navyColor,
+          ),
+        ),
+        child: CountryCodePicker(
+          textStyle: AppTextStyles.businessSubtitleNavy,
+          showDropDownButton: true,
+          searchDecoration: InputDecoration(
+              contentPadding: EdgeInsets.only(
+                  left: searchPaddingLeft, right: searchPaddingRigh),
 
-        initialValue: initialValue,
-        attribute: 'country',
-        cursorColor: AppColors.primaryColorBlended,
-        style: AppTextStyles.titlePrimary,
-        priorityListByIsoCode: ['US'],
-        valueTransformer: (value) => value.name,
-        decoration: buildFormTextDecoration(hintText, labelText),
-        validators: [
-          FormBuilderValidators.required(),
-        ],
-        onSaved: onSave,
+
+
+          ),
+          onChanged: onSave,
+          hideMainText: false,
+          showFlagMain: true,
+          showFlag: true,
+          initialSelection: 'US',
+          hideSearch: false,
+          showCountryOnly: true,
+          showOnlyCountryWhenClosed: true,
+          alignLeft: true,
+          enabled: true,
+        ),
       ),
     );
   }
@@ -117,26 +132,26 @@ class AppFormDropDown extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: FormBuilderDropdown(
-
+          name: "DropDown",
           elevation: 0,
-          dropdownColor: AppColors.backgroundColor,
+          dropdownColor: AppColors.whiteColor,
 
           // focusNode: focusNode,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           initialValue: initialValue,
-          attribute: 'Category Selection',
           decoration: buildFormTextDecoration(" ", labelText),
-          validators: [
-            FormBuilderValidators.required(),
-          ],
-
+          validator: FormBuilderValidators.compose(
+            [
+              FormBuilderValidators.required(context),
+            ],
+          ),
           items: selectionOption
               .map((category) => DropdownMenuItem(
-            value: category,
-            child: Text('$category'),
-          ))
+                    value: category,
+                    child: Text('$category'),
+                  ))
               .toList(),
-          style: AppTextStyles.titlePrimary,
+          style: AppTextStyles.businessSubtitleNavy,
           allowClear: true,
           onSaved: onSave),
     );
@@ -144,7 +159,6 @@ class AppFormDropDown extends StatelessWidget {
 }
 
 // ignore: must_be_immutable
-
 
 // ignore: must_be_immutable
 class AppFormPhoneField extends StatelessWidget {
@@ -159,24 +173,24 @@ class AppFormPhoneField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: FormBuilderPhoneField(
+        name: 'phone_number',
         keyboardType: TextInputType.phone,
         autovalidateMode: AutovalidateMode.onUserInteraction,
-        attribute: 'phone_number',
-        style: AppTextStyles.titlePrimary,
-        cursorColor: AppColors.primaryColorBlended,
+        style: AppTextStyles.businessSubtitleNavy,
+        cursorColor: AppColors.navyColor,
         initialValue: initialValue,
         decoration: buildFormTextDecoration(" ", labelText),
         priorityListByIsoCode: ['US'],
-        validators:  [
-          FormBuilderValidators.required( errorText: 'Invalid phone number'),
-          FormBuilderValidators.required()
-        ],
+        validator: FormBuilderValidators.compose([
+          FormBuilderValidators.required(context,
+              errorText: 'Invalid phone number'),
+          FormBuilderValidators.required(context)
+        ]),
         onSaved: onSave,
       ),
     );
   }
 }
-
 
 // ignore: must_be_immutable
 class AppFormEmailField extends StatelessWidget {
@@ -198,21 +212,21 @@ class AppFormEmailField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: FormBuilderTextField(
-
+        name: "Email Field",
         keyboardType: TextInputType.emailAddress,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         initialValue: initialValue,
         // focusNode: focusNode,
-        validators: [
-          FormBuilderValidators.required(),
-          FormBuilderValidators.email(),
-        ],
-        cursorColor: AppColors.primaryColorBlended,
-        attribute: "Email Field",
+        validator: FormBuilderValidators.compose([
+          FormBuilderValidators.required(context),
+          FormBuilderValidators.email(context),
+        ]),
+        cursorColor: AppColors.blackColor,
+
         maxLines: 1,
 
         decoration: buildFormTextDecoration(" ", labelText),
-        style: AppTextStyles.titlePrimary,
+        style: AppTextStyles.businessSubtitleNavy,
         onSaved: onSave,
       ),
     );
@@ -237,18 +251,20 @@ class AppFormDatePicker extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: FormBuilderDateTimePicker(
+        name: 'date',
         autovalidateMode: AutovalidateMode.onUserInteraction,
-        validators: [FormBuilderValidators.required( errorText: "Field is Required")],
+        validator: FormBuilderValidators.compose([
+          FormBuilderValidators.required(context,
+              errorText: "Field is Required")
+        ]),
         inputType: InputType.date,
         useRootNavigator: true,
         initialEntryMode: DatePickerEntryMode.calendar,
         initialDatePickerMode: DatePickerMode.year,
-        style: AppTextStyles.titlePrimary,
+        style: AppTextStyles.businessSubtitleNavy,
         decoration: buildFormTextDecoration(" ", labelText),
-
         initialDate: DateTime.now(),
         format: DateFormat("yyyy-MM-dd"),
-        attribute: 'date',
         initialValue: initialValue,
         lastDate: lastDate,
         firstDate: firstDate,
@@ -275,17 +291,17 @@ class AppFormTimePicker extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: FormBuilderDateTimePicker(
-
-        style: AppTextStyles.titlePrimary,
+        style: AppTextStyles.businessSubtitleNavy,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         alwaysUse24HourFormat: true,
         initialValue: initialValue,
-        attribute: 'date',
+        name: 'date',
         onSaved: onSave,
         inputType: InputType.time,
         //format: DateFormat("Hm"),
         decoration: buildFormTextDecoration(" ", labelText),
-        validators:  [FormBuilderValidators.required()],
+        validator: FormBuilderValidators.compose(
+            [FormBuilderValidators.required(context)]),
 
         // locale: Locale('ru'),
         initialTime: TimeOfDay(hour: 8, minute: 0),
@@ -296,37 +312,37 @@ class AppFormTimePicker extends StatelessWidget {
   }
 }
 
-class AppFormDateRangePicker extends StatelessWidget {
-  final String labelText;
-
-  final FormFieldSetter onSave;
-
-  const AppFormDateRangePicker({
-    Key key,
-    @required this.labelText,
-    @required this.onSave,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      child: FormBuilderDateRangePicker(
-        style: AppTextStyles.titlePrimary,
-        autovalidateMode: AutovalidateMode.onUserInteraction,
-        attribute: 'date_range',
-        firstDate: DateTime.now(),
-        lastDate: DateTime.now().add(Duration(days: 1000)),
-        initialValue: [
-          DateTime.now(),
-          DateTime.now().add(Duration(days: 30)),
-        ],
-        format: DateFormat('yyyy-MM-dd'),
-        onSaved: onSave,
-        decoration: buildFormTextDecoration(" ", labelText),
-      ),
-    );
-  }
-}
+// class AppFormDateRangePicker extends StatelessWidget {
+//   final String labelText;
+//
+//   final FormFieldSetter onSave;
+//
+//   const AppFormDateRangePicker({
+//     Key key,
+//     @required this.labelText,
+//     @required this.onSave,
+//   }) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Material(
+//       child: FormBuilderDateRangePicker(
+//         style: AppTextStyles.businessSubtitleNavy,
+//         autovalidateMode: AutovalidateMode.onUserInteraction,
+//         attribute: 'date_range',
+//         firstDate: DateTime.now(),
+//         lastDate: DateTime.now().add(Duration(days: 1000)),
+//         initialValue: [
+//           DateTime.now(),
+//           DateTime.now().add(Duration(days: 30)),
+//         ],
+//         format: DateFormat('yyyy-MM-dd'),
+//         onSaved: onSave,
+//         decoration: buildFormTextDecoration(" ", labelText),
+//       ),
+//     );
+//   }
+// }
 
 class AppFormBuilderSwitchButton extends StatelessWidget {
   final bool initialValue;
@@ -345,12 +361,10 @@ class AppFormBuilderSwitchButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: FormBuilderSwitch(
-
-        label: Text(labelText),
-        attribute: 'accept_terms_switch',
+        title: Text(labelText),
+        name: 'accept_terms_switch',
         initialValue: initialValue,
         onChanged: onSave,
-
         decoration: buildFormTextDecoration(" ", labelText),
       ),
     );
@@ -377,20 +391,20 @@ class AppFormBuilderRating extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      child: FormBuilderRate(
-        validators:[
-        FormBuilderValidators.required(),],
+      child: FormBuilderRating(
+        validator: FormBuilderValidators.compose([
+          FormBuilderValidators.required(context),
+        ]),
 
         decoration: buildFormTextDecoration(" ", labelText),
-        attribute: 'rate',
+        name: 'rate',
         iconSize: iconsSize,
         initialValue: initialValue,
         max: maximum,
 
-
         onSaved: onSave,
 // readOnly: true,
-        filledColor: AppColors.yellowColor,
+        filledColor: AppColors.lightYellowColor,
         emptyColor: AppColors.lightGreyColor,
         isHalfAllowed: true,
       ),
@@ -403,37 +417,28 @@ class AppFormBuilderListCheckBox extends StatelessWidget {
   final String errorText;
   final String labelText;
 
-
   AppFormBuilderListCheckBox({
     Key key,
     @required this.onSave,
-
-    @required this.labelText, @required this.errorText,
-
+    @required this.labelText,
+    @required this.errorText,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Material(
       child: FormBuilderCheckbox(
-        label: Text(labelText),
-
-        validators:[
-        FormBuilderValidators.required(
-          errorText:
-          errorText,
-        )],
-
-
-
+        title: Text(labelText),
+        validator: FormBuilderValidators.compose([
+          FormBuilderValidators.required(
+            context,
+            errorText: errorText,
+          )
+        ]),
         decoration: buildFormTextDecoration(" ", labelText),
-        attribute: 'CheckBox',
-        leadingInput: true,
+        name: 'CheckBox',
+        enabled: true,
         initialValue: false,
-        readOnly: false,
-
-
-
         onSaved: onSave,
       ),
     );
@@ -451,14 +456,14 @@ class AppFormWebsite extends StatelessWidget {
 
   AppFormWebsite(
       {Key key,
-        @required this.onSave,
-        this.maximumLength,
+      @required this.onSave,
+      this.maximumLength,
 
-        // this.focusNode,
-        @required this.maximumLines,
-        @required this.initialValue,
-        @required this.labelText,
-        this.formValidatorMinLength})
+      // this.focusNode,
+      @required this.maximumLines,
+      @required this.initialValue,
+      @required this.labelText,
+      this.formValidatorMinLength})
       : super(key: key);
 
   @override
@@ -470,22 +475,19 @@ class AppFormWebsite extends StatelessWidget {
         keyboardType: TextInputType.url,
         initialValue: initialValue,
         //focusNode: focusNode,
-        validators: [
-          FormBuilderValidators.url(),
-          FormBuilderValidators.required(),
-        ],
-        cursorColor: AppColors.primaryColorBlended,
-        attribute: "Text Field",
+        validator: FormBuilderValidators.compose([
+          FormBuilderValidators.url(context),
+          FormBuilderValidators.required(context),
+        ]),
+        cursorColor: AppColors.blackColor,
+        name: "Text Field",
         maxLines: maximumLines,
         maxLength: maximumLength,
 
         decoration: buildFormTextDecoration(" ", labelText),
-        style: AppTextStyles.titlePrimary,
+        style: AppTextStyles.businessSubtitleNavy,
         onSaved: onSave,
-
       ),
-
-
     );
   }
 }
@@ -504,20 +506,19 @@ class AppFormBuilderRangeSlider extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: FormBuilderSlider(
-
-
-        validators: [FormBuilderValidators.min( 5)],
+        validator: FormBuilderValidators.compose(
+            [FormBuilderValidators.min(context, 5)]),
         onSaved: onSave,
         min: 5.0,
         max: 50.0,
         initialValue: 5.0,
         divisions: 5,
-        minTextStyle: AppTextStyles.firstViewBlendedTitle,
+        minTextStyle: AppTextStyles.businessSubtitleNavy,
         activeColor: Colors.green,
-        inactiveColor: AppColors.redColor,
+        inactiveColor: Colors.red,
         decoration: buildFormTextDecoration(" ", labelText),
         displayValues: DisplayValues.current,
-        attribute: 'Slider',
+        name: 'Slider',
       ),
     );
   }
@@ -551,18 +552,18 @@ class AppFormNumericField extends StatelessWidget {
         keyboardType: TextInputType.number,
 
         //focusNode: focusNode,
-        validators: [
-          FormBuilderValidators.required(),
-          FormBuilderValidators.minLength( formValidatorMinLength),
-          FormBuilderValidators.numeric(),
-        ],
-        cursorColor: AppColors.primaryColorBlended,
-        attribute: "Numeric Field",
+        validator: FormBuilderValidators.compose([
+          FormBuilderValidators.required(context),
+          FormBuilderValidators.minLength(context, formValidatorMinLength),
+          FormBuilderValidators.numeric(context),
+        ]),
+        cursorColor: AppColors.blackColor,
+        name: "Numeric Field",
         maxLines: maximumLines,
         maxLength: maximumLength,
 
         decoration: buildFormTextDecoration(hintText, labelText),
-        style: AppTextStyles.titlePrimary,
+        style: AppTextStyles.businessSubtitleNavy,
         onSaved: onSave,
       ),
     );
@@ -572,26 +573,34 @@ class AppFormNumericField extends StatelessWidget {
 // Input decoration widget
 InputDecoration buildFormTextDecoration(String hint, String label) {
   return InputDecoration(
-
     filled: true,
     errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(7),
-        borderSide: BorderSide(width: 2.0, color: AppColors.primaryColorBlended,)),
+        borderSide: BorderSide(
+          width: 2.0,
+          color: AppColors.navyColor,
+        )),
     focusedErrorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(7),
-        borderSide: BorderSide(width: 2.0, color: AppColors.primaryColorBlended,)),
-    fillColor: AppColors.backgroundColor,
+        borderSide: BorderSide(
+          width: 2.0,
+          color: AppColors.navyColor,
+        )),
+    fillColor: AppColors.whiteColor,
     focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(7),
-        borderSide: BorderSide(width: 2.0, color: AppColors.greenColor)),
+        borderSide: BorderSide(width: 2.0, color: AppColors.darkGreenColor)),
     border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(7),
-        borderSide: BorderSide(width: 2.0, color: AppColors.primaryColorBlended,)),
-    focusColor: AppColors.primaryColorBlended,
+        borderSide: BorderSide(
+          width: 2.0,
+          color: AppColors.navyColor,
+        )),
+    focusColor: AppColors.navyColor,
     labelText: label,
     hintText: hint,
-    hintStyle: AppTextStyles.titleGreyColor,
-    labelStyle: AppTextStyles.titleGreyColor,
+    hintStyle: AppTextStyles.contentBlue,
+    labelStyle: AppTextStyles.contentBlue,
   );
 }
 
@@ -836,6 +845,3 @@ const allCountries = [
   'Zambia',
   'Zimbabwe'
 ];
-
-
-

@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:webapptrial/const/colors.dart';
 import 'package:webapptrial/const/const_string.dart';
 import 'package:webapptrial/const/text_style.dart';
 import 'package:webapptrial/widgets/responsive.dart';
 
-class FeatureScreenTwo extends StatelessWidget {
+class SixthPage extends StatelessWidget {
 
 
   @override
   Widget build(BuildContext context) {
-    return ResponsiveWidget.isSmallScreen(context)
+    var screenSize = MediaQuery.of(context).size;
+    return ResponsiveWidget.isSmallScreen(context) || ResponsiveWidget.isMediumScreen(context)
         ? Container(
-            height: 900,
-            width: 500,
+      height: 900,
+      width: screenSize.width * .9,
+      color: AppColors.whiteColor,
 
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -28,19 +29,23 @@ class FeatureScreenTwo extends StatelessWidget {
                     scale: 1,
                   ),
                 ),
-                const SizedBox(
-                  height: 50,
-                ),
-                ClipPath(
-                  clipper: ArrowClipper(70, 80, Edge.BOTTOM),
-                  child: Container(
-                    color: AppColors.greyColor,
-                    width: 400,
 
-                    child: Text(
-                      ConstString.featureContent,
-                      style: AppTextStyles.middleComment,
-                      textAlign: TextAlign.justify,
+                ClipOval(
+                  child: Container(
+                    width: screenSize.width ,
+                    height: screenSize.width <= 800? 300: 450,
+                    padding: const EdgeInsets.all(60),
+
+                    decoration: BoxDecoration(
+                        gradient: AppColors.mainPageGradient
+                    ),
+
+                    child: Center(
+                      child: Text(
+                        ConstString.sixPageContent,
+                        style:  screenSize.width <= 800? AppTextStyles.subTitleWhite: AppTextStyles.titleWhite,
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ),
                 ),
@@ -69,17 +74,22 @@ class FeatureScreenTwo extends StatelessWidget {
                     // height: 200,
                   ),
                 ),
-                ClipPath(
-                  clipper: OctagonalClipper(),
+                ClipOval(
+
                   child: Container(
-                    color: AppColors.greyColor,
-                    width: 600,
+                    width: 800,
                     height: 500,
-                    padding: const EdgeInsets.all(40),
+
+                    padding: const EdgeInsets.all(50),
+                    decoration: BoxDecoration(
+                        gradient: AppColors.mainPageGradient
+                    ),
+
+
                     child: Center(
                       child: Text(
-                        ConstString.featureContent,
-                        style:  AppTextStyles.middleComment,
+                        ConstString.sixPageContent,
+                        style: AppTextStyles.titleWhite,
                         textAlign: TextAlign.center,
                       ),
                     ),

@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:webapptrial/const/colors.dart';
 import 'package:webapptrial/const/const_string.dart';
-import 'package:webapptrial/const/text_style.dart';
 import 'package:webapptrial/widgets/feature_screen_three_widget.dart';
 import 'package:webapptrial/widgets/responsive.dart';
 
-class FeatureScreenThree extends StatelessWidget {
+class ThirdPage extends StatelessWidget {
   final double _width;
 
-  const FeatureScreenThree({
+  const ThirdPage({
     Key key,
     @required double width,
   })  : _width = width,
@@ -26,13 +25,13 @@ class FeatureScreenThree extends StatelessWidget {
                 height: 500,
                 width: _width ,
                 padding: const EdgeInsets.only(
-                  left: 200,
-                  right: 200,
+                  left: 100,
+                  right: 100,
                   top: 70,
                 ),
                // color: AppColors.purpleColor,
                 decoration: BoxDecoration(
-                  gradient: AppColors.colorGradientReverse
+                  gradient: AppColors.mainPageGradient
                 ),
 
                 child: Column(
@@ -76,23 +75,17 @@ class FeatureScreenThree extends StatelessWidget {
             clipper: WaveClipperTwo(flip: true),
             child: Container(
                 height: 1000,
-                width: _width,
+                width: _width ,
 
                 decoration: BoxDecoration(
-                  gradient: AppColors.colorGradientReverse
+                  gradient: AppColors.mainPageGradient
                 ),
 
 
                 child: Column(
                   children: [
 
-                    // Text(
-                    //   ConstString.whyToChoose,
-                    //   style: ResponsiveWidget.isLargeScreen(context)
-                    //       ? AppTextStyles.headlineWhite
-                    //       : AppTextStyles.subHeadlineWhite,
-                    //   textAlign: TextAlign.center,
-                    // ),
+
                     const SizedBox(
                       height: 20,
                     ),

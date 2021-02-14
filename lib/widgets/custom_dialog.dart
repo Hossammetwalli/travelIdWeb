@@ -1,8 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:traveler_id/styles/colors.dart';
-import 'package:traveler_id/styles/text_style_constant.dart';
+import 'package:webapptrial/const/colors.dart';
+import 'package:webapptrial/const/text_style.dart';
+
 
 
 
@@ -40,7 +41,7 @@ class CustomDialog extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(20),
             decoration: BoxDecoration(
-                color: AppColors.backgroundColor,
+                color: AppColors.whiteColor,
                 shape: BoxShape.rectangle,
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [
@@ -60,7 +61,7 @@ class CustomDialog extends StatelessWidget {
                   title,
                   maxLines: 2,
                   textAlign: TextAlign.center,
-                  style: AppTextStyles.titlePrimary,
+                  style: AppTextStyles.contentBlue,
                 ),
                 SizedBox(
                   height: 20.0,
@@ -69,26 +70,26 @@ class CustomDialog extends StatelessWidget {
                   description,
                   maxLines: 4,
                   textAlign: TextAlign.center,
-                  style: AppTextStyles.titlePrimary,
+                  style: AppTextStyles.contentBlue,
                 ),
                 SizedBox(
                   height: 24.0,
                 ),
                 RaisedButton(
-                    color: AppColors.primaryColorBlended,
+                    color: AppColors.navyColor,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30.0)),
                     child: AutoSizeText(
                       primaryButtonText,
                       maxLines: 1,
-                      style: AppTextStyles.titleBackgroundColor,
+                      style: AppTextStyles.contentWhite,
                     ),
                     onPressed: () {
                       Navigator.of(context).pop();
 
                     }),
                 SizedBox(height: 20.0),
-                AutoSizeText(secondaryButtonText, style: AppTextStyles.subtitlePrimary,),
+                AutoSizeText(secondaryButtonText, style: AppTextStyles.businessContentNavy,),
                 showSecondaryButton(context),
               ],
             ),
@@ -101,13 +102,13 @@ class CustomDialog extends StatelessWidget {
   showSecondaryButton(BuildContext context) {
    if(secondaryButtonRoute != null && secondaryButtonText !=null){
      return RaisedButton(
-       color: AppColors.primaryColorBlended,
+       color: AppColors.navyColor,
        shape: RoundedRectangleBorder(
          borderRadius: BorderRadius.circular(30.0),),
        child: AutoSizeText(
          secondaryButtonText,
          maxLines: 1,
-         style: AppTextStyles.titleBackgroundColor,
+         style: AppTextStyles.contentWhite,
        ),
        onPressed: () {
          Navigator.of(context).pop();

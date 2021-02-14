@@ -4,21 +4,20 @@ import 'package:webapptrial/const/const_string.dart';
 import 'package:webapptrial/const/text_style.dart';
 import 'package:webapptrial/widgets/responsive.dart';
 
-class FeatureScreenOne extends StatelessWidget {
+class FourthPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ResponsiveWidget.isSmallScreen(context)
+    var screenSize = MediaQuery.of(context).size;
+    return ResponsiveWidget.isSmallScreen(context) || ResponsiveWidget.isMediumScreen(context)
         ? Container(
-            height: 900,
-            width: 500,
+            height: 870,
+            width: screenSize.width * .9,
             color: AppColors.whiteColor,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const SizedBox(
-                  height: 50,
-                ),
+
                 Opacity(
                   opacity: 1,
                   child: Image.network(
@@ -27,15 +26,24 @@ class FeatureScreenOne extends StatelessWidget {
                     scale: 1,
                   ),
                 ),
-                const SizedBox(
-                  height: 50,
-                ),
-                Container(
-                  width: 400,
-                  child: Text(
-                    ConstString.middleRowContent1,
-                    style:  AppTextStyles.middleComment,
-                    textAlign: TextAlign.justify,
+
+                ClipOval(
+                  child: Container(
+                    width: screenSize.width ,
+                    height: screenSize.width <= 800? 300: 450,
+                    padding: const EdgeInsets.all(60),
+
+
+                    decoration: BoxDecoration(
+                        gradient: AppColors.mainPageGradient
+                    ),
+                    child: Center(
+                      child: Text(
+                        ConstString.fourthPageContent1,
+                        style:  screenSize.width <= 800? AppTextStyles.subTitleWhite: AppTextStyles.titleWhite,
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
                   ),
                 ),
                 const SizedBox(
@@ -46,17 +54,31 @@ class FeatureScreenOne extends StatelessWidget {
           )
         : Container(
             height: 500,
-            width: 1200,
+            width: screenSize.width <= 1300? 900: 1300,
+
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  width: 700,
-                  child: Text(
-                    ConstString.middleRowContent1,
-                    style: AppTextStyles.middleComment,
-                    textAlign: TextAlign.start,
+                ClipOval(
+
+                  child: Container(
+                    width: screenSize.width <= 1300? 400: 800,
+                    height: 500,
+
+                    padding: const EdgeInsets.all(50),
+                    decoration: BoxDecoration(
+                      gradient: AppColors.mainPageGradient
+                    ),
+
+
+                    child: Center(
+                      child: Text(
+                        ConstString.fourthPageContent1,
+                        style: screenSize.width <= 1300? AppTextStyles.subTitleWhite: AppTextStyles.titleWhite,
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
                   ),
                 ),
                 Opacity(

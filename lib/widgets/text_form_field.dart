@@ -1,9 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:webapptrial/const/colors.dart';
 import 'package:webapptrial/const/text_style.dart';
 
-class AppTextFormField extends StatelessWidget {
+class AppTextFormFieldOriginal extends StatelessWidget {
   final FocusNode textFocusNode;
   final Function onChange;
   final Function onSave;
@@ -13,10 +12,20 @@ class AppTextFormField extends StatelessWidget {
   final int maxLine, maxLength;
   final double width, height;
 
-  const AppTextFormField({Key key, @required this.textFocusNode, @required this.onChange, @required this.onSave, @required this.validator, @required this.errorText,@required this.hintText, @required this.keyboardType, this.maxLine, this.width, this.height, this.maxLength}) : super(key: key);
-
-
-
+  const AppTextFormFieldOriginal(
+      {Key key,
+      @required this.textFocusNode,
+      @required this.onChange,
+      @required this.onSave,
+      @required this.validator,
+      @required this.errorText,
+      @required this.hintText,
+      @required this.keyboardType,
+      this.maxLine,
+      this.width,
+      this.height,
+      this.maxLength})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +33,8 @@ class AppTextFormField extends StatelessWidget {
       height: height,
       width: width,
       decoration: BoxDecoration(
-           color: AppColors.whiteColor ,
+          color: AppColors.whiteColor,
           border: Border.all(color: AppColors.lightGreyColor)),
-
       child: TextFormField(
         maxLines: maxLine,
         maxLength: maxLength,
@@ -44,15 +52,13 @@ class AppTextFormField extends StatelessWidget {
         onSaved: onSave,
         textAlign: TextAlign.start,
         decoration: InputDecoration(
-            border: InputBorder.none,
-           // filled: true,
-            contentPadding: const EdgeInsets.only(left: 20, top: 10),
-            labelStyle: AppTextStyles.contentRed,
-            labelText: hintText,
-            errorText: errorText,
-
-
-            ),
+          border: InputBorder.none,
+          // filled: true,
+          contentPadding: const EdgeInsets.only(left: 20, top: 10),
+          labelStyle: AppTextStyles.contentRed,
+          labelText: hintText,
+          errorText: errorText,
+        ),
       ),
     );
   }

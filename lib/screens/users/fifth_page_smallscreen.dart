@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:webapptrial/const/colors.dart';
 import 'package:webapptrial/const/const_string.dart';
 import 'package:webapptrial/const/text_style.dart';
-import 'package:webapptrial/screens/users/why_travelerid.dart';
 import 'package:webapptrial/widgets/dialog_widget.dart';
 
-class WhyTravelIDSmall extends StatelessWidget {
-  const WhyTravelIDSmall({
+class FifthPageSmall extends StatelessWidget {
+  const FifthPageSmall({
     Key key,
     @required double height,
     @required double width,
@@ -20,116 +20,112 @@ class WhyTravelIDSmall extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 1500,
-      width: _width,
-      color: AppColors.purpleColor, // Colors.indigo[900],
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+    return ClipPath(
+      clipper: WaveClipperTwo(flip: true),
+      child: ClipPath(
+        clipper: WaveClipperTwo(reverse: true),
+        child: Container(
+          height: 1500,
+          width: _width,
+          decoration: BoxDecoration(
+            gradient: AppColors.mainPageGradient
+          ),
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Expanded(
-                  child: Text(
-                ConstString.featureTitle,
-                style: AppTextStyles.subHeadlineWhite,
-                textAlign: TextAlign.center,
-              ))
-            ],
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              DialogWidget(
-                onTap: () {
-                  showDialogFunctionSmall(
-                    context,
-                    ConstString.contactlessTitle,
-                    ConstString.contactlessDesc,
-                    contactlessItems,
-                    _width * .9,
-                    _height * .8,
-                    ConstString.featureContactlessImage,
-                  );
-                },
-                title: ConstString.contactlessTitle,
-                image: ConstString.featureContactlessImage,
-                description: ConstString.contactlessDesc,
-                height: _height,
-                width: _width * .9,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                      child: Text(
+                    ConstString.featureTitle,
+                    style: AppTextStyles.titleWhite,
+                    textAlign: TextAlign.center,
+                  ))
+                ],
               ),
               const SizedBox(
                 height: 30,
               ),
-              DialogWidget(
-                onTap: () {
-                  showDialogFunctionSmall(
-                    context,
-                    ConstString.privacyTitle,
-                    ConstString.privacyDesc,
-                    secureItems,
-                    _width * .9,
-                    _height * .8,
-                    ConstString.featureSecureImage,
-                  );
-                },
-                title: ConstString.privacyTitle,
-                image: ConstString.featureSecureImage,
-                description: ConstString.privacyDesc,
-                height: _height,
-                width: _width * .9,
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              DialogWidget(
-                onTap: () {
-                  showDialogFunctionSmall(
-                    context,
-                    ConstString.dealsTitle,
-                    ConstString.dealsDesc,
-                    dealsItems,
-                    _width * .9,
-                    _height * .8,
-                    ConstString.featureDealsImage,
-                  );
-                },
-                title: ConstString.dealsTitle,
-                image: ConstString.featureDealsImage,
-                description: ConstString.dealsDesc,
-                height: _height,
-                width: _width * .9,
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              DialogWidget(
-                onTap: () {
-                  showDialogFunctionSmall(
-                    context,
-                    ConstString.messagesTitle,
-                    ConstString.messagesDesc,
-                    chatItems,
-                    _width * .9,
-                    _height * .8,
-                    ConstString.featureChatImage,
-                  );
-                },
-                title: ConstString.messagesTitle,
-                image: ConstString.featureChatImage,
-                description: ConstString.messagesDesc,
-                height: _height,
-                width: _width * .9,
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  DialogWidget(
+                    clipper: WaveClipperTwo(),
+                    paddingTop: 20,
+                    rBottomLeft: 0,
+                    rTopLeft: 60,
+                    rTopRight: 60,
+                    rBottomRight: 0,
+                    context: context,
+                    items: contactlessItems,
+                    title: ConstString.contactlessTitle,
+                    image: ConstString.featureContactlessImage,
+                    description: ConstString.contactlessDesc,
+                    height: _height,
+                    width: _width * .9,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  DialogWidget(
+                    clipper: WaveClipperTwo(reverse: true),
+                    paddingTop: 60,
+                    rBottomLeft: 60,
+                    rTopLeft: 0,
+                    rTopRight: 0,
+                    rBottomRight: 60,
+                    context: context,
+                    items: secureItems,
+                    title: ConstString.privacyTitle,
+                    image: ConstString.featureSecureImage,
+                    description: ConstString.privacyDesc,
+                    height: _height,
+                    width: _width * .9,
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  DialogWidget(
+                    clipper: WaveClipperTwo(flip: true ),
+                    paddingTop: 20,
+                    rBottomLeft: 0,
+                    rTopLeft: 60,
+                    rTopRight: 60,
+                    rBottomRight: 0,
+                    context: context,
+                    items: dealsItems,
+                    title: ConstString.dealsTitle,
+                    image: ConstString.featureDealsImage,
+                    description: ConstString.dealsDesc,
+                    height: _height,
+                    width: _width * .9,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  DialogWidget(
+                    clipper: WaveClipperTwo(reverse: true,flip: true),
+                    paddingTop: 60,
+                    rBottomLeft: 60,
+                    rTopLeft: 0,
+                    rTopRight: 00,
+                    rBottomRight: 60,
+                    context: context,
+                    items: chatItems,
+                    title: ConstString.messagesTitle,
+                    image: ConstString.featureChatImage,
+                    description: ConstString.messagesDesc,
+                    height: _height,
+                    width: _width * .9,
+                  ),
+                ],
               ),
             ],
           ),
-        ],
+        ),
       ),
     );
   }

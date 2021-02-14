@@ -2,29 +2,29 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:webapptrial/const/colors.dart';
 import 'package:webapptrial/const/text_style.dart';
-import 'package:webapptrial/screens/users/why_travelid_largescreen.dart';
-import 'package:webapptrial/screens/users/why_travelid_smallscreen.dart';
+import 'package:webapptrial/screens/users/fifth_page_largescreen.dart';
+import 'package:webapptrial/screens/users/fifth_page_smallscreen.dart';
 import 'package:webapptrial/widgets/responsive.dart';
 
-class WhyTravelID extends StatefulWidget {
+class FifthPage extends StatefulWidget {
   @override
-  _WhyTravelIDState createState() => _WhyTravelIDState();
+  _FifthPageState createState() => _FifthPageState();
 }
 
-class _WhyTravelIDState extends State<WhyTravelID> {
+class _FifthPageState extends State<FifthPage> {
   @override
   Widget build(BuildContext context) {
     var _width = MediaQuery.of(context).size.width;
     var _height = MediaQuery.of(context).size.height;
 
     return ResponsiveWidget.isSmallScreen(context)
-        ? WhyTravelIDSmall(
+        ? FifthPageSmall(
       height: _height,
       width: _width,
     ):
     PreferredSize(
             preferredSize: Size(_width, 1000),
-            child: WhyTravelIDLarge(
+            child: FifthPageLarge(
               height: _height,
               width: _width,
             ),
@@ -33,7 +33,7 @@ class _WhyTravelIDState extends State<WhyTravelID> {
   }
 }
 
-showDialogFunctionSmall(
+showDialogFunction(
   BuildContext context,
   String title,
   String description,
@@ -91,7 +91,7 @@ showDialogFunctionSmall(
                     height: 10,
                   ),
                   Container(
-                    height: 100,
+                    height: 150,
                     width: dialogWidth,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -99,7 +99,7 @@ showDialogFunctionSmall(
                         Expanded(
                           child: Text(title.toUpperCase(),
                               textAlign: TextAlign.center,
-                              style: AppTextStyles.headlineBlue),
+                              style: AppTextStyles.titleBlack),
                         ),
                       ],
                     ),
@@ -109,26 +109,26 @@ showDialogFunctionSmall(
                   ),
                   Container(
                     width: dialogWidth,
-                    height: 120,
+                    height: 180,
                     child: Text(
                       description,
-                      style: AppTextStyles.middleComment,
+                      style: AppTextStyles.subTitleBlack,
                       textAlign: TextAlign.center,
                     ),
                   ),
                   const SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
                   Container(
                     width: dialogWidth,
-                    height: 200,
+                    height: 270,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           "Use your eTRAVELER iD to:",
-                          style: AppTextStyles.subHeadlineBlue,
+                          style: AppTextStyles.subTitleBlack,
                           textAlign: TextAlign.center,
                         ),
                         const SizedBox(
@@ -136,7 +136,7 @@ showDialogFunctionSmall(
                         ),
                         Container(
                           width: dialogWidth,
-                          height: 170,
+                          height: 220,
                           child: ListView.builder(
                             itemCount: items.length,
                             scrollDirection: Axis.vertical,
@@ -154,7 +154,7 @@ showDialogFunctionSmall(
                                   Expanded(
                                       child: Text(
                                     items[index].toString(),
-                                    style: AppTextStyles.mainContentBlack,
+                                    style: AppTextStyles.contentBlack,
                                   )),
                                 ],
                               );

@@ -3,8 +3,8 @@ import 'package:webapptrial/const/colors.dart';
 import 'package:webapptrial/const/const_string.dart';
 import 'package:webapptrial/const/text_style.dart';
 
-class MiddleRowSmallScreen extends StatelessWidget {
-  const MiddleRowSmallScreen({
+class SecondPageScreenSmall extends StatelessWidget {
+  const SecondPageScreenSmall({
     Key key,
     @required this.screenSize,
   }) : super(key: key);
@@ -24,7 +24,7 @@ class MiddleRowSmallScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            height: 200,
+            height: 100,
             width: screenSize.width,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -33,7 +33,7 @@ class MiddleRowSmallScreen extends StatelessWidget {
                 Expanded(
                   child: Text(
                     ConstString.whyMiddleRow1,
-                    style: AppTextStyles.headlineBlue,
+                    style: AppTextStyles.titleBlack,
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -44,6 +44,9 @@ class MiddleRowSmallScreen extends StatelessWidget {
                 )
               ],
             ),
+          ),
+          const SizedBox(
+            height: 50,
           ),
           Expanded(
             flex: 1,
@@ -57,28 +60,29 @@ class MiddleRowSmallScreen extends StatelessWidget {
               ),
             ),
           ),
+          const SizedBox(
+            height: 50,
+          ),
           Expanded(
             flex: 1,
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    ConstString.middleRowTitle3,
-                    style: AppTextStyles.subHeadlineBlue,
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  Text(
-                    ConstString.middleRowContent3,
-                    style: AppTextStyles.mainContentBlack,
-                    textAlign: TextAlign.justify,
-                  ),
-                ],
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  ConstString.middleRowTitle3,
+                  style: AppTextStyles.subTitleBlack,
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                Text(
+                  ConstString.middleRowContent3,
+                  style: AppTextStyles.contentBlack,
+                  textAlign: TextAlign.justify,
+                ),
+              ],
             ),
           ),
           Expanded(
@@ -93,13 +97,16 @@ class MiddleRowSmallScreen extends StatelessWidget {
               ),
             ),
           ),
+          const SizedBox(
+            height: 50,
+          ),
           Expanded(
             flex: 1,
             child: Column(
               children: [
                 Text(
                   ConstString.middleRowTitle4,
-                  style: AppTextStyles.subHeadlineBlue,
+                  style: AppTextStyles.subTitleBlack,
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(
@@ -108,7 +115,7 @@ class MiddleRowSmallScreen extends StatelessWidget {
                 Expanded(
                     child: Text(
                   ConstString.middleRowContent4,
-                  style: AppTextStyles.mainContentBlack,
+                  style: AppTextStyles.contentBlack,
                   textAlign: TextAlign.justify,
                 )),
               ],
@@ -125,27 +132,28 @@ class MiddleRowSmallScreen extends StatelessWidget {
               ),
             ),
           ),
+          const SizedBox(
+            height: 50,
+          ),
           Expanded(
             flex: 1,
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    ConstString.middleRowTitle2,
-                    style: AppTextStyles.subHeadlineBlue,
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  Text(
-                    ConstString.middleRowContent2,
-                    style: AppTextStyles.mainContentBlack,
-                    textAlign: TextAlign.justify,
-                  ),
-                ],
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  ConstString.middleRowTitle2,
+                  style: AppTextStyles.subTitleBlack,
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                Text(
+                  ConstString.middleRowContent2,
+                  style: AppTextStyles.contentBlack,
+                  textAlign: TextAlign.justify,
+                ),
+              ],
             ),
           ),
           Expanded(

@@ -1,8 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:webapptrial/const/colors.dart';
 import 'package:webapptrial/const/const_string.dart';
 import 'package:webapptrial/const/text_style.dart';
-import 'package:webapptrial/widgets/search.dart';
+import 'package:webapptrial/widgets/subscription_button.dart';
+import 'package:webapptrial/widgets/time_counter_widget.dart';
 
 class LandingPageLarge extends StatelessWidget {
   const LandingPageLarge({
@@ -16,164 +19,172 @@ class LandingPageLarge extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
-          decoration: BoxDecoration(
-            color: AppColors.kBlue,
-            gradient: LinearGradient(
-                begin: FractionalOffset.topLeft,
-                end: FractionalOffset.bottomRight,
-                colors: [
-                  AppColors.kBlue,
-                  AppColors.lightPurpleColor,
-                  AppColors.whiteColorTwo
-                ],
-                stops: [
-                  0.5,
-                  0.8,
-                  0.5
-                ]),
-          ),
-          child: SizedBox(
-            height: screenSize.height * 1.15,
-            width: screenSize.width,
-            child: Opacity(
-              opacity: 0.08,
-              child: Image.network(
-                'assets/background.jpg',
-                fit: BoxFit.cover,
+        ClipPath(
+          clipper: WaveClipperTwo(),
+          child: Container(
+            decoration: BoxDecoration(
+              color: AppColors.purpleColor,
+              gradient: AppColors.mainPageGradient
+
+            ),
+            child: SizedBox(
+              height: 1000,
+              width: screenSize.width,
+              child: Opacity(
+                opacity: 0,
+                child: Image.network(
+                  'assets/background.jpg',
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
         ),
-        Positioned(
-          top: screenSize.height / 4,
-          child: Padding(
-            padding: const EdgeInsets.only(
-              left: 100,
-              right: 100,
-            ),
-            child: Row(
-              children: <Widget>[
-                Container(
-                  width: screenSize.width * .55,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Container(
-                        width: screenSize.width * .55,
-                        child: Text(
-                          ConstString.appSubtitle,
-                          style: AppTextStyles.headlineWhite,
-                          textAlign: TextAlign.start,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Container(
-                        width: screenSize.width * .50,
-                        height: 280,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text(ConstString.appCoveValue,
-                                style: AppTextStyles.subHeadlineGreen,
-                                textAlign: TextAlign.start),
-                            SizedBox(
-                              height: 50,
-                            ),
-                            Container(
-                              width: screenSize.width * .50,
-                              child: Text(ConstString.appSlogan,
-                                  style: AppTextStyles.mainContentWhite,
-                                  textAlign: TextAlign.start),
-                            ),
-                          ],
-                        ),
-                      ),
-                      //   SizedBox( height: screenSize.height / 20,),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 30),
-                        child: Text(
-                          ConstString.formMessage,
-                          style: AppTextStyles.mainContentWhite,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Search(
-                        width: 500,
-                        height: 45,
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  width: screenSize.width / 30,
-                ),
-                Column(
-                  //mainAxisAlignment: MainAxisAlignment.center,
+        Container(
+          width: screenSize.width,
 
+          padding: EdgeInsets.only(
+            left: 100, right: 100,
+          top: 200, bottom: 50,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+
+
+              Container(
+                width: 600,
+
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
+                    Text(
+                      ConstString.appSubtitle,
+                      style: AppTextStyles.mainTitle,
+                      textAlign: TextAlign.start,
+                    ),
+                    const  SizedBox(
+                      height:  30,
+                    ),
                     Padding(
-                      padding:
-                          const EdgeInsets.only(left: 0, bottom: 20, top: 50),
-                      child: Text(
-                        "Coming soon",
-                        style: AppTextStyles.mainContentWhite,
+                      padding: const EdgeInsets.only(right: 20),
+                      child: Text(ConstString.appCoveValue,
+                          style: AppTextStyles.titleGreen,
+                          textAlign: TextAlign.start),
+                    ),
+
+                    const SizedBox(
+                      height: 120,
+                    ),
+
+                    Container(
+                      width: 500,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            ConstString.donotMissOut,
+                            style: AppTextStyles.subTitleWhite,
+                          ),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          TimeCounterWidget(
+                            height: 80,
+                            width: 270,
+                          ),
+
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          Text(
+                            ConstString.formMessage,
+                            style: AppTextStyles.subTitleWhite,
+                          ),
+                          const SizedBox(
+                            height: 45,
+                          ),
+                          SubscriptionButton(
+
+                            width: 400,
+                            height: 45,
+                          ),
+
+                        ],
+                      ),
+                    )
+
+                  ],
+                ),
+              ),
+
+              Container(
+                width: 300,
+
+
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+
+
+                    Opacity(
+                      opacity: 0.8,
+                      child: Image.network(
+                        "assets/comingsoon.png",
+                        scale: 1.5,
                       ),
                     ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 150,
-                          height: 45,
-                          decoration: BoxDecoration(boxShadow: [
-                            BoxShadow(
-                              color: AppColors.deepPurpleColor,
-                              offset: Offset(0, 1),
-                              blurRadius: 10,
+                    Container(
+                      width: 300,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 150,
+                            height: 45,
+                            decoration: BoxDecoration(boxShadow: [
+                              BoxShadow(
+                                color: AppColors.purpleColor,
+                                offset: Offset(0, 1),
+                                blurRadius: 10,
+                              ),
+                            ]),
+                            child: Image.network(
+                              "assets/download_google.png",
+                              scale: 1,
                             ),
-                          ]),
-                          child: Image.network(
-                            "assets/download_google.png",
-                            scale: 1,
                           ),
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Container(
-                          width: 150,
-                          height: 45,
-                          decoration: BoxDecoration(boxShadow: [
-                            BoxShadow(
-                              color: AppColors.deepPurpleColor,
-                              offset: Offset(0, 1),
-                              blurRadius: 10,
+                      //  const SizedBox(   width: 20,                          ),
+                          Container(
+                            width: 150,
+                            height: 45,
+                            decoration: BoxDecoration(boxShadow: [
+                              BoxShadow(
+                                color: AppColors.purpleColor,
+                                offset: Offset(0, 1),
+                                blurRadius: 10,
+                              ),
+                            ]),
+                            child: Image.network(
+                              "assets/download_apple.png",
+                              scale: 1,
                             ),
-                          ]),
-                          child: Image.network(
-                            "assets/download_apple.png",
-                            scale: 1,
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
+
 
 
                   ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
-
-
       ],
     );
   }
