@@ -8,9 +8,8 @@ import 'package:country_code_picker/country_code_picker.dart';
 
 // ignore: must_be_immutable
 class AppFormTextField extends StatelessWidget {
-  final String initialValue;
-  final String labelText;
-  final hintText;
+  final String initialValue, labelText, hintText, formName;
+
   final int maximumLines, maximumLength, formValidatorMinLength;
   final FormFieldSetter onSave;
   final bool emailValidator;
@@ -25,6 +24,7 @@ class AppFormTextField extends StatelessWidget {
     @required this.maximumLines,
     @required this.initialValue,
     @required this.labelText,
+    @required this.formName,
     this.hintText,
     this.formValidatorMinLength,
     this.emailValidator,
@@ -35,7 +35,7 @@ class AppFormTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: FormBuilderTextField(
-        name: "Text",
+        name: formName,
         keyboardType: TextInputType.text,
         maxLines: maximumLines,
         maxLength: maximumLength,
@@ -90,11 +90,8 @@ class AppFormCountryPicker extends StatelessWidget {
           textStyle: AppTextStyles.businessSubtitleNavy,
           showDropDownButton: true,
           searchDecoration: InputDecoration(
-              contentPadding: EdgeInsets.only(
-                  left: searchPaddingLeft, right: searchPaddingRigh),
-
-
-
+            contentPadding: EdgeInsets.only(
+                left: searchPaddingLeft, right: searchPaddingRigh),
           ),
           onChanged: onSave,
           hideMainText: false,
@@ -114,7 +111,7 @@ class AppFormCountryPicker extends StatelessWidget {
 
 // ignore: must_be_immutable
 class AppFormDropDown extends StatelessWidget {
-  final String labelText, initialValue;
+  final String labelText, initialValue, formName;
   var selectionOption = [];
   final FormFieldSetter onSave;
 
@@ -126,13 +123,14 @@ class AppFormDropDown extends StatelessWidget {
     @required this.onSave,
     @required this.initialValue,
     @required this.selectionOption,
+    @required this.formName,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Material(
       child: FormBuilderDropdown(
-          name: "DropDown",
+          name: this.formName,
           elevation: 0,
           dropdownColor: AppColors.whiteColor,
 
@@ -164,16 +162,22 @@ class AppFormDropDown extends StatelessWidget {
 class AppFormPhoneField extends StatelessWidget {
   final FormFieldSetter onSave;
   String initialValue;
-  final String labelText;
+  final String labelText, formName;
 
-  AppFormPhoneField(
-      {this.initialValue, @required this.onSave, @required this.labelText});
+  AppFormPhoneField({
+    this.initialValue,
+    @required this.onSave,
+    @required this.labelText,
+    @required this.formName,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Material(
       child: FormBuilderPhoneField(
-        name: 'phone_number',
+        expands: false,
+        searchText: "Search",
+        name: formName,
         keyboardType: TextInputType.phone,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         style: AppTextStyles.businessSubtitleNavy,
@@ -181,11 +185,8 @@ class AppFormPhoneField extends StatelessWidget {
         initialValue: initialValue,
         decoration: buildFormTextDecoration(" ", labelText),
         priorityListByIsoCode: ['US'],
-        validator: FormBuilderValidators.compose([
-          FormBuilderValidators.required(context,
-              errorText: 'Invalid phone number'),
-          FormBuilderValidators.required(context)
-        ]),
+        validator: FormBuilderValidators.compose(
+            [FormBuilderValidators.required(context)]),
         onSaved: onSave,
       ),
     );
@@ -194,7 +195,7 @@ class AppFormPhoneField extends StatelessWidget {
 
 // ignore: must_be_immutable
 class AppFormEmailField extends StatelessWidget {
-  final String initialValue, labelText;
+  final String initialValue, labelText, formName;
   final FormFieldSetter onSave;
 
   // final FocusNode focusNode;
@@ -206,13 +207,14 @@ class AppFormEmailField extends StatelessWidget {
     @required this.onSave,
     @required this.initialValue,
     @required this.labelText,
+    @required this.formName,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Material(
       child: FormBuilderTextField(
-        name: "Email Field",
+        name: formName,
         keyboardType: TextInputType.emailAddress,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         initialValue: initialValue,
@@ -234,7 +236,7 @@ class AppFormEmailField extends StatelessWidget {
 }
 
 class AppFormDatePicker extends StatelessWidget {
-  final String labelText;
+  final String labelText, formName;
   final FormFieldSetter onSave;
   final DateTime initialValue, lastDate, firstDate;
 
@@ -243,6 +245,7 @@ class AppFormDatePicker extends StatelessWidget {
     @required this.labelText,
     @required this.onSave,
     @required this.initialValue,
+    @required this.formName,
     this.lastDate,
     this.firstDate,
   }) : super(key: key);
@@ -251,7 +254,7 @@ class AppFormDatePicker extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: FormBuilderDateTimePicker(
-        name: 'date',
+        name: formName,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: FormBuilderValidators.compose([
           FormBuilderValidators.required(context,
@@ -275,7 +278,7 @@ class AppFormDatePicker extends StatelessWidget {
 }
 
 class AppFormTimePicker extends StatelessWidget {
-  final String labelText;
+  final String labelText, formName;
 
   final FormFieldSetter onSave;
   final DateTime initialValue;
@@ -285,6 +288,7 @@ class AppFormTimePicker extends StatelessWidget {
     @required this.labelText,
     @required this.onSave,
     @required this.initialValue,
+    @required this.formName,
   }) : super(key: key);
 
   @override
@@ -295,7 +299,7 @@ class AppFormTimePicker extends StatelessWidget {
         autovalidateMode: AutovalidateMode.onUserInteraction,
         alwaysUse24HourFormat: true,
         initialValue: initialValue,
-        name: 'date',
+        name: formName,
         onSaved: onSave,
         inputType: InputType.time,
         //format: DateFormat("Hm"),
@@ -312,41 +316,42 @@ class AppFormTimePicker extends StatelessWidget {
   }
 }
 
-// class AppFormDateRangePicker extends StatelessWidget {
-//   final String labelText;
-//
-//   final FormFieldSetter onSave;
-//
-//   const AppFormDateRangePicker({
-//     Key key,
-//     @required this.labelText,
-//     @required this.onSave,
-//   }) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Material(
-//       child: FormBuilderDateRangePicker(
-//         style: AppTextStyles.businessSubtitleNavy,
-//         autovalidateMode: AutovalidateMode.onUserInteraction,
-//         attribute: 'date_range',
-//         firstDate: DateTime.now(),
-//         lastDate: DateTime.now().add(Duration(days: 1000)),
-//         initialValue: [
-//           DateTime.now(),
-//           DateTime.now().add(Duration(days: 30)),
-//         ],
-//         format: DateFormat('yyyy-MM-dd'),
-//         onSaved: onSave,
-//         decoration: buildFormTextDecoration(" ", labelText),
-//       ),
-//     );
-//   }
-// }
+class AppFormDateRangePicker extends StatelessWidget {
+  final String labelText, formName;
+
+  final FormFieldSetter onSave;
+
+  const AppFormDateRangePicker({
+    Key key,
+    @required this.labelText,
+    @required this.onSave,
+    @required this.formName,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      child: FormBuilderDateRangePicker(
+        style: AppTextStyles.businessSubtitleNavy,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        name: formName,
+        firstDate: DateTime.now(),
+        lastDate: DateTime.now().add(Duration(days: 1000)),
+        initialValue: [
+          DateTime.now(),
+          DateTime.now().add(Duration(days: 30)),
+        ],
+        format: DateFormat('yyyy-MM-dd'),
+        onSaved: onSave,
+        decoration: buildFormTextDecoration(" ", labelText),
+      ),
+    );
+  }
+}
 
 class AppFormBuilderSwitchButton extends StatelessWidget {
   final bool initialValue;
-  final String labelText;
+  final String labelText, formName;
 
   final FormFieldSetter onSave;
 
@@ -355,6 +360,7 @@ class AppFormBuilderSwitchButton extends StatelessWidget {
     @required this.onSave,
     @required this.initialValue,
     @required this.labelText,
+    @required this.formName,
   }) : super(key: key);
 
   @override
@@ -362,7 +368,7 @@ class AppFormBuilderSwitchButton extends StatelessWidget {
     return Material(
       child: FormBuilderSwitch(
         title: Text(labelText),
-        name: 'accept_terms_switch',
+        name: formName,
         initialValue: initialValue,
         onChanged: onSave,
         decoration: buildFormTextDecoration(" ", labelText),
@@ -378,15 +384,15 @@ class AppFormBuilderRating extends StatelessWidget {
 
   final double iconsSize;
   final double initialValue;
-  final String labelText;
+  final String labelText, formName;
 
-  AppFormBuilderRating({
-    @required this.onSave,
-    @required this.maximum,
-    @required this.iconsSize,
-    @required this.initialValue,
-    @required this.labelText,
-  });
+  AppFormBuilderRating(
+      {@required this.onSave,
+      @required this.maximum,
+      @required this.iconsSize,
+      @required this.initialValue,
+      @required this.labelText,
+      @required this.formName});
 
   @override
   Widget build(BuildContext context) {
@@ -446,7 +452,7 @@ class AppFormBuilderListCheckBox extends StatelessWidget {
 }
 
 class AppFormWebsite extends StatelessWidget {
-  final String initialValue;
+  final String initialValue, formName;
   final String labelText;
   final int maximumLines;
   final int maximumLength;
@@ -463,6 +469,7 @@ class AppFormWebsite extends StatelessWidget {
       @required this.maximumLines,
       @required this.initialValue,
       @required this.labelText,
+      @required this.formName,
       this.formValidatorMinLength})
       : super(key: key);
 
@@ -480,7 +487,7 @@ class AppFormWebsite extends StatelessWidget {
           FormBuilderValidators.required(context),
         ]),
         cursorColor: AppColors.blackColor,
-        name: "Text Field",
+        name: formName,
         maxLines: maximumLines,
         maxLength: maximumLength,
 
@@ -493,13 +500,14 @@ class AppFormWebsite extends StatelessWidget {
 }
 
 class AppFormBuilderRangeSlider extends StatelessWidget {
-  final String labelText;
+  final String labelText, formName;
   final FormFieldSetter onSave;
 
   AppFormBuilderRangeSlider({
     Key key,
     @required this.onSave,
     @required this.labelText,
+    @required this.formName,
   }) : super(key: key);
 
   @override
@@ -518,20 +526,21 @@ class AppFormBuilderRangeSlider extends StatelessWidget {
         inactiveColor: Colors.red,
         decoration: buildFormTextDecoration(" ", labelText),
         displayValues: DisplayValues.current,
-        name: 'Slider',
+        name: formName,
       ),
     );
   }
 }
 
 class AppFormNumericField extends StatelessWidget {
-  final String initialValue, labelText, hintText;
+  final String initialValue, labelText, hintText, formName;
   final int maximumLines, maximumLength, formValidatorMinLength;
   final FormFieldSetter onSave;
 
   AppFormNumericField({
     Key key,
     @required this.onSave,
+    @required this.formName,
     this.maximumLength,
 
     // this.focusNode,
@@ -558,7 +567,7 @@ class AppFormNumericField extends StatelessWidget {
           FormBuilderValidators.numeric(context),
         ]),
         cursorColor: AppColors.blackColor,
-        name: "Numeric Field",
+        name: formName,
         maxLines: maximumLines,
         maxLength: maximumLength,
 

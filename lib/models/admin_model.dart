@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:webapptrial/const/constant_property_info_firestore.dart';
 
-
 class AdminsModel {
   final String documentId;
   final String propertyId;
@@ -10,15 +9,18 @@ class AdminsModel {
   final String propertyCategory;
   final bool admin;
   final String password;
+  final DateTime timeStamp;
 
-  AdminsModel(
-      {@required this.propertyCategory,
-      @required this.documentId,
-      @required this.propertyId,
-      @required this.propertyName,
-      @required this.contactName,
-      @required this.admin,
-      @required this.password});
+  AdminsModel({
+    @required this.propertyCategory,
+    @required this.documentId,
+    @required this.propertyId,
+    @required this.propertyName,
+    @required this.contactName,
+    @required this.admin,
+    @required this.password,
+    @required this.timeStamp,
+  });
 
   Map<String, dynamic> adminsModelToMap() => {
         PropertyFireStore.documentId: documentId,
@@ -27,7 +29,8 @@ class AdminsModel {
         PropertyFireStore.propertyName: propertyName,
         PropertyFireStore.contactName: contactName,
         PropertyFireStore.isAdmin: admin,
-        PropertyFireStore.password: password
+        PropertyFireStore.password: password,
+        PropertyFireStore.timeStamp: timeStamp,
       };
 
   AdminsModel.fromFirestore(Map<String, dynamic> firestore)
@@ -37,5 +40,6 @@ class AdminsModel {
         propertyCategory = firestore[PropertyFireStore.propertyCategory],
         contactName = firestore[PropertyFireStore.contactName],
         admin = firestore[PropertyFireStore.isAdmin],
-        password = firestore[PropertyFireStore.password];
+        password = firestore[PropertyFireStore.password],
+        timeStamp = firestore[PropertyFireStore.timeStamp];
 }

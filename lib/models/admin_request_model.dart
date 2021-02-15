@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:webapptrial/const/constant_property_info_firestore.dart';
 
-
-
 class AdminRequestModel {
   final String documentId;
   final String propertyId;
@@ -15,6 +13,7 @@ class AdminRequestModel {
   final String infoEmail;
   final String contactName;
   final bool approved;
+  final DateTime timeStamp;
 
   AdminRequestModel({
     @required this.documentId,
@@ -28,24 +27,26 @@ class AdminRequestModel {
     @required this.infoEmail,
     @required this.contactName,
     @required this.approved,
+    @required this.timeStamp,
   });
 
   Map<String, dynamic> adminRequestModelToMap() => {
-    PropertyFireStore.documentId: documentId,
-    PropertyFireStore.propertyId: propertyId,
-    PropertyFireStore.propertyCategory: propertyCategory,
-    PropertyFireStore.propertyWebsite: webSiteUrl,
-    PropertyFireStore.propertyName: propertyName,
-    PropertyFireStore.country: country,
-    PropertyFireStore.city: city,
-    PropertyFireStore.telephone: telephone,
-    PropertyFireStore.infoEmail: infoEmail,
-    PropertyFireStore.contactName: contactName,
-    PropertyFireStore.approved: approved
+        PropertyFireStore.documentId: documentId,
+        PropertyFireStore.propertyId: propertyId,
+        PropertyFireStore.propertyCategory: propertyCategory,
+        PropertyFireStore.propertyWebsite: webSiteUrl,
+        PropertyFireStore.propertyName: propertyName,
+        PropertyFireStore.country: country,
+        PropertyFireStore.city: city,
+        PropertyFireStore.telephone: telephone,
+        PropertyFireStore.infoEmail: infoEmail,
+        PropertyFireStore.contactName: contactName,
+        PropertyFireStore.approved: approved,
+        PropertyFireStore.timeStamp: timeStamp,
       };
 
   AdminRequestModel.fromFirestore(Map<String, dynamic> firestore)
-      : documentId = firestore[ PropertyFireStore.documentId],
+      : documentId = firestore[PropertyFireStore.documentId],
         propertyId = firestore[PropertyFireStore.propertyId],
         propertyCategory = firestore[PropertyFireStore.propertyCategory],
         propertyName = firestore[PropertyFireStore.propertyName],
@@ -55,5 +56,6 @@ class AdminRequestModel {
         telephone = firestore[PropertyFireStore.telephone],
         infoEmail = firestore[PropertyFireStore.infoEmail],
         contactName = firestore[PropertyFireStore.contactName],
+        timeStamp = firestore[PropertyFireStore.timeStamp],
         approved = firestore[PropertyFireStore.approved];
 }

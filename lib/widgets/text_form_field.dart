@@ -12,20 +12,20 @@ class AppTextFormFieldOriginal extends StatelessWidget {
   final int maxLine, maxLength;
   final double width, height;
 
-  const AppTextFormFieldOriginal(
-      {Key key,
-      @required this.textFocusNode,
-      @required this.onChange,
-      @required this.onSave,
-      @required this.validator,
-      @required this.errorText,
-      @required this.hintText,
-      @required this.keyboardType,
-      this.maxLine,
-      this.width,
-      this.height,
-      this.maxLength})
-      : super(key: key);
+  const AppTextFormFieldOriginal({
+    Key key,
+    @required this.textFocusNode,
+    @required this.onChange,
+    @required this.onSave,
+    @required this.validator,
+    @required this.errorText,
+    @required this.hintText,
+    @required this.keyboardType,
+    this.maxLine,
+    this.width,
+    this.height,
+    this.maxLength,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,9 @@ class AppTextFormFieldOriginal extends StatelessWidget {
         maxLines: maxLine,
         maxLength: maxLength,
         focusNode: textFocusNode,
+        style: AppTextStyles.businessContentNavy,
         textInputAction: TextInputAction.next,
+        textCapitalization: TextCapitalization.sentences,
         autofocus: false,
         onChanged: onChange,
         onFieldSubmitted: (value) {
@@ -63,3 +65,5 @@ class AppTextFormFieldOriginal extends StatelessWidget {
     );
   }
 }
+
+/////////////////// intl phone field ///////////////////////////

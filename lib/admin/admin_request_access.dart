@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:uuid/uuid.dart';
@@ -8,6 +7,7 @@ import 'package:webapptrial/models/admin_model.dart';
 import 'package:webapptrial/models/admin_request_model.dart';
 import 'package:webapptrial/services/admin_firestore_services.dart';
 import 'package:webapptrial/widgets/custom_dialog.dart';
+import 'package:webapptrial/widgets/elevated_button.dart';
 import 'package:webapptrial/widgets/form_builder_three.dart';
 import 'package:webapptrial/widgets/responsive.dart';
 
@@ -68,33 +68,56 @@ class _AdminRequestAccessState extends State<AdminRequestAccess> {
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     return Dialog(
-      backgroundColor: AppColors.whiteColor,
-      insetPadding: EdgeInsets.only(
-        left: ResponsiveWidget.isLargeScreen(context) ? 250 : 50,
-        right: ResponsiveWidget.isLargeScreen(context) ? 250 : 50,
-      ),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8.0),
-      ),
+      backgroundColor: Colors.transparent,
       child: SingleChildScrollView(
         child: Padding(
             padding: const EdgeInsets.all(30.0),
             child: Center(
               child: Container(
+                decoration: BoxDecoration(
+                    color: AppColors.whiteColor,
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.circular(15)),
                 width: ResponsiveWidget.isSmallScreen(context)
                     ? screenSize.width
                     : 800,
                 child: GestureDetector(
-                  onTap: () => FocusScope.of(context).unfocus(),
+                  onTap: () {
+                    FocusScope.of(context).unfocus();
+                  },
                   child: FormBuilder(
                     key: _formKey,
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     enabled: true,
                     child: Padding(
-                      padding: const EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.only(
+                          left: 70, right: 70, top: 10, bottom: 70),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              IconButton(
+                                onPressed: () => Navigator.of(context).pop(),
+                                icon: Icon(
+                                  Icons.cancel,
+                                  color: Colors.red,
+                                  size: 20,
+                                ),
+                              ),
+                              AppTextButton(
+                                width: 40,
+                                height: 50,
+                                onPress: () => Navigator.of(context).pop(),
+                                title: "Exit",
+                                primaryColor: AppColors.whiteColor,
+                                textStyle:
+                                    TextStyle(color: Colors.red, fontSize: 15),
+                                radius: 10,
+                              ),
+                            ],
+                          ),
                           const SizedBox(
                             height: 20,
                           ),
@@ -111,6 +134,7 @@ class _AdminRequestAccessState extends State<AdminRequestAccess> {
                             selectionOption: propertyCategoryOptions,
                             onSave: (value) =>
                                 setState(() => _propertyCategory = value),
+                            formName: "formName",
                           ),
                           const SizedBox(height: 15),
                           AppFormTextField(
@@ -121,60 +145,66 @@ class _AdminRequestAccessState extends State<AdminRequestAccess> {
                             formValidatorMinLength: 2,
                             onSave: (value) =>
                                 setState(() => _propertyName = value),
+                            formName: 'Property Name',
                           ),
                           const SizedBox(height: 15),
                           AppFormTextField(
-                            initialValue: "",
+                            initialValue: " ",
                             labelText: "City",
                             maximumLines: 1,
                             formValidatorMinLength: 2,
                             onSave: (value) => setState(() => _city = value),
+                            formName: 'City Address',
                           ),
                           const SizedBox(height: 15),
-                          // AppFormCountryPicker(
-                          //     height: 50,
-                          //     width: ResponsiveWidget.isSmallScreen(context)
-                          //         ? screenSize.width
-                          //         : 800,
-                          //     searchPaddingLeft:
-                          //         ResponsiveWidget.isSmallScreen(context)
-                          //             ? screenSize.width * .8
-                          //             : 800,
-                          //     searchPaddingRigh:
-                          //         ResponsiveWidget.isSmallScreen(context)
-                          //             ? screenSize.width * .8
-                          //             : 800,
-                          //     onSave: (value) =>
-                          //         setState(() => _country = value.name)),
+                          AppFormCountryPicker(
+                              height: 50,
+                              width: ResponsiveWidget.isSmallScreen(context)
+                                  ? screenSize.width
+                                  : 800,
+                              searchPaddingLeft:
+                                  ResponsiveWidget.isSmallScreen(context)
+                                      ? screenSize.width * .8
+                                      : 800,
+                              searchPaddingRigh:
+                                  ResponsiveWidget.isSmallScreen(context)
+                                      ? screenSize.width * .8
+                                      : 800,
+                              onSave: (value) =>
+                                  setState(() => _country = value.name)),
                           const SizedBox(height: 15),
                           AppFormPhoneField(
                             initialValue: "",
                             labelText: "Phone Number",
                             onSave: (value) =>
                                 setState(() => _telephone = value),
+                            formName: 'Phone Number',
                           ),
                           const SizedBox(height: 15),
                           AppFormEmailField(
-                            initialValue: "",
+                            initialValue: " ",
                             labelText: "info Email",
                             onSave: (value) =>
                                 setState(() => _infoEmail = value),
+                            formName: 'Email Address',
                           ),
                           const SizedBox(height: 15),
                           AppFormWebsite(
-                            initialValue: "",
+                            initialValue: " ",
                             labelText: "Website address",
                             maximumLines: 1,
                             onSave: (value) => setState(() => _webPage = value),
+                            formName: 'Web site',
                           ),
                           const SizedBox(height: 15),
                           AppFormTextField(
-                            initialValue: "",
+                            initialValue: " ",
                             labelText: "Contact Name",
                             formValidatorMinLength: 8,
                             maximumLines: 1,
                             onSave: (value) =>
                                 setState(() => _contactName = value),
+                            formName: 'Contact Name',
                           ),
                           const SizedBox(height: 15),
                           Row(
@@ -192,7 +222,7 @@ class _AdminRequestAccessState extends State<AdminRequestAccess> {
                                               Radius.circular(30)),
                                         ),
                                       ),
-                                      child: AutoSizeText(
+                                      child: Text(
                                         "Submit",
                                         style:
                                             AppTextStyles.businessSubtitleWhite,
@@ -229,7 +259,9 @@ class _AdminRequestAccessState extends State<AdminRequestAccess> {
                                                           _infoEmail.trim(),
                                                       contactName:
                                                           _contactName.trim(),
-                                                      approved: false));
+                                                      approved: false,
+                                                      timeStamp:
+                                                          DateTime.now()));
 
                                           _fireStoreService.setAdmins(
                                               AdminsModel(
@@ -243,7 +275,10 @@ class _AdminRequestAccessState extends State<AdminRequestAccess> {
                                                   password: uuid
                                                       .v1()
                                                       .toString()
-                                                      .substring(0, 10)));
+                                                      .substring(0, 10),
+                                                  timeStamp: DateTime.now()));
+
+                                          Navigator.of(context).pop();
 
                                           showDialog(
                                             context: context,
@@ -252,15 +287,11 @@ class _AdminRequestAccessState extends State<AdminRequestAccess> {
                                               title:
                                                   "Add property request sent",
                                               description:
-                                                  "Your Request is under review, \ our team will contact you soon",
+                                                  "Thank you! Your Request is under review, \ our team will contact you soon",
                                               primaryButtonText: "Ok",
                                               secondaryButtonText: "",
                                             ),
                                           );
-
-                                          Navigator.of(context).pop();
-                                        } else {
-                                          print("error");
                                         }
                                       }),
                                 ),
