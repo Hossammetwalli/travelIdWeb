@@ -83,7 +83,7 @@ class _MessageWidgetState extends State<MessageWidget> {
               hintText: 'Full Name*',
               onChange: (value) => setState(() => _isEditingName = true),
               onSave: (value) => setState(
-                    () => _name = value,
+                () => _name = value,
               ),
               textFocusNode: textFocusNodeName,
             ),

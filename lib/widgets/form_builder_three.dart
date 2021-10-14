@@ -497,16 +497,17 @@ class AppFormWebsite extends StatelessWidget {
   final FormFieldSetter onSave;
   final int formValidatorMinLength;
 
-  AppFormWebsite({Key key,
-    @required this.onSave,
-    this.maximumLength,
+  AppFormWebsite(
+      {Key key,
+      @required this.onSave,
+      this.maximumLength,
 
-    // this.focusNode,
-    @required this.maximumLines,
-    @required this.initialValue,
-    @required this.labelText,
-    @required this.formName,
-    this.formValidatorMinLength})
+      // this.focusNode,
+      @required this.maximumLines,
+      @required this.initialValue,
+      @required this.labelText,
+      @required this.formName,
+      this.formValidatorMinLength})
       : super(key: key);
 
   @override

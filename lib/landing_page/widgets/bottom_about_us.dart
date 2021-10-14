@@ -116,7 +116,7 @@ class AboutUs extends StatelessWidget {
     // Don't use canLaunch because of fbProtocolUrl (fb://)
     try {
       bool launched =
-      await launch(url, forceSafariVC: false, forceWebView: false);
+          await launch(url, forceSafariVC: false, forceWebView: false);
       if (!launched) {
         await launch(fallbackUrl, forceSafariVC: false, forceWebView: false);
       }
