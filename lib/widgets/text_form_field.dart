@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:webapptrial/const/colors.dart';
-import 'package:webapptrial/const/text_style.dart';
+import 'package:webapptrial/widgets/export_widget.dart';
 
 class AppTextFormFieldOriginal extends StatelessWidget {
   final FocusNode textFocusNode;
@@ -33,14 +32,14 @@ class AppTextFormFieldOriginal extends StatelessWidget {
       height: height,
       width: width,
       decoration: BoxDecoration(
-          color: AppColors.whiteColor,
-          border: Border.all(color: AppColors.lightGreyColor)),
+          color: AppColors.lightGreyColorF7,
+          border: Border.all(color: AppColors.lightGreyColorDD)),
       child: TextFormField(
         maxLines: maxLine,
         maxLength: maxLength,
         focusNode: textFocusNode,
-        style: AppTextStyles.businessContentNavy,
-        textInputAction: TextInputAction.next,
+        style: AppTextStyles.mainRegularGrey18,
+        textInputAction: TextInputAction.done,
         textCapitalization: TextCapitalization.sentences,
         autofocus: false,
         onChanged: onChange,
@@ -57,7 +56,7 @@ class AppTextFormFieldOriginal extends StatelessWidget {
           border: InputBorder.none,
           // filled: true,
           contentPadding: const EdgeInsets.only(left: 20, top: 10),
-          labelStyle: AppTextStyles.contentRed,
+          labelStyle: AppTextStyles.mainRegularGrey18,
           labelText: hintText,
           errorText: errorText,
         ),

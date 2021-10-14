@@ -1,10 +1,58 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:intl/intl.dart';
-import 'package:webapptrial/const/colors.dart';
-import 'package:webapptrial/const/text_style.dart';
-import 'package:form_builder_phone_field/form_builder_phone_field.dart';
 import 'package:country_code_picker/country_code_picker.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:flutter_typeahead/flutter_typeahead.dart';
+import 'package:intl/intl.dart';
+import 'package:webapptrial/widgets/export_widget.dart';
+
+class EmptyTextField extends StatelessWidget {
+  final String labelText, hintText, formName;
+
+  final int maximumLines, maximumLength, formValidatorMinLength;
+  final TextEditingController textEditingController;
+
+  EmptyTextField({
+    Key key,
+    this.maximumLength,
+
+    // this.focusNode,
+    @required this.maximumLines,
+    @required this.textEditingController,
+    @required this.labelText,
+    @required this.formName,
+    this.hintText,
+    this.formValidatorMinLength,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: AppColors.primaryWhite,
+      child: FormBuilderTextField(
+        controller: textEditingController,
+        name: formName,
+        keyboardType: TextInputType.text,
+        maxLines: maximumLines,
+        maxLength: maximumLength,
+        decoration: buildFormTextDecoration(hintText, labelText),
+        style: AppTextStyles.formFontSecNavy17,
+        cursorColor: AppColors.secondaryBlack64,
+        textCapitalization: TextCapitalization.sentences,
+        textInputAction: TextInputAction.next,
+        textAlign: TextAlign.start,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        validator: FormBuilderValidators.compose(
+          [
+            FormBuilderValidators.required(context),
+            FormBuilderValidators.minLength(context, formValidatorMinLength),
+          ],
+        ),
+      ),
+    );
+  }
+}
 
 // ignore: must_be_immutable
 class AppFormTextField extends StatelessWidget {
@@ -34,18 +82,21 @@ class AppFormTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
+      color: AppColors.primaryWhite,
       child: FormBuilderTextField(
+        onSaved: onSave,
         name: formName,
         keyboardType: TextInputType.text,
         maxLines: maximumLines,
         maxLength: maximumLength,
         decoration: buildFormTextDecoration(hintText, labelText),
-        style: AppTextStyles.businessSubtitleNavy,
-        onSaved: onSave,
-        cursorColor: AppColors.blackColor,
+        style: AppTextStyles.formFontSecNavy17,
+        cursorColor: AppColors.secondaryBlack64,
         textCapitalization: TextCapitalization.sentences,
-        initialValue: initialValue,
+        textInputAction: TextInputAction.next,
+        textAlign: TextAlign.start,
         autovalidateMode: AutovalidateMode.onUserInteraction,
+        initialValue: initialValue,
         validator: FormBuilderValidators.compose(
           [
             numericInput == true
@@ -60,49 +111,51 @@ class AppFormTextField extends StatelessWidget {
   }
 }
 
-// ignore: must_be_immutable
 class AppFormCountryPicker extends StatelessWidget {
   final ValueChanged<CountryCode> onSave;
-  final double width, height, searchPaddingLeft, searchPaddingRigh;
+
+  final String hint, label, initialValue;
+
+  final bool showFlag;
 
   AppFormCountryPicker({
     @required this.onSave,
-    @required this.width,
-    @required this.height,
-    this.searchPaddingLeft,
-    this.searchPaddingRigh,
+    this.showFlag,
+    this.hint,
+    this.label,
+    this.initialValue,
   });
 
   @override
   Widget build(BuildContext context) {
     return Material(
-      child: Container(
-        width: width,
-        height: height,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(7),
-          border: Border.all(
-            width: 1.0,
-            color: AppColors.navyColor,
+      child: InputDecorator(
+        decoration: buildFormTextDecoration(hint, label),
+        child: Container(
+          height: 50,
+          child: CountryCodePicker(
+            textStyle: AppTextStyles.formFontSecNavy17,
+
+            searchDecoration: InputDecoration(
+              contentPadding: EdgeInsets.only(left: 30, right: 30),
+            ),
+            onChanged: onSave,
+            showFlag: showFlag,
+            showFlagMain: true,
+            initialSelection: initialValue,
+            showOnlyCountryWhenClosed: true,
+            alignLeft: true,
+            enabled: true,
+            dialogTextStyle: AppTextStyles.mainRegularGrey18,
+            flagWidth: 20,
+            showFlagDialog: true,
+            dialogSize: Size(300, 600),
+            showCountryOnly: true,
+            searchStyle: AppTextStyles.formFontSecNavy17,
+            padding: EdgeInsets.all(0),
+
+            //  initialSelection: initialValue,
           ),
-        ),
-        child: CountryCodePicker(
-          textStyle: AppTextStyles.businessSubtitleNavy,
-          showDropDownButton: true,
-          searchDecoration: InputDecoration(
-            contentPadding: EdgeInsets.only(
-                left: searchPaddingLeft, right: searchPaddingRigh),
-          ),
-          onChanged: onSave,
-          hideMainText: false,
-          showFlagMain: true,
-          showFlag: true,
-          initialSelection: 'US',
-          hideSearch: false,
-          showCountryOnly: true,
-          showOnlyCountryWhenClosed: true,
-          alignLeft: true,
-          enabled: true,
         ),
       ),
     );
@@ -121,7 +174,7 @@ class AppFormDropDown extends StatelessWidget {
     Key key,
     @required this.labelText,
     @required this.onSave,
-    @required this.initialValue,
+    this.initialValue,
     @required this.selectionOption,
     @required this.formName,
   }) : super(key: key);
@@ -130,14 +183,12 @@ class AppFormDropDown extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: FormBuilderDropdown(
-          name: this.formName,
           elevation: 0,
-          dropdownColor: AppColors.whiteColor,
-
-          // focusNode: focusNode,
-          autovalidateMode: AutovalidateMode.onUserInteraction,
+          dropdownColor: Colors.grey.shade50,
           initialValue: initialValue,
+          name: formName,
           decoration: buildFormTextDecoration(" ", labelText),
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           validator: FormBuilderValidators.compose(
             [
               FormBuilderValidators.required(context),
@@ -146,54 +197,19 @@ class AppFormDropDown extends StatelessWidget {
           items: selectionOption
               .map((category) => DropdownMenuItem(
                     value: category,
-                    child: Text('$category'),
+                    child: Text(
+                      '$category',
+                      style: AppTextStyles.formFontSecNavy17,
+                    ),
                   ))
               .toList(),
-          style: AppTextStyles.businessSubtitleNavy,
-          allowClear: true,
+          style: AppTextStyles.mainRegularGrey18,
+          allowClear: false,
           onSaved: onSave),
     );
   }
 }
 
-// ignore: must_be_immutable
-
-// ignore: must_be_immutable
-class AppFormPhoneField extends StatelessWidget {
-  final FormFieldSetter onSave;
-  String initialValue;
-  final String labelText, formName;
-
-  AppFormPhoneField({
-    this.initialValue,
-    @required this.onSave,
-    @required this.labelText,
-    @required this.formName,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      child: FormBuilderPhoneField(
-        expands: false,
-        searchText: "Search",
-        name: formName,
-        keyboardType: TextInputType.phone,
-        autovalidateMode: AutovalidateMode.onUserInteraction,
-        style: AppTextStyles.businessSubtitleNavy,
-        cursorColor: AppColors.navyColor,
-        initialValue: initialValue,
-        decoration: buildFormTextDecoration(" ", labelText),
-        priorityListByIsoCode: ['US'],
-        validator: FormBuilderValidators.compose(
-            [FormBuilderValidators.required(context)]),
-        onSaved: onSave,
-      ),
-    );
-  }
-}
-
-// ignore: must_be_immutable
 class AppFormEmailField extends StatelessWidget {
   final String initialValue, labelText, formName;
   final FormFieldSetter onSave;
@@ -214,7 +230,8 @@ class AppFormEmailField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: FormBuilderTextField(
-        name: formName,
+        textInputAction: TextInputAction.next,
+        textAlign: TextAlign.start,
         keyboardType: TextInputType.emailAddress,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         initialValue: initialValue,
@@ -223,12 +240,12 @@ class AppFormEmailField extends StatelessWidget {
           FormBuilderValidators.required(context),
           FormBuilderValidators.email(context),
         ]),
-        cursorColor: AppColors.blackColor,
-
+        cursorColor: AppColors.primaryBlack00,
+        name: formName,
         maxLines: 1,
 
         decoration: buildFormTextDecoration(" ", labelText),
-        style: AppTextStyles.businessSubtitleNavy,
+        style: AppTextStyles.formFontSecNavy17,
         onSaved: onSave,
       ),
     );
@@ -237,41 +254,101 @@ class AppFormEmailField extends StatelessWidget {
 
 class AppFormDatePicker extends StatelessWidget {
   final String labelText, formName;
-  final FormFieldSetter onSave;
+  final FormFieldSetter<DateTime> onSave;
   final DateTime initialValue, lastDate, firstDate;
+  final TimeOfDay initialTime;
 
   const AppFormDatePicker({
     Key key,
     @required this.labelText,
+    @required this.formName,
     @required this.onSave,
     @required this.initialValue,
-    @required this.formName,
     this.lastDate,
     this.firstDate,
+    this.initialTime,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Material(
       child: FormBuilderDateTimePicker(
-        name: formName,
-        autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: FormBuilderValidators.compose([
           FormBuilderValidators.required(context,
               errorText: "Field is Required")
         ]),
         inputType: InputType.date,
+        textInputAction: TextInputAction.next,
+        textAlign: TextAlign.start,
         useRootNavigator: true,
+        initialTime: initialTime,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
         initialEntryMode: DatePickerEntryMode.calendar,
-        initialDatePickerMode: DatePickerMode.year,
-        style: AppTextStyles.businessSubtitleNavy,
+        initialDatePickerMode: DatePickerMode.day,
+        style: AppTextStyles.formFontSecNavy17,
         decoration: buildFormTextDecoration(" ", labelText),
         initialDate: DateTime.now(),
+        alwaysUse24HourFormat: true,
         format: DateFormat("yyyy-MM-dd"),
+        name: formName,
         initialValue: initialValue,
         lastDate: lastDate,
         firstDate: firstDate,
         onSaved: onSave,
+        keyboardType: TextInputType.datetime,
+        enableInteractiveSelection: true,
+      ),
+    );
+  }
+}
+
+class AppFormDatePickerTwo extends StatelessWidget {
+  final String labelText, formName;
+  final FormFieldSetter<DateTime> onSave, onChange;
+  final DateTime initialValue, lastDate, firstDate;
+  final TimeOfDay initialTime;
+
+  const AppFormDatePickerTwo({
+    Key key,
+    @required this.labelText,
+    @required this.formName,
+    @required this.onSave,
+    @required this.initialValue,
+    this.lastDate,
+    this.firstDate,
+    this.initialTime,
+    this.onChange,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      child: FormBuilderDateTimePicker(
+        validator: FormBuilderValidators.compose([
+          FormBuilderValidators.required(context,
+              errorText: "Field is Required")
+        ]),
+        inputType: InputType.date,
+        textInputAction: TextInputAction.next,
+        textAlign: TextAlign.center,
+        useRootNavigator: true,
+        initialTime: initialTime,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        initialEntryMode: DatePickerEntryMode.calendar,
+        initialDatePickerMode: DatePickerMode.day,
+        style: AppTextStyles.formFontSecNavy17,
+        decoration: buildFormTextDecoration(" ", labelText),
+        initialDate: DateTime.now(),
+        alwaysUse24HourFormat: true,
+        format: DateFormat("yyyy-MM-dd"),
+        name: formName,
+        initialValue: initialValue,
+        lastDate: lastDate,
+        firstDate: firstDate,
+        onSaved: onSave,
+        onChanged: onChange,
+        keyboardType: TextInputType.datetime,
+        enableInteractiveSelection: true,
       ),
     );
   }
@@ -295,22 +372,19 @@ class AppFormTimePicker extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: FormBuilderDateTimePicker(
-        style: AppTextStyles.businessSubtitleNavy,
+        style: AppTextStyles.formFontSecNavy17,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         alwaysUse24HourFormat: true,
+        textInputAction: TextInputAction.next,
+        textAlign: TextAlign.start,
         initialValue: initialValue,
         name: formName,
         onSaved: onSave,
         inputType: InputType.time,
-        //format: DateFormat("Hm"),
         decoration: buildFormTextDecoration(" ", labelText),
         validator: FormBuilderValidators.compose(
             [FormBuilderValidators.required(context)]),
-
-        // locale: Locale('ru'),
         initialTime: TimeOfDay(hour: 8, minute: 0),
-        // initialValue: DateTime.now(),
-        // readonly: true,
       ),
     );
   }
@@ -332,15 +406,13 @@ class AppFormDateRangePicker extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: FormBuilderDateRangePicker(
-        style: AppTextStyles.businessSubtitleNavy,
+        style: AppTextStyles.formFontSecNavy17,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         name: formName,
+        textInputAction: TextInputAction.next,
+        textAlign: TextAlign.start,
         firstDate: DateTime.now(),
         lastDate: DateTime.now().add(Duration(days: 1000)),
-        initialValue: [
-          DateTime.now(),
-          DateTime.now().add(Duration(days: 30)),
-        ],
         format: DateFormat('yyyy-MM-dd'),
         onSaved: onSave,
         decoration: buildFormTextDecoration(" ", labelText),
@@ -367,52 +439,16 @@ class AppFormBuilderSwitchButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: FormBuilderSwitch(
+        controlAffinity: ListTileControlAffinity.trailing,
+        activeColor: AppColors.primaryGreenB1,
+        decoration: InputDecoration(
+            fillColor: AppColors.primaryWhite,
+            border: InputBorder.none,
+            filled: true),
         title: Text(labelText),
         name: formName,
         initialValue: initialValue,
         onChanged: onSave,
-        decoration: buildFormTextDecoration(" ", labelText),
-      ),
-    );
-  }
-}
-
-class AppFormBuilderRating extends StatelessWidget {
-  final num maximum;
-
-  final FormFieldSetter onSave;
-
-  final double iconsSize;
-  final double initialValue;
-  final String labelText, formName;
-
-  AppFormBuilderRating(
-      {@required this.onSave,
-      @required this.maximum,
-      @required this.iconsSize,
-      @required this.initialValue,
-      @required this.labelText,
-      @required this.formName});
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      child: FormBuilderRating(
-        validator: FormBuilderValidators.compose([
-          FormBuilderValidators.required(context),
-        ]),
-
-        decoration: buildFormTextDecoration(" ", labelText),
-        name: 'rate',
-        iconSize: iconsSize,
-        initialValue: initialValue,
-        max: maximum,
-
-        onSaved: onSave,
-// readOnly: true,
-        filledColor: AppColors.lightYellowColor,
-        emptyColor: AppColors.lightGreyColor,
-        isHalfAllowed: true,
       ),
     );
   }
@@ -435,6 +471,7 @@ class AppFormBuilderListCheckBox extends StatelessWidget {
     return Material(
       child: FormBuilderCheckbox(
         title: Text(labelText),
+        autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: FormBuilderValidators.compose([
           FormBuilderValidators.required(
             context,
@@ -460,17 +497,16 @@ class AppFormWebsite extends StatelessWidget {
   final FormFieldSetter onSave;
   final int formValidatorMinLength;
 
-  AppFormWebsite(
-      {Key key,
-      @required this.onSave,
-      this.maximumLength,
+  AppFormWebsite({Key key,
+    @required this.onSave,
+    this.maximumLength,
 
-      // this.focusNode,
-      @required this.maximumLines,
-      @required this.initialValue,
-      @required this.labelText,
-      @required this.formName,
-      this.formValidatorMinLength})
+    // this.focusNode,
+    @required this.maximumLines,
+    @required this.initialValue,
+    @required this.labelText,
+    @required this.formName,
+    this.formValidatorMinLength})
       : super(key: key);
 
   @override
@@ -481,18 +517,20 @@ class AppFormWebsite extends StatelessWidget {
         autovalidateMode: AutovalidateMode.onUserInteraction,
         keyboardType: TextInputType.url,
         initialValue: initialValue,
+        textInputAction: TextInputAction.next,
+        textAlign: TextAlign.start,
         //focusNode: focusNode,
         validator: FormBuilderValidators.compose([
           FormBuilderValidators.url(context),
           FormBuilderValidators.required(context),
         ]),
-        cursorColor: AppColors.blackColor,
+        cursorColor: AppColors.primaryBlack00,
         name: formName,
         maxLines: maximumLines,
         maxLength: maximumLength,
 
         decoration: buildFormTextDecoration(" ", labelText),
-        style: AppTextStyles.businessSubtitleNavy,
+        style: AppTextStyles.formFontSecNavy17,
         onSaved: onSave,
       ),
     );
@@ -521,7 +559,8 @@ class AppFormBuilderRangeSlider extends StatelessWidget {
         max: 50.0,
         initialValue: 5.0,
         divisions: 5,
-        minTextStyle: AppTextStyles.businessSubtitleNavy,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        minTextStyle: AppTextStyles.formFontSecNavy17,
         activeColor: Colors.green,
         inactiveColor: Colors.red,
         decoration: buildFormTextDecoration(" ", labelText),
@@ -533,15 +572,15 @@ class AppFormBuilderRangeSlider extends StatelessWidget {
 }
 
 class AppFormNumericField extends StatelessWidget {
-  final String initialValue, labelText, hintText, formName;
-  final int maximumLines, maximumLength, formValidatorMinLength;
+  final String labelText, hintText, formName, initialValue;
+  final int maximumLines, formValidatorMinLength, max;
+
   final FormFieldSetter onSave;
 
   AppFormNumericField({
     Key key,
     @required this.onSave,
     @required this.formName,
-    this.maximumLength,
 
     // this.focusNode,
     @required this.maximumLines,
@@ -549,30 +588,34 @@ class AppFormNumericField extends StatelessWidget {
     @required this.labelText,
     this.hintText,
     this.formValidatorMinLength,
+    this.max,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Material(
+      color: AppColors.primaryWhite,
       child: FormBuilderTextField(
         autovalidateMode: AutovalidateMode.onUserInteraction,
         textCapitalization: TextCapitalization.sentences,
         initialValue: initialValue,
         keyboardType: TextInputType.number,
-
+        textInputAction: TextInputAction.next,
+        textAlign: TextAlign.start,
         //focusNode: focusNode,
         validator: FormBuilderValidators.compose([
+          FormBuilderValidators.min(context, 0),
+          // FormBuilderValidators.max(context, max,  inclusive: false, errorText:"Number can't be more than $max"),
           FormBuilderValidators.required(context),
-          FormBuilderValidators.minLength(context, formValidatorMinLength),
+
           FormBuilderValidators.numeric(context),
         ]),
-        cursorColor: AppColors.blackColor,
+        cursorColor: AppColors.primaryBlack00,
         name: formName,
         maxLines: maximumLines,
-        maxLength: maximumLength,
 
         decoration: buildFormTextDecoration(hintText, labelText),
-        style: AppTextStyles.businessSubtitleNavy,
+        style: AppTextStyles.formFontSecNavy17,
         onSaved: onSave,
       ),
     );
@@ -580,277 +623,331 @@ class AppFormNumericField extends StatelessWidget {
 }
 
 // Input decoration widget
-InputDecoration buildFormTextDecoration(String hint, String label) {
+InputDecoration buildFormTextDecoration(
+  String hint,
+  String label,
+) {
   return InputDecoration(
-    filled: true,
-    errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(7),
-        borderSide: BorderSide(
-          width: 2.0,
-          color: AppColors.navyColor,
-        )),
-    focusedErrorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(7),
-        borderSide: BorderSide(
-          width: 2.0,
-          color: AppColors.navyColor,
-        )),
-    fillColor: AppColors.whiteColor,
-    focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(7),
-        borderSide: BorderSide(width: 2.0, color: AppColors.darkGreenColor)),
-    border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(7),
-        borderSide: BorderSide(
-          width: 2.0,
-          color: AppColors.navyColor,
-        )),
-    focusColor: AppColors.navyColor,
-    labelText: label,
-    hintText: hint,
-    hintStyle: AppTextStyles.contentBlue,
-    labelStyle: AppTextStyles.contentBlue,
-  );
+      filled: true,
+      errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: BorderSide(
+            width: 0.5,
+            color: AppColors.redColor5B,
+          )),
+      focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: BorderSide(width: 0.5, color: AppColors.redColor5B)),
+      fillColor: AppColors.primaryWhite,
+      focusColor: AppColors.primaryWhite,
+      focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: BorderSide(
+            width: 0.5,
+            color: AppColors.secondaryBlack64,
+          )),
+      enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: BorderSide(
+            width: 0.5,
+            color: AppColors.lightGreyColorD7,
+          )),
+      border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: BorderSide(
+            width: 0.5,
+            color: AppColors.lightGreyColorD7,
+          )),
+      labelText: label,
+      hintText: hint,
+      hintStyle: AppTextStyles.mainRegularGrey18,
+      labelStyle: AppTextStyles.mainRegularGrey18,
+      contentPadding: EdgeInsets.only(left: 15, top: 20));
 }
 
-const allCountries = [
-  'Afghanistan',
-  'Albania',
-  'Algeria',
-  'American Samoa',
-  'Andorra',
-  'Angola',
-  'Anguilla',
-  'Antarctica',
-  'Antigua and Barbuda',
-  'Argentina',
-  'Armenia',
-  'Aruba',
-  'Australia',
-  'Austria',
-  'Azerbaijan',
-  'Bahamas',
-  'Bahrain',
-  'Bangladesh',
-  'Barbados',
-  'Belarus',
-  'Belgium',
-  'Belize',
-  'Benin',
-  'Bermuda',
-  'Bhutan',
-  'Bolivia',
-  'Bosnia and Herzegowina',
-  'Botswana',
-  'Bouvet Island',
-  'Brazil',
-  'British Indian Ocean Territory',
-  'Brunei Darussalam',
-  'Bulgaria',
-  'Burkina Faso',
-  'Burundi',
-  'Cambodia',
-  'Cameroon',
-  'Canada',
-  'Cape Verde',
-  'Cayman Islands',
-  'Central African Republic',
-  'Chad',
-  'Chile',
-  'China',
-  'Christmas Island',
-  'Cocos (Keeling) Islands',
-  'Colombia',
-  'Comoros',
-  'Congo',
-  'Congo, the Democratic Republic of the',
-  'Cook Islands',
-  'Costa Rica',
-  'Cote d\'Ivoire',
-  'Croatia (Hrvatska)',
-  'Cuba',
-  'Cyprus',
-  'Czech Republic',
-  'Denmark',
-  'Djibouti',
-  'Dominica',
-  'Dominican Republic',
-  'East Timor',
-  'Ecuador',
-  'Egypt',
-  'El Salvador',
-  'Equatorial Guinea',
-  'Eritrea',
-  'Estonia',
-  'Ethiopia',
-  'Falkland Islands (Malvinas)',
-  'Faroe Islands',
-  'Fiji',
-  'Finland',
-  'France',
-  'France Metropolitan',
-  'French Guiana',
-  'French Polynesia',
-  'French Southern Territories',
-  'Gabon',
-  'Gambia',
-  'Georgia',
-  'Germany',
-  'Ghana',
-  'Gibraltar',
-  'Greece',
-  'Greenland',
-  'Grenada',
-  'Guadeloupe',
-  'Guam',
-  'Guatemala',
-  'Guinea',
-  'Guinea-Bissau',
-  'Guyana',
-  'Haiti',
-  'Heard and Mc Donald Islands',
-  'Holy See (Vatican City State)',
-  'Honduras',
-  'Hong Kong',
-  'Hungary',
-  'Iceland',
-  'India',
-  'Indonesia',
-  'Iran (Islamic Republic of)',
-  'Iraq',
-  'Ireland',
-  'Israel',
-  'Italy',
-  'Jamaica',
-  'Japan',
-  'Jordan',
-  'Kazakhstan',
-  'Kenya',
-  'Kiribati',
-  'Korea, Democratic People\'s Republic of',
-  'Korea, Republic of',
-  'Kuwait',
-  'Kyrgyzstan',
-  'Lao, People\'s Democratic Republic',
-  'Latvia',
-  'Lebanon',
-  'Lesotho',
-  'Liberia',
-  'Libyan Arab Jamahiriya',
-  'Liechtenstein',
-  'Lithuania',
-  'Luxembourg',
-  'Macau',
-  'Macedonia, The Former Yugoslav Republic of',
-  'Madagascar',
-  'Malawi',
-  'Malaysia',
-  'Maldives',
-  'Mali',
-  'Malta',
-  'Marshall Islands',
-  'Martinique',
-  'Mauritania',
-  'Mauritius',
-  'Mayotte',
-  'Mexico',
-  'Micronesia, Federated States of',
-  'Moldova, Republic of',
-  'Monaco',
-  'Mongolia',
-  'Montserrat',
-  'Morocco',
-  'Mozambique',
-  'Myanmar',
-  'Namibia',
-  'Nauru',
-  'Nepal',
-  'Netherlands',
-  'Netherlands Antilles',
-  'New Caledonia',
-  'New Zealand',
-  'Nicaragua',
-  'Niger',
-  'Nigeria',
-  'Niue',
-  'Norfolk Island',
-  'Northern Mariana Islands',
-  'Norway',
-  'Oman',
-  'Pakistan',
-  'Palau',
-  'Panama',
-  'Papua New Guinea',
-  'Paraguay',
-  'Peru',
-  'Philippines',
-  'Pitcairn',
-  'Poland',
-  'Portugal',
-  'Puerto Rico',
-  'Qatar',
-  'Reunion',
-  'Romania',
-  'Russian Federation',
-  'Rwanda',
-  'Saint Kitts and Nevis',
-  'Saint Lucia',
-  'Saint Vincent and the Grenadines',
-  'Samoa',
-  'San Marino',
-  'Sao Tome and Principe',
-  'Saudi Arabia',
-  'Senegal',
-  'Seychelles',
-  'Sierra Leone',
-  'Singapore',
-  'Slovakia (Slovak Republic)',
-  'Slovenia',
-  'Solomon Islands',
-  'Somalia',
-  'South Africa',
-  'South Georgia and the South Sandwich Islands',
-  'Spain',
-  'Sri Lanka',
-  'St. Helena',
-  'St. Pierre and Miquelon',
-  'Sudan',
-  'Suriname',
-  'Svalbard and Jan Mayen Islands',
-  'Swaziland',
-  'Sweden',
-  'Switzerland',
-  'Syrian Arab Republic',
-  'Taiwan, Province of China',
-  'Tajikistan',
-  'Tanzania, United Republic of',
-  'Thailand',
-  'Togo',
-  'Tokelau',
-  'Tonga',
-  'Trinidad and Tobago',
-  'Tunisia',
-  'Turkey',
-  'Turkmenistan',
-  'Turks and Caicos Islands',
-  'Tuvalu',
-  'Uganda',
-  'Ukraine',
-  'United Arab Emirates',
-  'United Kingdom',
-  'United States',
-  'United States Minor Outlying Islands',
-  'Uruguay',
-  'Uzbekistan',
-  'Vanuatu',
-  'Venezuela',
-  'Vietnam',
-  'Virgin Islands (British)',
-  'Virgin Islands (U.S.)',
-  'Wallis and Futuna Islands',
-  'Western Sahara',
-  'Yemen',
-  'Yugoslavia',
-  'Zambia',
-  'Zimbabwe'
-];
+class CountryService {
+  static final List<String> allCountries = [
+    "Estonia",
+    "Finland",
+    'France',
+    'United Kingdom',
+    'United States',
+    'Albania',
+    'Algeria',
+    'American Samoa',
+    'Andorra',
+    'Angola',
+    'Anguilla',
+    'Antarctica',
+    'Antigua and Barbuda',
+    'Argentina',
+    'Armenia',
+    'Aruba',
+    'Australia',
+    'Austria',
+    'Azerbaijan',
+    'Bahamas',
+    'Bahrain',
+    'Bangladesh',
+    'Barbados',
+    'Belarus',
+    'Belgium',
+    'Belize',
+    'Benin',
+    'Bermuda',
+    'Bhutan',
+    'Bolivia',
+    'Bosnia and Herzegowina',
+    'Botswana',
+    'Bouvet Island',
+    'Brazil',
+    'British Indian Ocean Territory',
+    'Brunei Darussalam',
+    'Bulgaria',
+    'Burkina Faso',
+    'Burundi',
+    'Cambodia',
+    'Cameroon',
+    'Canada',
+    'Cape Verde',
+    'Cayman Islands',
+    'Central African Republic',
+    'Chad',
+    'Chile',
+    'China',
+    'Christmas Island',
+    'Cocos (Keeling) Islands',
+    'Colombia',
+    'Comoros',
+    'Congo',
+    'Congo, the Democratic Republic of the',
+    'Cook Islands',
+    'Costa Rica',
+    'Cote d\'Ivoire',
+    'Croatia (Hrvatska)',
+    'Cuba',
+    'Cyprus',
+    'Czech Republic',
+    'Denmark',
+    'Djibouti',
+    'Dominica',
+    'Dominican Republic',
+    'East Timor',
+    'Ecuador',
+    'Egypt',
+    'El Salvador',
+    'Equatorial Guinea',
+    'Eritrea',
+    'Ethiopia',
+    'Falkland Islands (Malvinas)',
+    'Faroe Islands',
+    'Fiji',
+    'France Metropolitan',
+    'French Guiana',
+    'French Polynesia',
+    'French Southern Territories',
+    'Gabon',
+    'Gambia',
+    'Georgia',
+    'Germany',
+    'Ghana',
+    'Gibraltar',
+    'Greece',
+    'Greenland',
+    'Grenada',
+    'Guadeloupe',
+    'Guam',
+    'Guatemala',
+    'Guinea',
+    'Guinea-Bissau',
+    'Guyana',
+    'Haiti',
+    'Heard and Mc Donald Islands',
+    'Holy See (Vatican City State)',
+    'Honduras',
+    'Hong Kong',
+    'Hungary',
+    'Iceland',
+    'India',
+    'Indonesia',
+    'Iran (Islamic Republic of)',
+    'Iraq',
+    'Ireland',
+    'Israel',
+    'Italy',
+    'Jamaica',
+    'Japan',
+    'Jordan',
+    'Kazakhstan',
+    'Kenya',
+    'Kiribati',
+    'Korea, Democratic People\'s Republic of',
+    'Korea, Republic of',
+    'Kuwait',
+    'Kyrgyzstan',
+    'Lao, People\'s Democratic Republic',
+    'Latvia',
+    'Lebanon',
+    'Lesotho',
+    'Liberia',
+    'Libyan Arab Jamahiriya',
+    'Liechtenstein',
+    'Lithuania',
+    'Luxembourg',
+    'Macau',
+    'Macedonia, The Former Yugoslav Republic of',
+    'Madagascar',
+    'Malawi',
+    'Malaysia',
+    'Maldives',
+    'Mali',
+    'Malta',
+    'Marshall Islands',
+    'Martinique',
+    'Mauritania',
+    'Mauritius',
+    'Mayotte',
+    'Mexico',
+    'Micronesia, Federated States of',
+    'Moldova, Republic of',
+    'Monaco',
+    'Mongolia',
+    'Montserrat',
+    'Morocco',
+    'Mozambique',
+    'Myanmar',
+    'Namibia',
+    'Nauru',
+    'Nepal',
+    'Netherlands',
+    'Netherlands Antilles',
+    'New Caledonia',
+    'New Zealand',
+    'Nicaragua',
+    'Niger',
+    'Nigeria',
+    'Niue',
+    'Norfolk Island',
+    'Northern Mariana Islands',
+    'Norway',
+    'Oman',
+    'Pakistan',
+    'Palau',
+    'Panama',
+    'Papua New Guinea',
+    'Paraguay',
+    'Peru',
+    'Philippines',
+    'Pitcairn',
+    'Poland',
+    'Portugal',
+    'Puerto Rico',
+    'Qatar',
+    'Reunion',
+    'Romania',
+    'Russian Federation',
+    'Rwanda',
+    'Saint Kitts and Nevis',
+    'Saint Lucia',
+    'Saint Vincent and the Grenadines',
+    'Samoa',
+    'San Marino',
+    'Sao Tome and Principe',
+    'Saudi Arabia',
+    'Senegal',
+    'Seychelles',
+    'Sierra Leone',
+    'Singapore',
+    'Slovakia (Slovak Republic)',
+    'Slovenia',
+    'Solomon Islands',
+    'Somalia',
+    'South Africa',
+    'South Georgia and the South Sandwich Islands',
+    'Spain',
+    'Sri Lanka',
+    'St. Helena',
+    'St. Pierre and Miquelon',
+    'Sudan',
+    'Suriname',
+    'Svalbard and Jan Mayen Islands',
+    'Swaziland',
+    'Sweden',
+    'Switzerland',
+    'Syrian Arab Republic',
+    'Taiwan, Province of China',
+    'Tajikistan',
+    'Tanzania, United Republic of',
+    'Thailand',
+    'Togo',
+    'Tokelau',
+    'Tonga',
+    'Trinidad and Tobago',
+    'Tunisia',
+    'Turkey',
+    'Turkmenistan',
+    'Turks and Caicos Islands',
+    'Tuvalu',
+    'Uganda',
+    'Ukraine',
+    'United Arab Emirates',
+    'United States Minor Outlying Islands',
+    'Uruguay',
+    'Uzbekistan',
+    'Vanuatu',
+    'Venezuela',
+    'Vietnam',
+    'Virgin Islands (British)',
+    'Virgin Islands (U.S.)',
+    'Wallis and Futuna Islands',
+    'Western Sahara',
+    'Yemen',
+    'Yugoslavia',
+    'Zambia',
+    'Afghanistan',
+    'Zimbabwe'
+  ];
+
+  static List<String> getCountrySuggestions(String query) {
+    List<String> matches = <String>[];
+    matches.addAll(allCountries);
+
+    matches.retainWhere((s) => s.toLowerCase().contains(query.toLowerCase()));
+    return matches;
+  }
+}
+
+class AppTypeAheadSearch extends StatelessWidget {
+  final TextEditingController controller;
+  final FormFieldSetter onSave;
+
+  AppTypeAheadSearch({
+    Key key,
+    @required this.onSave,
+    this.controller,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      child: TypeAheadFormField(
+        textFieldConfiguration: TextFieldConfiguration(
+          decoration: InputDecoration(labelText: 'Country'),
+          controller: controller,
+        ),
+        suggestionsCallback: (pattern) =>
+            CountryService.getCountrySuggestions(pattern),
+        itemBuilder: (context, String suggestion) => ListTile(
+          title: Text(suggestion),
+        ),
+        transitionBuilder: (context, suggestionsBox, controller) =>
+            suggestionsBox,
+        onSuggestionSelected: (String suggestion) =>
+            controller.text = suggestion,
+        validator: (value) => value.isEmpty ? 'Search by country' : null,
+        keepSuggestionsOnLoading: true,
+        onSaved: (value) => onSave,
+      ),
+    );
+  }
+}

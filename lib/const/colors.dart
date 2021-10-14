@@ -1,66 +1,76 @@
 import 'package:flutter/material.dart';
 
 abstract class AppColors {
+  static Color get primaryWhite => const Color(0xFFFFFFFF);
 
-  static Color get whiteColor => const Color(0xFFFFFFFF);
-  static Color get lightGreyColor => const Color(0xFFDCDCDC);
-  static Color get lightYellowColor => const Color(0xFFF8E3D0).withOpacity(1);
-  static Color get dashboardColor => const Color(0xFFF3802D);
-  static Color get darkGreenColor => const Color(0xFF00C9DB);
+  static Color get lightGreyColorF7 => const Color(0xFFF1F5F8);
 
-  static Color get lightGreenColor => const Color(0xFF86E9FF);
-  static Color get lightPurpleColor => const Color(0xFF7059EA);
-  static Color get purpleColor => const Color(0xFF4905c7);
-  static Color get lightBlueColor => const Color(0xFF496AE1);
-  static Color get sBlueColor => const Color(0xFF1777F2);
-  static Color get navyColor => const Color(0xFF100727);
-  static Color get blackColor => const Color(0xFF000000);
+  static Color get lightGreyColorDD => const Color(0xFFDCDCDC);
 
-  static Color get lightPinkColor => const Color(0xFFFF5FED);
+  static Color get lightGreyColorE5 => const Color(0xFFE5E5E5);
 
+  static Color get lightGreyColorD7 => const Color(0xFFD1CFD7);
 
+  static Color get lightGreyColorC4 => const Color(0xFFC4C4C4);
 
-  static const LinearGradient mainPageGradient = LinearGradient(
-      colors: [ Color(0xFF496AE1),Color(0xFFB39CF6),  ],
-      end: FractionalOffset.bottomRight,
-      begin: FractionalOffset.topLeft,
-      stops: [
-        0.2,
-        0.8,
+  //static Color get lightGreyColorEB => const Color(0xFFE8EAEB);
 
-        //  0.5
-      ]
-  );
+  static Color get primaryGreenB1 => const Color(0xFF08DFB1);
 
-  static const LinearGradient mainPageGradientReverse = LinearGradient(
-      colors: [ Color(0xFF496AE1),Color(0xFFB39CF6),  ],
-      end: FractionalOffset.topLeft,
-      begin: FractionalOffset.bottomRight,
-      stops: [
-        0.5,
-        0.8,
+  static Color get secondaryGreen9C => const Color(0xFF02A69C);
 
-        //  0.5
-      ]
-  );
+  //static Color get thirdGreen9C => const Color(0xFF00DA93);
 
+  static Color get primaryBlack00 => const Color(0xFF000000);
 
+  static Color get secondaryBlack64 => const Color(0xFF455A64);
 
+  static Color get primaryNavyColor => const Color(0xFF090244);
 
+  static Color get secondaryNavyColor => const Color(0xFF0B0A18);
 
+  static Color get primaryBlueColor => const Color(0xFF2C19CE);
+
+  //static Color get secondaryBlueColor => const Color(0xFF2C19CE);
+
+//Color(0xFF2C19CE);
+  //  static Color get lightGreyColorF7 => const Color(0xFFF6F6F7);
+
+  static Color get yellowColor => const Color(0xFFCAF605);
+
+  static Color get redColor5B => const Color(0xFFE8505B);
+
+  static Color get redColor5D => const Color(0xFFFF735D);
+
+  // navy 0xFF030115
+
+  // static LinearGradient get primaryColorGradient => LinearGradient(
+  //         begin: Alignment.topCenter,
+  //         end: Alignment.bottomCenter,
+  //         colors: [
+  //           Color(0xFF08DFB1),
+  //           Color(0xFF02A69C),
+  //         ],
+  //         stops: [
+  //           0.616667,
+  //           .80,
+  //
+  //           //  0.5
+  //         ]);
+
+  static LinearGradient get buttonPrimaryColorGradient => LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            Color(0xFF08DFB1),
+            Color(0xFF08DFB1),
+          ],
+          stops: [
+            0.0216667,
+            1.0,
+
+            //  0.5
+          ]);
 }
 
-
-
-
-
-
-
-
-  const Color greenColor = Color(0xFF4BCB1F);
-
-
-
-
-
-
+const Color greenColor = Color(0xFF4BCB1F);

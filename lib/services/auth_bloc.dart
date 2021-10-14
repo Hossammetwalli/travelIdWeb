@@ -4,7 +4,6 @@ import 'package:firebase_core/firebase_core.dart';
 class AuthBloc {
   FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
-
   //AuthService();
 
   Stream<String> get onAuthStateChanged =>
@@ -13,67 +12,61 @@ class AuthBloc {
       });
 
   // GET User UID
-  Future<String>  getCurrentUID() async {
-    _firebaseAuth.currentUser.uid;
+  Future<String> getCurrentUID() async {
     String uid = (_firebaseAuth.currentUser).uid;
     return uid;
   }
 
   // GET CURRENT USER
   Future getCurrentUser() async {
-    return  _firebaseAuth.currentUser;
+    return _firebaseAuth.currentUser;
   }
 
   //get the Username that a user registered **
   Future<String> getUserName() async {
-    String name = ( _firebaseAuth.currentUser).displayName;
+    String name = (_firebaseAuth.currentUser).displayName;
     return (name == null) ? "" : name;
-
   }
 
 // Email & Password Sign up
-  Future<String> createUserWithEmailAndPassword( String email, String password) async {
-        await Firebase.initializeApp();
+  Future<String> createUserWithEmailAndPassword(
+      String email, String password) async {
+    await Firebase.initializeApp();
 
     final authResult = await _firebaseAuth.createUserWithEmailAndPassword(
       email: email.trim(),
       password: password.trim(),
-
-
     );
-
 
     return authResult.user.uid;
   }
 
-
-  Future<String> registerWithEmailPassword(String email, String password) async {
+  Future<String> registerWithEmailPassword(
+      String email, String password) async {
     await Firebase.initializeApp();
 
     final UserCredential userCredential =
-    await  _firebaseAuth.createUserWithEmailAndPassword(
+        await _firebaseAuth.createUserWithEmailAndPassword(
       email: email.trim(),
       password: password,
     );
 
     return userCredential.user.uid;
-
-
   }
-
 
 // Email & Password Sign in
   Future<String> signInWithEmailAndPassword(
       String email, String password) async {
     return (await _firebaseAuth.signInWithEmailAndPassword(
-        email: email.trim(), password: password.trim())).user.uid;
-
+            email: email.trim(), password: password.trim()))
+        .user
+        .uid;
   }
 
 // Sign out
 
-  signOut() async{
-    return  await _firebaseAuth.signOut();
+  signOut() async {
+    return await _firebaseAuth.signOut();
   }
 
   // Reset Password
@@ -95,24 +88,13 @@ class AuthBloc {
     final credential = EmailAuthProvider.credential(
         email: email.trim(), password: password.trim());
     await currentUser.linkWithCredential(credential);
-
   }
-
-
 
   // LogedIn validator
   Future<bool> isUserLoggedIn() async {
-    var user =  _firebaseAuth.currentUser;
+    var user = _firebaseAuth.currentUser;
     return user != null;
   }
-
-
-
-
-
-
-
-
 }
 
 // Email validator
@@ -142,8 +124,6 @@ class NameValidator {
   }
 }
 
-
-
 // user password validator
 
 class PasswordValidator {
@@ -157,6 +137,4 @@ class PasswordValidator {
 
     return null;
   }
-
 }
-

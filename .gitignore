@@ -46,7 +46,7 @@ app.*.map.json
 /android/app/release
 lib/zzdelete/authentication.dart
 .gitignore
-web/assets/comingsoon.png
+
 web/config.js
 web/index.html
 Y/index.html

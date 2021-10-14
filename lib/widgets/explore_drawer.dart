@@ -1,69 +1,91 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:webapptrial/const/colors.dart';
-import 'package:webapptrial/const/text_style.dart';
+import 'package:webapptrial/widgets/export_widget.dart';
 
+class ExploreDrawer extends StatelessWidget {
+  final Color topColor;
 
-
-
-class ExploreDrawer extends StatefulWidget {
-  final String buttonName;
-
-  const ExploreDrawer({Key key, this.buttonName}) : super(key: key);
-
-
-  @override
-  _ExploreDrawerState createState() => _ExploreDrawerState();
-}
-
-class _ExploreDrawerState extends State<ExploreDrawer> {
-
-  TextEditingController textControllerEmail;
-
+  const ExploreDrawer({
+    Key key,
+    @required this.topColor,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: Container(
-        color: AppColors.whiteColor,
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              const  SizedBox(height: 50,),
-              Container(
-                width: double.maxFinite,
-
-                child: FlatButton(
-                  color: AppColors.navyColor,
-                  hoverColor: AppColors.sBlueColor,
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('/business');
-
-
-                  },
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  child: Padding(
-
-                    padding: const EdgeInsets.only(
-                      top: 15.0,
-                      bottom: 15.0,
-                    ),
-                    child: Text(
-                      widget.buttonName,
-                      style: AppTextStyles.contentWhite,
-                    ),
-                  ),
+      child: ListView(
+        children: [
+          DrawerHeader(
+            decoration: BoxDecoration(
+              color: topColor,
+            ),
+            child: Row(
+              children: [
+                Image.network(
+                  "assets/logo_icon_white.png",
+                  scale: 2,
                 ),
-              ),
-
-
-            ],
+                SizedBox(
+                  width: 10,
+                ),
+                Container(
+                  width: 5,
+                  height: 40,
+                  color: AppColors.primaryGreenB1,
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Image.network(
+                  "assets/logo_name_green.png",
+                  scale: 1.5,
+                ),
+              ],
+            ),
           ),
-        ),
+          ListTile(
+            title: AutoSizeText(
+              "Home Page",
+              style: AppTextStyles.mainTitleRegularBlue10,
+              minFontSize: 13,
+            ),
+            onTap: () {
+              Navigator.of(context).pushNamed('/homePage');
+            },
+            leading: Icon(
+              Icons.workspaces_filled,
+              color: AppColors.primaryGreenB1,
+            ),
+          ),
+          ListTile(
+            title: AutoSizeText(
+              "Freelancer",
+              style: AppTextStyles.mainTitleRegularBlue10,
+              minFontSize: 13,
+            ),
+            onTap: () {
+              Navigator.of(context).pushNamed('/freelancer');
+            },
+            leading: Icon(
+              Icons.workspaces_filled,
+              color: AppColors.primaryGreenB1,
+            ),
+          ),
+          ListTile(
+            onTap: () {
+              Navigator.of(context).pushNamed('/business');
+            },
+            title: AutoSizeText(
+              "Business Partners",
+              style: AppTextStyles.mainTitleRegularBlue10,
+              minFontSize: 13,
+            ),
+            leading: Icon(
+              Icons.add_business,
+              color: AppColors.primaryGreenB1,
+            ),
+          ),
+        ],
       ),
     );
   }

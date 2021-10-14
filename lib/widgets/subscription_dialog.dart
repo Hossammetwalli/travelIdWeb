@@ -1,10 +1,8 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:uuid/uuid.dart';
-import 'package:webapptrial/const/colors.dart';
-import 'package:webapptrial/const/const_string.dart';
-import 'package:webapptrial/const/text_style.dart';
-import 'package:webapptrial/services/auth_bloc.dart';
-
+import 'package:webapptrial/widgets/export_widget.dart';
 
 class SubscriptionDialog extends StatefulWidget {
   @override
@@ -29,8 +27,6 @@ class _SubscriptionDialogState extends State<SubscriptionDialog> {
 
     if (emailTextEditingController.text != null) {
       if (value.isEmpty) {
-
-
         return 'Email can\'t be empty';
       } else if (!value.contains(RegExp(
           r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+"))) {
@@ -52,374 +48,262 @@ class _SubscriptionDialogState extends State<SubscriptionDialog> {
 
   @override
   Widget build(BuildContext context) {
+    var _width = MediaQuery.of(context).size.width;
     return Dialog(
-      backgroundColor: AppColors.whiteColor,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8.0),
-      ),
+      backgroundColor: AppColors.primaryWhite,
       child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Container(
-            width: 450,
-
-            color: AppColors.whiteColor,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  mainAxisSize: MainAxisSize.max,
+        child: Container(
+          width: (_width < 800) ? 400 : 450,
+          color: AppColors.primaryWhite,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(40),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                  IconButton(
-                    color: Colors.red, focusColor: AppColors.whiteColor, hoverColor: AppColors.whiteColor,
-                    icon: (Icon(Icons.clear,)),
-                    onPressed: ()=> Navigator.of(context).pop(),
-
-
+                    AutoSizeText(
+                      ConstString.dialogCondition1,
+                      style: AppTextStyles.mainTitleRegularNavy10,
+                      textAlign: TextAlign.start,
+                      maxFontSize: 16,
                     ),
-                ],),
-                const SizedBox(height: 20),
-                Center(
-                  child: Text(
-                    ConstString.dialogTitle,
-                    style: AppTextStyles.subTitleBlack, textAlign: TextAlign.center,
-                  ),
-                ),
-                const SizedBox(height: 20),
-
-                Padding(
-                  padding: const EdgeInsets.only(
-                    left: 20.0,
-                    bottom: 8,
-                  ),
-                  child: Text(
-                    ConstString.dialogCondition1,
-                    style: AppTextStyles.contentBlack, textAlign: TextAlign.start,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    left: 20.0,
-                    bottom: 8,
-                  ),
-                  child: Text(
-                    ConstString.dialogCondition2,
-                    style: AppTextStyles.contentBlack, textAlign: TextAlign.start,
-
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    left: 20.0,
-                    bottom: 8,
-                  ),
-                  child: Text(
-                    ConstString.dialogCondition3,
-                    style: AppTextStyles.contentBlack, textAlign: TextAlign.start,
-                  ),
-                ),
-                const  SizedBox(height: 30),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    left: 20.0,
-                    bottom: 8,
-                  ),
-                  child: Text(
-                    'Email address',
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                      color: AppColors.blackColor,
-                      fontSize: 18,
-                      fontFamily: 'Montserrat',
-                      fontWeight: FontWeight.bold,
+                    const SizedBox(height: 30),
+                    AutoSizeText(
+                      'Email address',
+                      textAlign: TextAlign.left,
+                      maxFontSize: 16,
+                      style: AppTextStyles.mainTitleRegularBlue10,
                     ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    left: 20.0,
-                    right: 20,
-                  ),
-                  child: TextField(
-
-                    focusNode: textFocusNodeEmail,
-                    keyboardType: TextInputType.emailAddress,
-                    textInputAction: TextInputAction.next,
-                    controller: emailTextEditingController,
-                    autofocus: false,
-                    onChanged: (value) {
-                      setState(() {
-                        _isEditingEmail = true;
-                      });
-                    },
-                    onSubmitted: (value) {
-                      textFocusNodeEmail.unfocus();
-                      FocusScope.of(context).requestFocus(textFocusNodeEmail);
-                    },
-                    style: TextStyle(color: Colors.black),
-                    decoration: buildInputDecoration(),
-                  ),
-                ),
-                const  SizedBox(height: 20),
-
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Flexible(
-                        flex: 1,
-                        child: Container(
-                          width: double.maxFinite,
-                          child: FlatButton(
-                            color: AppColors.sBlueColor,
-                            hoverColor: AppColors.purpleColor,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                           // highlightColor: Colors.black,
-                            onPressed: () async {
+                    const SizedBox(height: 5),
+                    TextField(
+                      focusNode: textFocusNodeEmail,
+                      keyboardType: TextInputType.emailAddress,
+                      textInputAction: TextInputAction.done,
+                      controller: emailTextEditingController,
+                      autofocus: false,
+                      onChanged: (value) {
+                        setState(() {
+                          _isEditingEmail = true;
+                        });
+                      },
+                      onSubmitted: (value) {
+                        textFocusNodeEmail.unfocus();
+                        FocusScope.of(context).requestFocus(textFocusNodeEmail);
+                      },
+                      decoration: buildFormTextDecoration("Email"),
+                    ),
+                    const SizedBox(height: 30),
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        AppElevatedButton(
+                          fontSize: 15,
+                          width: 160,
+                          height: 40,
+                          title: "Join Now",
+                          primaryColor: AppColors.primaryGreenB1,
+                          radius: 8,
+                          textStyle: AppTextStyles.mainTitleRegularNavy10,
+                          onPress: () async {
+                            setState(() {
+                              textFocusNodeEmail.unfocus();
+                            });
+                            if (_validateEmail(
+                                    emailTextEditingController.text) ==
+                                null) {
                               setState(() {
-                                textFocusNodeEmail.unfocus();
+                                _isRegistering = true;
                               });
-                              if (_validateEmail(
-                                      emailTextEditingController.text) ==
-                                  null) {
-                                setState(() {
-                                  _isRegistering = true;
-                                });
-                                await auth.registerWithEmailPassword(
-                                        emailTextEditingController.text,
-                                        uuid.v1())
-                                    .then((result) {
-                                  if (result != null) {
-                                    setState(() {
-                                      messageIsError = false;
-                                      _messageResult =
-                                          'Congratulation you have registered successfully';
-                                      loginStringColor = Colors.green;
-                                    });
-
-
-                                  }
-                                }).catchError((error) {
-                                 // print('Registration Error: $error');
+                              await auth
+                                  .registerWithEmailPassword(
+                                      emailTextEditingController.text,
+                                      uuid.v1())
+                                  .then((result) {
+                                if (result != null) {
                                   setState(() {
-                                    messageIsError = true;
-                                    _messageResult = error.message;
-
-                                    loginStringColor = Colors.red;
+                                    messageIsError = false;
+                                    _messageResult =
+                                        'Congratulation you have registered successfully';
+                                    loginStringColor = Colors.green;
                                   });
-                                });
-                              } else {
+                                }
+                              }).catchError((error) {
                                 setState(() {
                                   messageIsError = true;
-                                  _messageResult = 'Please enter valid email ';
+                                  _messageResult = error.message;
+
                                   loginStringColor = Colors.red;
                                 });
-                              }
-                              setState(() {
-                                _isRegistering = false;
-
-                                emailTextEditingController.text = '';
-
-                                _isEditingEmail = false;
                               });
+                            } else {
+                              setState(() {
+                                messageIsError = true;
+                                _messageResult = 'Please enter valid email ';
+                                loginStringColor = Colors.red;
+                              });
+                            }
+                            setState(() {
+                              _isRegistering = false;
 
+                              emailTextEditingController.text = '';
 
-                            },
-
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                top: 15.0,
-                                bottom: 15.0,
-                              ),
-                              child: _isRegistering
-                                  ?  SizedBox(
-                                      height: 16,
-                                      width: 16,
-                                      child: CircularProgressIndicator(
-                                        strokeWidth: 2,
-                                        valueColor:
-                                            new AlwaysStoppedAnimation<Color>(
-                                          Colors.white,
-                                        ),
-                                      ),
-                                    )
-                                  : Text(
-                                      'Join',
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                            ),
-                          ),
+                              _isEditingEmail = false;
+                            });
+                          },
                         ),
-                      ),
-                    ],
-                  ),
+                      ],
+                    ),
+                    const SizedBox(height: 30),
+                    showAlert(),
+                    const SizedBox(height: 10),
+                    Divider(
+                      height: 1,
+                      color: AppColors.primaryBlack00,
+                    ),
+                    const SizedBox(height: 10),
+                    Column(
+                      children: [
+                        // todo inkwell
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            AutoSizeText(
+                              ConstString.dialogTerms1,
+                              maxLines: 2,
+                              maxFontSize: 12,
+                              style: AppTextStyles.mainRegularSecBlack14,
+                            ),
+                            InkWell(
+                              onTap: () {
+                                _launchSocial("https://www.facebook.com/",
+                                    "https://www.facebook.com/");
+                              },
+                              child: AutoSizeText(
+                                ConstString.dialogTerms2,
+                                maxLines: 2,
+                                maxFontSize: 12,
+                                style: AppTextStyles.mainTitleRegularBlue10,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            AutoSizeText(
+                              ConstString.dialogTerms3,
+                              maxLines: 2,
+                              maxFontSize: 12,
+                              style: AppTextStyles.mainRegularSecBlack14,
+                            ),
+                            InkWell(
+                              onTap: () {
+                                _launchSocial("https://www.facebook.com/",
+                                    "https://www.facebook.com/");
+                              },
+                              child: AutoSizeText(
+                                ConstString.dialogTerms4,
+                                maxLines: 2,
+                                maxFontSize: 12,
+                                style: AppTextStyles.mainTitleRegularBlue10,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-                showAlert(),
-                const  SizedBox(height: 30),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    left: 40.0,
-                    right: 40.0,
-                  ),
-                  child: Container(
-                    height: 1,
-                    width: double.maxFinite,
-                    color: Colors.blueGrey[200],
-                  ),
-                ),
-                const  SizedBox(height: 30),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-
-                    children: [
-                      // todo inkwell
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            ConstString.dialogTerms1,
-                            maxLines: 2,
-                            style: TextStyle(
-                              color: AppColors.blackColor,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w300,
-                              // letterSpacing: 3,
-                            ),
-                          ),
-                          Text(
-                            ConstString.dialogTerms2,
-                            maxLines: 2,
-                            style: TextStyle(
-                              color: AppColors.sBlueColor,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w300,
-                              // letterSpacing: 3,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            ConstString.dialogTerms3,
-                            maxLines: 2,
-                            style: TextStyle(
-                              color: AppColors.blackColor,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w300,
-                              // letterSpacing: 3,
-                            ),
-                          ),
-                          Text(
-                            ConstString.dialogTerms4,
-                            maxLines: 2,
-                            style: TextStyle(
-                              color: AppColors.sBlueColor,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w300,
-                              // letterSpacing: 3,
-                            ),
-                          ),
-                        ],
-                      ),
-
-
-                    ],
-                  ),
-                ),
-              ],
-            ),
+              )
+              // const SizedBox(height: 20),
+            ],
           ),
         ),
       ),
     );
   }
 
-  InputDecoration buildInputDecoration() {
+  InputDecoration buildFormTextDecoration(
+    String hint,
+  ) {
     return InputDecoration(
-                    focusedBorder: new OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide(
-                        color: Colors.blueGrey[800],
-                        width: 1,
-                      ),
-                    ),
-                    enabledBorder: new OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide(
-                        color: Colors.blueGrey[800],
-                        width: 1,
-                      ),
-                    ),
-                    border: new OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide(
-                        color: Colors.blueGrey[800],
-                        width: 1,
-                      ),
-                    ),
-                    filled: true,
-                    hintStyle: AppTextStyles.contentBlack,
-                    hintText: "Email",
-                    fillColor: Colors.white,
-                    errorText: _isEditingEmail
-                        ? _validateEmail(emailTextEditingController.text)
-                        : null,
-                    errorStyle: TextStyle(
-                      fontSize: 12,
-                      color: Colors.redAccent,
-                    ),
-                  );
+        filled: true,
+        errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: BorderSide(
+              width: 0.5,
+              color: AppColors.redColor5B,
+            )),
+        focusedErrorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: BorderSide(width: 0.5, color: AppColors.redColor5B)),
+        fillColor: AppColors.primaryWhite,
+        focusColor: AppColors.primaryWhite,
+        focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: BorderSide(
+              width: 0.5,
+              color: AppColors.secondaryBlack64,
+            )),
+        enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: BorderSide(
+              width: 0.5,
+              color: AppColors.lightGreyColorD7,
+            )),
+        border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: BorderSide(
+              width: 0.5,
+              color: AppColors.lightGreyColorD7,
+            )),
+        hintText: hint,
+        hintStyle: AppTextStyles.mainRegularGrey18,
+        labelStyle: AppTextStyles.mainRegularGrey18,
+        contentPadding: EdgeInsets.only(left: 15, top: 20));
   }
-
 
   Widget showAlert() {
     if (_messageResult != null) {
       return Container(
-        color: AppColors.whiteColor,
+        color: AppColors.primaryWhite,
         width: double.infinity,
-        padding: EdgeInsets.all(8.0),
         child: Row(
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(right: 8.0),
-              child: Icon(
-               messageIsError == true ? Icons.error_outline : Icons.verified_outlined,
-                color: messageIsError == true ? Colors.red : Colors.green,
-              ),
+            Icon(
+              messageIsError == true
+                  ? Icons.error_outline
+                  : Icons.verified_outlined,
+              color: messageIsError == true ? Colors.red : Colors.green,
             ),
             Expanded(
-              child: Text(
-                _messageResult, style: TextStyle(color: messageIsError == true ? Colors.red : Colors.green,),
-
+              child: AutoSizeText(
+                _messageResult,
+                maxFontSize: 14,
+                style: TextStyle(
+                  color: messageIsError == true ? Colors.red : Colors.green,
+                ),
                 maxLines: 3,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 8.0),
-              child: IconButton(
-                icon: Icon(Icons.close),
-                onPressed: () {
-                  setState(() {
-                    _messageResult = null;
-                  });
-                },
+            IconButton(
+              icon: Icon(
+                Icons.close,
+                size: 15,
+                color: AppColors.secondaryBlack64,
               ),
+              onPressed: () {
+                setState(() {
+                  _messageResult = null;
+                });
+              },
             )
           ],
         ),
@@ -430,5 +314,16 @@ class _SubscriptionDialogState extends State<SubscriptionDialog> {
     );
   }
 
-
+  void _launchSocial(String url, String fallbackUrl) async {
+    // Don't use canLaunch because of fbProtocolUrl (fb://)
+    try {
+      bool launched =
+          await launch(url, forceSafariVC: false, forceWebView: false);
+      if (!launched) {
+        await launch(fallbackUrl, forceSafariVC: false, forceWebView: false);
+      }
+    } catch (e) {
+      await launch(fallbackUrl, forceSafariVC: false, forceWebView: false);
+    }
+  }
 }

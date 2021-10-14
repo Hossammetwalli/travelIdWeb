@@ -1,76 +1,63 @@
 abstract class BusinessConstString {
+  static String get businessMainTittle =>
+      'Boost your business with global network of independent travel freelancers';
 
- // static String get businessTitle => 'ON BOARDING CONTACTLESS TRAVEL SOLUTION ';
-  // static String get businessTitle1 => 'Prioritize ease of use';
-  static String get businessColumnTwo => 'Bookings and contactless travel shouldn\'t be complicated anymore';
-  static String get businessCoreValue => 'Protect Your Customers & Increase Your Revenue\nOne click booking & contactless experience';
+  static String get businessCoreValue =>
+      'Connect with local and global travel hackers who are ready to support your business, Deliver 3X faster & hassle free contactless services and maximize direct sales revenue';
 
+  static String get businessValue1 =>
+      "Boost your business\'s growth with the largest network of both independent travel freelancers & travelers";
 
+  static String get businessValue2 => "Boost your business's growth.";
 
-  static String get businessColumnOne => 'Provide contactless experience for your customers and guests with pre-verified eTRAVELER iD; No more  Check in Links or registration forms';
+  //
+  ///Revenue
+  static String get businessWhyRevenue1 => 'More Revenue';
 
-  static String get frictionlessTravelExperience =>"frictionless travel experience";
-  static String get businessValueOne => 'Contactless Check in';
-  static String get businessValueOneDesc => "Enable social distancing, reduce queues and congestion in public spaces";
+  static String get businessWhyRevenue2 =>
+      "More hands in sales by experienced travel hackers ";
 
+  static String get businessWhyRevenue3 =>
+      "More direct bookings at zero commission.";
 
-  static String get businessValueTwo => 'Customer Engagement & Communication';
-  static String get businessValueTwoDesc => 'Real time chat and notifications before during and after the trip';
+  static String get businessWhyRevenue4 =>
+      "More visibility to on-demand packages bookers & agents.";
 
+  ///Contactless
+  static String get businessWhyContactless => 'Go Contactless';
 
-  static String get businessValueThree => 'Data Accuracy';
-  static String get businessValueThreeDesc => 'Improved data quality and ensure accuracy of the traveler data.';
+  static String get businessWhyContactless1 =>
+      'Enable social distancing and fast track queues';
 
+  static String get businessWhyContactless2 =>
+      'Enable 3x faster on/offline booking process and registrations';
 
-  static String get businessValueFour => 'One Click Booking';
-  static String get businessValueFourDesc => 'Speeding up the booking process and makes it easy for the travelers to find your property and book directly.';
+  static String get businessWhyContactless3 =>
+      'Enable direct integration and easy setup';
 
+  ///Remote hiring
+  static String get businessWhyHire => 'On-demand Services';
 
-  static String get businessValueFive => 'Drive Direct Booking';
-  static String get businessValueFiveDesc => 'One-on-one relationship with guests; attract them to book direct with instant discounts and exclusive privileges. No commissions and no hidden fees';
+  static String get businessWhyHire1 =>
+      'Find and hire trusted travel professionals anytime & anywhere';
 
+  static String get businessWhyHire2 =>
+      'Find job opportunities and get hired as service provider ';
 
-  static String get businessValueSix => 'Personalized Offers';
-  static String get businessValueSixDesc => 'Create undisclosed discounts, Packages and Add-ons services that are relevant to your guests.';
-
-
-
-  ///Why etraveler id
-
-  static String get businessWhyTitle1 =>"Go Digital";
-  static String get businessWhyDesc1 =>"85% of guests say they’d feel more comfortable staying at hotels that use technology to"
-      " reduce direct contact. In a world transformed by social distancing, integrating touchless"
-      " experiences into all areas of the business and touch points enables your business"
-      " to transform into more agile and resilient organization.";
-
-  static String get businessWhyTitle2 =>"Get Closer to Your Guests";
-  static String get businessWhyDesc2 =>"While guests may be neutrally pleased with their experience"
-      " at your hotel, that doesn\’t mean they\’ll return. Non connected guests could still be ruled by price,"
-      " location or facilities whenever they choose to book a stay. You need to connect with them emotionally"
-      " to generate a meaningful experience. eTRAVELER iD helps you"
-      " to have lasting emotional connection not only with your current guests, but also with the future ones, and make the return stays to your hotel much easier.";
-
-  static String get businessWhyTitle3 =>"Increase Your Revenue";
-  static String get businessWhyDesc3 =>"At Zero commission, eTRAVELER iD offers the opportunity to attract more customers"
-      " and increase direct booking up to 30%. Nearly two-thirds of modern travelers prefer to book direct with hotels"
-      " and are looking for personalized and exclusive rates. join eTRAVELER iD private network,"
-      " you can offer instant discounts, perks and exclusive deals to"
-      " guests who book directly without any impact on your rates parity strategy.";
-
-
-
-
+  static String get businessWhyHire3 =>
+      'Find and partner with other independent service providers';
 
   /// IMAGES /////////////////////////////////////////////////////////////--------------------------
 
+  static String get businessHire => 'assets/business_hire.png';
 
-  static String get travelers => 'business/travelers.png';
-  static String get reception => 'business/reception.png';
-  static String get goDigital => 'business/go_digital.png';
-  static String get goDigital_1 => 'business/go_digital_1.png';
-  static String get getCloser => 'business/get_closer.png';
-  static String get getRevenue => 'business/revenue_1.png';
+  static String get businessContactless => 'assets/business_contactless.jpeg';
 
+  static String get businessRevenue => 'assets/business_revenue.png';
 
-//, eTRAVELER iD makes it easy for your customers to find you and book directly.
+  static String get businessConnect => 'assets/business_connect.png';
+
+  static String get connect => 'assets/connect.jpeg';
+
+  static String get businessBackground => 'assets/business_background1.jpeg';
 }

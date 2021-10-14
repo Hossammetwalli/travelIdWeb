@@ -1,9 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:uuid/uuid.dart';
-import 'package:webapptrial/const/const_collections_firestore.dart';
-import 'package:webapptrial/models/admin_model.dart';
-import 'package:webapptrial/models/admin_request_model.dart';
-import 'package:webapptrial/services/auth_bloc.dart';
+import 'package:webapptrial/widgets/export_widget.dart';
 
 class AdminFirestoreService {
   FirebaseFirestore _db = FirebaseFirestore.instance;
@@ -24,6 +21,16 @@ class AdminFirestoreService {
   //       .get()
   //       .then((snapshot) => PropertyModel.fromFirestore(snapshot.data()));
   // }
+
+  // Request Freelancer Access
+
+  Future<void> setFreelancerAccessRequest(
+      FreelancerRequestModel freelancerRequestModel) async {
+    return _db
+        .collection(CollectionsFireStore.freelancerRequestAccess)
+        .doc(uuid.v4())
+        .set(freelancerRequestModel.freelancerRequestModelToMap());
+  }
 
   // Request Admin access form to save
 
@@ -51,14 +58,4 @@ class AdminFirestoreService {
         .get()
         .then((snapshot) => AdminsModel.fromFirestore(snapshot.data()));
   }
-
-  // Stream<List<PropertyModel>> fetchPropertyList() async* {
-  //   yield* _db
-  //       .collection(CollectionsFireStore.properties)
-  //       .snapshots()
-  //       .map((query) => query.docs)
-  //       .map((snapshot) => snapshot
-  //       .map((document) => PropertyModel.fromFirestore(document.data()))
-  //       .toList());
-  // }
 }

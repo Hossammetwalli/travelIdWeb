@@ -1,12 +1,9 @@
+import 'package:country_code_picker/country_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
-import 'package:webapptrial/const/colors.dart';
-import 'package:webapptrial/screens/business/business_homepage.dart';
-import 'package:webapptrial/screens/users/home_page.dart';
-import 'package:webapptrial/services/auth_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:country_code_picker/country_localizations.dart';
+import 'package:provider/provider.dart';
+import 'package:webapptrial/widgets/export_widget.dart';
 
 void main() async {
   runApp(MyApp());
@@ -17,6 +14,7 @@ void main() async {
 }
 
 final auth = AuthBloc();
+final adminFirestoreServices = AdminFirestoreService();
 
 class MyApp extends StatefulWidget {
   @override
@@ -35,15 +33,17 @@ class _MyAppState extends State<MyApp> {
     return MultiProvider(
       providers: [
         Provider(create: (context) => auth),
+        Provider(create: (context) => adminFirestoreServices),
       ],
       child: MaterialApp(
-        title: 'eTRAVELER iD',
+        title: 'TRAVEL ID',
         theme: ThemeData(
-          backgroundColor: AppColors.whiteColor,
-          primaryColor: AppColors.whiteColor,
+          scrollbarTheme: ScrollbarThemeData(isAlwaysShown: true),
+          backgroundColor: AppColors.primaryWhite,
+          primaryColor: AppColors.primaryWhite,
         ),
         debugShowCheckedModeBanner: false,
-        home: BusinessHomePage(),
+        home: HomePage(),
         onGenerateRoute: Routes.materialRoutes,
         supportedLocales: [
           Locale('en'),
@@ -70,8 +70,14 @@ abstract class Routes {
     switch (settings.name) {
       case HomePage.route:
         return MaterialPageRoute(builder: (context) => HomePage());
-      case BusinessHomePage.route:
-        return MaterialPageRoute(builder: (context) => BusinessHomePage());
+      case HomePageBusiness.route:
+        return MaterialPageRoute(builder: (context) => HomePageBusiness());
+
+      case BottomBar.route:
+        return MaterialPageRoute(
+            builder: (context) => BottomBar(
+                  containerColor: Colors.transparent,
+                ));
 
       default:
         return MaterialPageRoute(builder: (context) => HomePage());
