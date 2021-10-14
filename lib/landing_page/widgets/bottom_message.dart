@@ -102,7 +102,7 @@ class _MessageWidgetState extends State<MessageWidget> {
               hintText: 'Email Address*',
               onChange: (value) => setState(() => _isEditingEmail = true),
               onSave: (value) => setState(
-                    () => _email = value,
+                () => _email = value,
               ),
               textFocusNode: textFocusNodeEmail,
             ),
