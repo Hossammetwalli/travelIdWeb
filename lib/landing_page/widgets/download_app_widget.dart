@@ -36,8 +36,8 @@ class DownloadAppWidget extends StatelessWidget {
                       children: [
                         AutoSizeText(
                           "Coming soon",
-                          style: AppTextStyles.mainTitleRegularBlue10,
-                          minFontSize: 20,
+                          style: AppTextStyles.mainTitleRegularNavy10,
+                          minFontSize: 15,
                           textAlign: TextAlign.center,
                         ),
                       ],
@@ -110,39 +110,48 @@ class DownloadAppWidget extends StatelessWidget {
                 ),
                 AutoSizeText(
                   "Coming soon",
-                  style: AppTextStyles.mainTitleRegularBlue10,
-                  minFontSize: 20,
+                  style: AppTextStyles.mainTitleRegularNavy10,
+                  minFontSize: 15,
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(
                   height: 15,
                 ),
-                // AutoSizeText(
-                //   "Empowering people to travel\nfaster, better and cheaper",
-                //   style: AppTextStyles.textRegularBlueBold17,
-                //   minFontSize: 16,
-                //   textAlign: TextAlign.center,
-                // ),
-                // SizedBox(
-                //   height: 15,
-                // ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.network(
-                      "assets/download_google.png",
-                      scale: 4,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Image.network(
-                      "assets/download_apple.png",
-                      scale: 4,
-                    ),
-                  ],
-                ),
+                (screenSize.width < 400)
+                    ? Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.network(
+                            "assets/download_google.png",
+                            scale: 8,
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Image.network(
+                            "assets/download_apple.png",
+                            scale: 8,
+                          ),
+                        ],
+                      )
+                    : Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.network(
+                            "assets/download_google.png",
+                            scale: 4,
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Image.network(
+                            "assets/download_apple.png",
+                            scale: 4,
+                          ),
+                        ],
+                      ),
               ],
             ),
           );

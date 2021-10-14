@@ -45,7 +45,7 @@ class _BusinessSignInViewState extends State<BusinessSignInView> {
                   "Login",
                   style: AppTextStyles.mainTitleRegularNavy10,
                   textAlign: TextAlign.start,
-                  minFontSize: 20,
+                  minFontSize: 30,
                 ),
                 SizedBox(
                   height: 50,
@@ -61,7 +61,7 @@ class _BusinessSignInViewState extends State<BusinessSignInView> {
                   name: "Property Id",
                   maxLines: 1,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
-                  style: AppTextStyles.mainRegularSecBlack14,
+                  style: AppTextStyles.formFontSecNavy17,
                   textAlign: TextAlign.center,
                   decoration: InputDecoration(
                     filled: true,
@@ -121,7 +121,7 @@ class _BusinessSignInViewState extends State<BusinessSignInView> {
                   name: "Password",
                   maxLines: 1,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
-                  style: AppTextStyles.mainRegularSecBlack14,
+                  style: AppTextStyles.formFontSecNavy17,
                   obscureText: _passwordVisible,
                   decoration: InputDecoration(
                     filled: true,
@@ -194,7 +194,7 @@ class _BusinessSignInViewState extends State<BusinessSignInView> {
                       children: [
                         TextSpan(
                           text: 'Keep me sign in',
-                          style: AppTextStyles.mainRegularGrey18,
+                          style: AppTextStyles.formFontSecNavy17,
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
                               _signInChecked = !_signInChecked;
@@ -211,7 +211,7 @@ class _BusinessSignInViewState extends State<BusinessSignInView> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     AppElevatedButton(
-                      fontSize: 15,
+                      fontSize: 12,
                       width: 160,
                       height: 40,
                       primaryColor: AppColors.primaryGreenB1,

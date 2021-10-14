@@ -15,7 +15,11 @@ class LandingPageLarge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: (screenSize.width > 700) ? 700 : 900,
+      height: (screenSize.width > 400)
+          ? 800
+          : (screenSize.width >= 400 && screenSize.width <= 700)
+              ? 700
+              : 900,
       width: screenSize.width,
       child: Stack(
         children: [
@@ -110,7 +114,11 @@ class BackgroundColorWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: screenSize.width,
-      height: 750,
+      height: (screenSize.width > 400)
+          ? 700
+          : (screenSize.width >= 400 && screenSize.width <= 700)
+              ? 700
+              : 900,
       color: AppColors.primaryBlueColor,
       child: Opacity(
         opacity: 0.3,

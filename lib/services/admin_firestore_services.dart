@@ -32,6 +32,14 @@ class AdminFirestoreService {
         .set(freelancerRequestModel.freelancerRequestModelToMap());
   }
 
+  // Request user subscription
+  Future<void> userSubscriptionRequest(UserModel userModel) async {
+    return _db
+        .collection("userSubscriptionRequest")
+        .doc(uuid.v4())
+        .set(userModel.userSubscriptionToMap());
+  }
+
   // Request Admin access form to save
 
   Future<void> setAdminAccessRequest(AdminRequestModel adminRequest) async {

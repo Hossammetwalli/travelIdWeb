@@ -36,16 +36,16 @@ var carouselsData = [
   {"text": "Luxury Services", "image": ConstString.luxuryImage},
 ];
 
-class TestMultipleItemDemo extends StatefulWidget {
+class MultipleItemFreeLancer extends StatefulWidget {
   final Size screenSize;
 
-  const TestMultipleItemDemo({Key key, this.screenSize}) : super(key: key);
+  const MultipleItemFreeLancer({Key key, this.screenSize}) : super(key: key);
 
   @override
-  State<TestMultipleItemDemo> createState() => _TestMultipleItemDemoState();
+  State<MultipleItemFreeLancer> createState() => _MultipleItemFreeLancerState();
 }
 
-class _TestMultipleItemDemoState extends State<TestMultipleItemDemo> {
+class _MultipleItemFreeLancerState extends State<MultipleItemFreeLancer> {
   // Scroll controller for carousel
   InfiniteScrollController _controller;
 
@@ -88,10 +88,12 @@ class _TestMultipleItemDemoState extends State<TestMultipleItemDemo> {
             child: InfiniteCarousel.builder(
               // key: _abcKey,
               anchor: 0.0,
+              center: true,
+              velocityFactor: 0.8,
+              loop: true,
+              physics: InfiniteScrollPhysics(),
 
-              itemExtent: (widget.screenSize.width < 450)
-                  ? widget.screenSize.width * .9
-                  : 450,
+              itemExtent: 400,
               itemCount: serviceName.length,
               controller: _controller,
               onIndexChanged: (index) {
@@ -119,16 +121,14 @@ class _TestMultipleItemDemoState extends State<TestMultipleItemDemo> {
                         ),
                       ),
                       child: Container(
-                        width: (widget.screenSize.width < 450)
-                            ? widget.screenSize.width * .9
-                            : 450,
+                        width: 400,
                         height: 40,
                         color: AppColors.primaryNavyColor,
                         alignment: Alignment.center,
                         child: AutoSizeText(
                           serviceName[itemIndex].text,
                           style: AppTextStyles.mainTitleRegularWhite10,
-                          minFontSize: 13,
+                          minFontSize: 12,
                         ),
                       ),
                     ),

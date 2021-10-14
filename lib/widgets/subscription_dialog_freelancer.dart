@@ -81,7 +81,7 @@ class _SubscriptionDialogFreelancerState
                 children: [
                   AutoSizeText(
                     "Complete Freelancer Application",
-                    style: AppTextStyles.mainRegularSecBlack14,
+                    style: AppTextStyles.mainTitleRegularNavy10,
                     textAlign: TextAlign.start,
                   ),
                   const SizedBox(height: 30),
@@ -89,7 +89,7 @@ class _SubscriptionDialogFreelancerState
                     'Email address',
                     textAlign: TextAlign.left,
                     maxFontSize: 16,
-                    style: AppTextStyles.mainTitleRegularBlue10,
+                    style: AppTextStyles.mainTitleRegularNavy10,
                   ),
                   const SizedBox(height: 5),
                   TextField(
@@ -115,7 +115,7 @@ class _SubscriptionDialogFreelancerState
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       AppElevatedButton(
-                        fontSize: 15,
+                        fontSize: 12,
                         width: 160,
                         height: 40,
                         title: "Join Now",
@@ -187,7 +187,7 @@ class _SubscriptionDialogFreelancerState
                           AutoSizeText(ConstString.dialogTerms1,
                               maxLines: 2,
                               maxFontSize: 12,
-                              style: AppTextStyles.mainRegularSecBlack14),
+                              style: AppTextStyles.mainTitleRegularNavy10),
                           InkWell(
                             onTap: () {
                               _launchSocial("https://www.facebook.com/",
@@ -197,7 +197,7 @@ class _SubscriptionDialogFreelancerState
                               ConstString.dialogTerms2,
                               maxLines: 2,
                               maxFontSize: 12,
-                              style: AppTextStyles.mainTitleRegularBlue10,
+                              style: AppTextStyles.mainTitleRegularNavy10,
                             ),
                           ),
                         ],
@@ -210,7 +210,7 @@ class _SubscriptionDialogFreelancerState
                             ConstString.dialogTerms3,
                             maxLines: 2,
                             maxFontSize: 12,
-                            style: AppTextStyles.mainRegularSecBlack14,
+                            style: AppTextStyles.mainTitleRegularNavy10,
                           ),
                           InkWell(
                             onTap: () {
@@ -221,7 +221,7 @@ class _SubscriptionDialogFreelancerState
                               ConstString.dialogTerms4,
                               maxLines: 2,
                               maxFontSize: 12,
-                              style: AppTextStyles.mainTitleRegularBlue10,
+                              style: AppTextStyles.mainTitleRegularNavy10,
                             ),
                           ),
                         ],

@@ -16,7 +16,7 @@ class AboutUs extends StatelessWidget {
       constraints: BoxConstraints(
           maxWidth: ResponsiveWidget.isLargeScreen(context) ? 400 : 600),
       width: ResponsiveWidget.isSmallScreen(context) ? width - 60 : width * .35,
-      height: ResponsiveWidget.isSmallScreen(context) ? 400 : 550,
+      height: 350,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -32,81 +32,146 @@ class AboutUs extends StatelessWidget {
           AutoSizeText(
             ConstString.aboutContent,
             style: AppTextStyles.mainTitleRegularWhite10,
-            minFontSize: 13,
+            minFontSize: 12,
           ),
           SizedBox(
             height: ResponsiveWidget.isSmallScreen(context) ? 20 : 40,
           ),
-          AutoSizeText(
-            ConstString.aboutMission,
-            style: AppTextStyles.mainTitleRegularWhite10,
-            minFontSize: 13,
-          ),
+          (width < 250)
+              ? Container()
+              : AutoSizeText(
+                  ConstString.aboutMission,
+                  style: AppTextStyles.mainTitleRegularWhite10,
+                  minFontSize: 12,
+                ),
           const SizedBox(
             height: 20,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                  width: 20,
-                  height: 20,
-                  child: InkWell(
-                    onTap: () {
-                      _launchSocial("https://www.facebook.com/",
-                          "https://www.facebook.com/");
-                    },
-                    child: Image.network(
-                      "assets/social_facebook.png",
+          (width < 300)
+              ? Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                        width: 20,
+                        height: 20,
+                        child: InkWell(
+                          onTap: () {
+                            _launchSocial("https://www.facebook.com/",
+                                "https://www.facebook.com/");
+                          },
+                          child: Image.network(
+                            "assets/social_facebook.png",
+                          ),
+                        )),
+                    const SizedBox(
+                      width: 5,
                     ),
-                  )),
-              const SizedBox(
-                width: 20,
-              ),
-              Container(
-                  width: 20,
-                  height: 20,
-                  child: InkWell(
-                    onTap: () {
-                      _launchSocial("https://www.linkedin.com/feed/?trk=",
-                          "https://www.linkedin.com/feed/?trk=");
-                    },
-                    child: Image.network(
-                      "assets/social_linkedin.png",
+                    Container(
+                        width: 20,
+                        height: 20,
+                        child: InkWell(
+                          onTap: () {
+                            _launchSocial("https://www.linkedin.com/feed/?trk=",
+                                "https://www.linkedin.com/feed/?trk=");
+                          },
+                          child: Image.network(
+                            "assets/social_linkedin.png",
+                          ),
+                        )),
+                    const SizedBox(
+                      width: 5,
                     ),
-                  )),
-              const SizedBox(
-                width: 20,
-              ),
-              Container(
-                  width: 20,
-                  height: 20,
-                  child: InkWell(
-                    onTap: () {
-                      _launchSocial("https://www.linkedin.com/feed/?trk=",
-                          "https://www.linkedin.com/feed/?trk=");
-                    },
-                    child: Image.network(
-                      "assets/social_instagram.png",
+                    Container(
+                        width: 20,
+                        height: 20,
+                        child: InkWell(
+                          onTap: () {
+                            _launchSocial("https://www.linkedin.com/feed/?trk=",
+                                "https://www.linkedin.com/feed/?trk=");
+                          },
+                          child: Image.network(
+                            "assets/social_instagram.png",
+                          ),
+                        )),
+                    const SizedBox(
+                      width: 5,
                     ),
-                  )),
-              const SizedBox(
-                width: 20,
-              ),
-              Container(
-                  width: 20,
-                  height: 20,
-                  child: InkWell(
-                    onTap: () {
-                      _launchSocial("https://www.linkedin.com/feed/?trk=",
-                          "https://www.linkedin.com/feed/?trk=");
-                    },
-                    child: Image.network(
-                      "assets/social_twitter.png",
+                    Container(
+                        width: 20,
+                        height: 20,
+                        child: InkWell(
+                          onTap: () {
+                            _launchSocial("https://www.linkedin.com/feed/?trk=",
+                                "https://www.linkedin.com/feed/?trk=");
+                          },
+                          child: Image.network(
+                            "assets/social_twitter.png",
+                          ),
+                        )),
+                  ],
+                )
+              : Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                        width: 20,
+                        height: 20,
+                        child: InkWell(
+                          onTap: () {
+                            _launchSocial("https://www.facebook.com/",
+                                "https://www.facebook.com/");
+                          },
+                          child: Image.network(
+                            "assets/social_facebook.png",
+                          ),
+                        )),
+                    const SizedBox(
+                      width: 20,
                     ),
-                  )),
-            ],
-          )
+                    Container(
+                        width: 20,
+                        height: 20,
+                        child: InkWell(
+                          onTap: () {
+                            _launchSocial("https://www.linkedin.com/feed/?trk=",
+                                "https://www.linkedin.com/feed/?trk=");
+                          },
+                          child: Image.network(
+                            "assets/social_linkedin.png",
+                          ),
+                        )),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    Container(
+                        width: 20,
+                        height: 20,
+                        child: InkWell(
+                          onTap: () {
+                            _launchSocial("https://www.linkedin.com/feed/?trk=",
+                                "https://www.linkedin.com/feed/?trk=");
+                          },
+                          child: Image.network(
+                            "assets/social_instagram.png",
+                          ),
+                        )),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    Container(
+                        width: 20,
+                        height: 20,
+                        child: InkWell(
+                          onTap: () {
+                            _launchSocial("https://www.linkedin.com/feed/?trk=",
+                                "https://www.linkedin.com/feed/?trk=");
+                          },
+                          child: Image.network(
+                            "assets/social_twitter.png",
+                          ),
+                        )),
+                  ],
+                )
         ],
       ),
     );

@@ -46,25 +46,11 @@ class ExploreDrawer extends StatelessWidget {
           ListTile(
             title: AutoSizeText(
               "Home Page",
-              style: AppTextStyles.mainTitleRegularBlue10,
-              minFontSize: 13,
+              style: AppTextStyles.mainTitleRegularNavy10,
+              minFontSize: 12,
             ),
             onTap: () {
               Navigator.of(context).pushNamed('/homePage');
-            },
-            leading: Icon(
-              Icons.workspaces_filled,
-              color: AppColors.primaryGreenB1,
-            ),
-          ),
-          ListTile(
-            title: AutoSizeText(
-              "Freelancer",
-              style: AppTextStyles.mainTitleRegularBlue10,
-              minFontSize: 13,
-            ),
-            onTap: () {
-              Navigator.of(context).pushNamed('/freelancer');
             },
             leading: Icon(
               Icons.workspaces_filled,
@@ -77,8 +63,8 @@ class ExploreDrawer extends StatelessWidget {
             },
             title: AutoSizeText(
               "Business Partners",
-              style: AppTextStyles.mainTitleRegularBlue10,
-              minFontSize: 13,
+              style: AppTextStyles.mainTitleRegularNavy10,
+              minFontSize: 12,
             ),
             leading: Icon(
               Icons.add_business,

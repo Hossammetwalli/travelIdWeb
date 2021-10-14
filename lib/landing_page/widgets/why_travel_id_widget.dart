@@ -37,13 +37,13 @@ class BigScreenWhy extends StatelessWidget {
         //title
         Container(
           width: screenSize.width,
-          constraints: BoxConstraints(maxWidth: 600),
+          constraints: BoxConstraints(maxWidth: 500),
           padding: const EdgeInsets.only(bottom: 100, top: 100),
           child: AutoSizeText(
             ConstString.whyMainTitle,
             style: AppTextStyles.mainTitleRegularNavy10,
             textAlign: TextAlign.center,
-            minFontSize: 45,
+            minFontSize: 30,
           ),
         ),
         //First row
@@ -182,12 +182,12 @@ class SmallScreenWhy extends StatelessWidget {
           height: 100,
         ),
         Container(
-          constraints: BoxConstraints(maxWidth: 600),
+          constraints: BoxConstraints(maxWidth: 500),
           child: AutoSizeText(
             ConstString.whyMainTitle,
             style: AppTextStyles.mainTitleRegularNavy10,
             textAlign: TextAlign.center,
-            minFontSize: 40,
+            minFontSize: 30,
           ),
         ),
         SizedBox(
@@ -311,7 +311,7 @@ class RowContent extends StatelessWidget {
               AutoSizeText(
                 rowMainTitle,
                 style: AppTextStyles.mainTitleRegularNavy10,
-                minFontSize: 30,
+                minFontSize: 25,
               ),
               SizedBox(
                 height: 15,
@@ -319,15 +319,14 @@ class RowContent extends StatelessWidget {
               AutoSizeText(
                 rowSubtitle1,
                 style: AppTextStyles.mainTitleRegularNavy10,
-                minFontSize: 20,
+                minFontSize: 15,
               ),
               SizedBox(
-                height: 5,
+                height: 15,
               ),
               AutoSizeText(
                 rowSubtitle11,
                 style: AppTextStyles.mainTitleRegularNavy10,
-                maxFontSize: 12,
                 textAlign: TextAlign.justify,
               ),
             ],
@@ -338,20 +337,19 @@ class RowContent extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: 30,
+                height: 15,
               ),
               AutoSizeText(
                 rowSubtitle2,
                 style: AppTextStyles.mainTitleRegularNavy10,
-                minFontSize: 20,
+                minFontSize: 15,
               ),
               SizedBox(
-                height: 10,
+                height: 15,
               ),
               AutoSizeText(
                 rowSubtitle22,
                 style: AppTextStyles.mainTitleRegularNavy10,
-                minFontSize: 12,
                 textAlign: TextAlign.justify,
               ),
             ],
@@ -363,20 +361,19 @@ class RowContent extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: 20,
+                height: 15,
               ),
               AutoSizeText(
                 rowSubtitle3,
                 style: AppTextStyles.mainTitleRegularNavy10,
-                minFontSize: 20,
+                minFontSize: 15,
               ),
               SizedBox(
-                height: 10,
+                height: 15,
               ),
               AutoSizeText(
                 rowSubtitle33,
                 style: AppTextStyles.mainTitleRegularNavy10,
-                minFontSize: 12,
                 textAlign: TextAlign.justify,
               ),
             ],

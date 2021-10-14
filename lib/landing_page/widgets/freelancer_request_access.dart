@@ -97,12 +97,12 @@ class _FreelancerRequestAccessState extends State<FreelancerRequestAccess> {
                     ),
                     AutoSizeText(
                       "Freelancer Application",
-                      style: AppTextStyles.mainRegularSecBlack14,
+                      style: AppTextStyles.mainTitleRegularNavy10,
                       textAlign: TextAlign.start,
-                      minFontSize: 20,
+                      minFontSize: 15,
                     ),
                     const SizedBox(
-                      height: 50,
+                      height: 30,
                     ),
                     AppFormTextField(
                       formName: "Freelancer Name",

@@ -73,9 +73,9 @@ class _AdminRequestAccessState extends State<AdminRequestAccess> {
                       ),
                       AutoSizeText(
                         "Business Registration form",
-                        style: AppTextStyles.mainRegularSecBlack14,
+                        style: AppTextStyles.mainTitleRegularNavy10,
                         textAlign: TextAlign.start,
-                        minFontSize: 20,
+                        minFontSize: 15,
                       ),
                       const SizedBox(
                         height: 50,
@@ -146,7 +146,7 @@ class _AdminRequestAccessState extends State<AdminRequestAccess> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           AppElevatedButton(
-                              fontSize: 15,
+                              fontSize: 12,
                               height: 40,
                               width: 168,
                               radius: 8,

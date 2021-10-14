@@ -22,57 +22,93 @@ class BottomBar extends StatelessWidget {
 
   Container bottomBarSmall(double _height, double _width, Color color) {
     return Container(
-      height: 1200,
+      height: 1000,
       color: color,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Column(
-            children: [
-              MessageWidget(
-                width: _width,
-                height: _height,
-              ),
-              AboutUs(width: _width, height: _height),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              InkWell(
-                child: AutoSizeText(
-                  "Privacy policy",
-                  style: AppTextStyles.mainTitleRegularWhite10,
-                  maxFontSize: 13,
+      child: (_width < 380)
+          ? Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                MessageWidget(
+                  width: _width,
+                  height: _height,
                 ),
-                onTap: () {},
-              ),
-              SizedBox(
-                width: 15,
-              ),
-              InkWell(
-                child: AutoSizeText(
-                  "Terms of use",
-                  style: AppTextStyles.mainTitleRegularWhite10,
-                  maxFontSize: 13,
+                InkWell(
+                  child: AutoSizeText(
+                    "Privacy policy",
+                    style: AppTextStyles.mainTitleRegularWhite10,
+                  ),
+                  onTap: () {},
                 ),
-                onTap: () {},
-              ),
-            ],
-          ),
-          Divider(
-            color: AppColors.primaryWhite,
-            thickness: 1,
-            indent: _width * .4,
-            endIndent: _width * .4,
-          ),
-          AutoSizeText(
-            'Copyright © 2021 | Eknon Tech OÜ',
-            style: AppTextStyles.mainTitleRegularWhite10,
-          ),
-        ],
-      ),
+                SizedBox(
+                  width: 15,
+                ),
+                InkWell(
+                  child: AutoSizeText(
+                    "Terms of use",
+                    style: AppTextStyles.mainTitleRegularWhite10,
+                  ),
+                  onTap: () {},
+                ),
+                Divider(
+                  color: AppColors.primaryWhite,
+                  thickness: 1,
+                  indent: _width * .4,
+                  endIndent: _width * .4,
+                ),
+                AutoSizeText(
+                  'Copyright © 2021\nEknon Tech OÜ',
+                  style: AppTextStyles.mainTitleRegularWhite10,
+                ),
+              ],
+            )
+          : Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Column(
+                  children: [
+                    MessageWidget(
+                      width: _width,
+                      height: _height,
+                    ),
+                    AboutUs(width: _width, height: _height),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    InkWell(
+                      child: AutoSizeText(
+                        "Privacy policy",
+                        style: AppTextStyles.mainTitleRegularWhite10,
+                      ),
+                      onTap: () {},
+                    ),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    InkWell(
+                      child: AutoSizeText(
+                        "Terms of use",
+                        style: AppTextStyles.mainTitleRegularWhite10,
+                      ),
+                      onTap: () {},
+                    ),
+                  ],
+                ),
+                Divider(
+                  color: AppColors.primaryWhite,
+                  thickness: 1,
+                  indent: _width * .4,
+                  endIndent: _width * .4,
+                ),
+                AutoSizeText(
+                  'Copyright © 2021 | Eknon Tech OÜ',
+                  style: AppTextStyles.mainTitleRegularWhite10,
+                ),
+              ],
+            ),
     );
   }
 
@@ -126,7 +162,6 @@ class BottomBar extends StatelessWidget {
                 child: AutoSizeText(
                   "Privacy policy",
                   style: AppTextStyles.mainTitleRegularWhite10,
-                  maxFontSize: 13,
                 ),
                 onTap: () {},
               ),
@@ -137,7 +172,6 @@ class BottomBar extends StatelessWidget {
                 child: AutoSizeText(
                   "Terms of use",
                   style: AppTextStyles.mainTitleRegularWhite10,
-                  maxFontSize: 13,
                 ),
                 onTap: () {},
               ),

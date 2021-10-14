@@ -86,7 +86,7 @@ class SecondWidget extends StatelessWidget {
                         child: AutoSizeText(
                           ConstString.secondPageContent2,
                           style: AppTextStyles.mainTitleRegularWhite10,
-                          minFontSize: 13,
+                          minFontSize: 15,
                           strutStyle: StrutStyle(height: 1),
                           textAlign: TextAlign.start,
                         ),

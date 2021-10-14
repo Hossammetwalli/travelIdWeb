@@ -187,38 +187,3 @@ abstract class ConstString {
 
   static String get assetThirdRow => 'assets/why_3.jpeg';
 }
-
-// static String get forTraveler1 => "Free, Secure, Friendly";
-// static String get forTraveler2 =>
-//     "Fueling contactless and low-touch travel experience";
-// static String get forTraveler3 =>
-//     "Simplest way to hire trusted travel professionals for any of your travel activities";
-// static String get forTraveler4 =>
-//     "Eliminate the waste time & stress associated with travel from inspiration to destination";
-// static String get forTraveler5 =>
-//     "Unlimited access to industry rates and exclusive offers";
-//
-// /// For Freelancer
-//
-// static String get forFreelancer1 =>
-//     "Easy, safe and secure system built for you";
-// static String get forFreelancer2 =>
-//     "Make side income helping people experiencing the world";
-// static String get forFreelancer3 =>
-//     "Join the biggest independent travel professionals community & build your network to grow";
-// static String get forFreelancer4 =>
-//     "Flexible work, you are in control of where and when you work ";
-// static String get forFreelancer5 =>
-//     "Take advantage of Travel ID exclusive partnerships";
-//
-// /// for Business
-// static String get forBusiness1 =>
-//     "Present your business to a global network of travelers and travel freelancers";
-// static String get forBusiness2 =>
-//     "Maximize your revenue with exclusive deals and personalized offers";
-// static String get forBusiness3 =>
-//     "Deliver 3X faster & hassle free contactless / low-touch services";
-// static String get forBusiness4 =>
-//     "Unlimited access to a network of global travel professionals";
-// static String get forBusiness5 =>
-//     "Take advantage of Travel ID exclusive partnerships";

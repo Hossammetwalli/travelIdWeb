@@ -31,32 +31,11 @@ abstract class AppColors {
 
   static Color get primaryBlueColor => const Color(0xFF2C19CE);
 
-  //static Color get secondaryBlueColor => const Color(0xFF2C19CE);
-
-//Color(0xFF2C19CE);
-  //  static Color get lightGreyColorF7 => const Color(0xFFF6F6F7);
-
   static Color get yellowColor => const Color(0xFFCAF605);
 
   static Color get redColor5B => const Color(0xFFE8505B);
 
   static Color get redColor5D => const Color(0xFFFF735D);
-
-  // navy 0xFF030115
-
-  // static LinearGradient get primaryColorGradient => LinearGradient(
-  //         begin: Alignment.topCenter,
-  //         end: Alignment.bottomCenter,
-  //         colors: [
-  //           Color(0xFF08DFB1),
-  //           Color(0xFF02A69C),
-  //         ],
-  //         stops: [
-  //           0.616667,
-  //           .80,
-  //
-  //           //  0.5
-  //         ]);
 
   static LinearGradient get buttonPrimaryColorGradient => LinearGradient(
           begin: Alignment.topCenter,

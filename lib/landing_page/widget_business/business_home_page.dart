@@ -105,7 +105,7 @@ class _HomePageBusinessState extends State<HomePageBusiness> {
                 ),
               ),
         drawer: ExploreDrawer(
-          topColor: AppColors.primaryBlueColor,
+          topColor: AppColors.primaryNavyColor,
         ),
         body: SingleChildScrollView(
           controller: _scrollController,

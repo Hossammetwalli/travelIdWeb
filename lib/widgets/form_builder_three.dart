@@ -146,7 +146,7 @@ class AppFormCountryPicker extends StatelessWidget {
             showOnlyCountryWhenClosed: true,
             alignLeft: true,
             enabled: true,
-            dialogTextStyle: AppTextStyles.mainRegularGrey18,
+            dialogTextStyle: AppTextStyles.formFontSecNavy17,
             flagWidth: 20,
             showFlagDialog: true,
             dialogSize: Size(300, 600),
@@ -203,7 +203,7 @@ class AppFormDropDown extends StatelessWidget {
                     ),
                   ))
               .toList(),
-          style: AppTextStyles.mainRegularGrey18,
+          style: AppTextStyles.formFontSecNavy17,
           allowClear: false,
           onSaved: onSave),
     );

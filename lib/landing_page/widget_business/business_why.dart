@@ -225,7 +225,7 @@ class BusinessRowContent extends StatelessWidget {
             AutoSizeText(
               mainTitle,
               style: AppTextStyles.mainTitleRegularNavy10,
-              minFontSize: 15,
+              minFontSize: 20,
             ),
             SizedBox(
               height: 20,

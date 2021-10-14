@@ -66,29 +66,38 @@ class _HomePageState extends State<HomePage> {
                 elevation: 0,
                 centerTitle: true,
                 iconTheme: IconThemeData(color: AppColors.primaryWhite),
-                title: Row(
-                  children: [
-                    Image.network(
-                      "assets/logo_icon_white.png",
-                      scale: 4,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Container(
-                      width: 5,
-                      height: 40,
-                      color: AppColors.primaryGreenB1,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Image.network(
-                      "assets/logo_name_green.png",
-                      scale: 2,
-                    ),
-                  ],
-                ),
+                title: (screenSize.width < 300)
+                    ? Row(
+                        children: [
+                          Image.network(
+                            "assets/logo_icon_white.png",
+                            scale: 4,
+                          ),
+                        ],
+                      )
+                    : Row(
+                        children: [
+                          Image.network(
+                            "assets/logo_icon_white.png",
+                            scale: 4,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Container(
+                            width: 5,
+                            height: 40,
+                            color: AppColors.primaryGreenB1,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Image.network(
+                            "assets/logo_name_green.png",
+                            scale: 2,
+                          ),
+                        ],
+                      ),
               )
             : PreferredSize(
                 preferredSize: Size(screenSize.width, 1000),
@@ -104,7 +113,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
         drawer: ExploreDrawer(
-          topColor: AppColors.primaryBlueColor,
+          topColor: AppColors.primaryNavyColor,
         ),
         body: SingleChildScrollView(
           controller: _scrollController,
@@ -114,9 +123,11 @@ class _HomePageState extends State<HomePage> {
             children: [
               LandingPageLarge(screenSize: screenSize),
               // MultipleItemDemo(),
-              TestMultipleItemDemo(
-                screenSize: screenSize,
-              ),
+              (screenSize.width < 450)
+                  ? Container()
+                  : MultipleItemFreeLancer(
+                      screenSize: screenSize,
+                    ),
               SecondWidget(
                 screenSize: screenSize,
               ),

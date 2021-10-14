@@ -53,7 +53,7 @@ class _MessageWidgetState extends State<MessageWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 620,
+      height: 600,
       constraints: BoxConstraints(maxWidth: 550),
       child: Form(
         key: _formKey,

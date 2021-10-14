@@ -66,7 +66,7 @@ class BusinessLandingContentLarge extends StatelessWidget {
                           BusinessConstString.businessMainTittle,
                           style: AppTextStyles.mainTitleRegularNavy10,
                           textAlign: TextAlign.start,
-                          minFontSize: 40,
+                          minFontSize: 30,
                         ),
                         const SizedBox(
                           height: 30,
@@ -166,7 +166,7 @@ class BusinessLandingContentSmall extends StatelessWidget {
                   BusinessConstString.businessMainTittle,
                   style: AppTextStyles.mainTitleRegularNavy10,
                   textAlign: TextAlign.center,
-                  minFontSize: 35,
+                  minFontSize: 30,
                 ),
               ),
               const SizedBox(
