@@ -106,6 +106,7 @@ class _HomePageBusinessState extends State<HomePageBusiness> {
               ),
         drawer: ExploreDrawer(
           topColor: AppColors.primaryNavyColor,
+          width: screenSize.width,
         ),
         body: SingleChildScrollView(
           controller: _scrollController,
@@ -116,6 +117,7 @@ class _HomePageBusinessState extends State<HomePageBusiness> {
             BusinessWhyTravelIdWidget(screenSize: screenSize),
             BottomBar(
               containerColor: AppColors.primaryNavyColor,
+              screenSize: screenSize,
             ),
           ]),
         ),
