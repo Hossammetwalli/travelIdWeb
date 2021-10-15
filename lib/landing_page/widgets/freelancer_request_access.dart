@@ -165,36 +165,39 @@ class _FreelancerRequestAccessState extends State<FreelancerRequestAccess> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        AppElevatedButton(
-                            fontSize: 15,
-                            height: 40,
-                            width: 168,
-                            radius: 8,
-                            title: "Submit",
-                            textStyle: AppTextStyles.mainTitleRegularWhite10,
-                            primaryColor: AppColors.primaryGreenB1,
-                            // gradient: AppColors.buttonPrimaryColorGradient,
-                            onPress: () async {
-                              if (_formKey.currentState.saveAndValidate()) {
-                                _formKey.currentState.save();
+                        Flexible(
+                          fit: FlexFit.loose,
+                          child: AppElevatedButton(
+                              fontSize: 15,
+                              height: 40,
+                              width: 168,
+                              radius: 8,
+                              title: "Submit",
+                              textStyle: AppTextStyles.mainTitleRegularWhite10,
+                              primaryColor: AppColors.primaryGreenB1,
+                              // gradient: AppColors.buttonPrimaryColorGradient,
+                              onPress: () async {
+                                if (_formKey.currentState.saveAndValidate()) {
+                                  _formKey.currentState.save();
 
-                                _adminFireStoreService
-                                    .setFreelancerAccessRequest(
-                                        FreelancerRequestModel(
-                                            businessEmail: _businessEmail,
-                                            freelancerName: _fullName,
-                                            requestApproved: false,
-                                            serviceDestinationCountry:
-                                                _serviceDestinationCountry,
-                                            serviceShortDescription:
-                                                _serviceShortDescription,
-                                            speciality: _speciality,
-                                            timeStamp: DateTime.now(),
-                                            userID: uuid.v4(),
-                                            whyDoYouWantToJoin:
-                                                _whyDoYouWantToJoin));
-                              }
-                            }),
+                                  _adminFireStoreService
+                                      .setFreelancerAccessRequest(
+                                          FreelancerRequestModel(
+                                              businessEmail: _businessEmail,
+                                              freelancerName: _fullName,
+                                              requestApproved: false,
+                                              serviceDestinationCountry:
+                                                  _serviceDestinationCountry,
+                                              serviceShortDescription:
+                                                  _serviceShortDescription,
+                                              speciality: _speciality,
+                                              timeStamp: DateTime.now(),
+                                              userID: uuid.v4(),
+                                              whyDoYouWantToJoin:
+                                                  _whyDoYouWantToJoin));
+                                }
+                              }),
+                        ),
                       ],
                     ),
                     SizedBox(height: 50),

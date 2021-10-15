@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:uuid/uuid.dart';
@@ -145,50 +146,56 @@ class _AdminRequestAccessState extends State<AdminRequestAccess> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
-                          AppElevatedButton(
-                              fontSize: 12,
-                              height: 40,
-                              width: 168,
-                              radius: 8,
-                              title: "Submit",
-                              textStyle: AppTextStyles.mainTitleRegularWhite10,
-                              primaryColor: AppColors.primaryGreenB1,
-                              onPress: () async {
-                                if (_formKey.currentState.saveAndValidate()) {
-                                  _formKey.currentState.save();
+                          Flexible(
+                            fit: FlexFit.loose,
+                            child: AppElevatedButton(
+                                fontSize: 12,
+                                height: 40,
+                                width: 168,
+                                radius: 8,
+                                title: "Submit",
+                                textStyle:
+                                    AppTextStyles.mainTitleRegularWhite10,
+                                primaryColor: AppColors.primaryGreenB1,
+                                onPress: () async {
+                                  if (_formKey.currentState.saveAndValidate()) {
+                                    _formKey.currentState.save();
 
-                                  String propertyId =
-                                      "${"P" + _city.toString().substring(0, 1).toUpperCase() + _country.toString().substring(0, 1).toUpperCase() + '11' + uuid.v4().hashCode.toString().toUpperCase()}";
+                                    String propertyId =
+                                        "${"P" + _city.toString().substring(0, 1).toUpperCase() + _country.toString().substring(0, 1).toUpperCase() + '11' + uuid.v4().hashCode.toString().toUpperCase()}";
 
-                                  _fireStoreService.setAdminAccessRequest(
-                                      AdminRequestModel(
-                                          documentId: uuid.v4(),
-                                          propertyId: propertyId,
-                                          propertyCategory: _propertyCategory,
-                                          webSiteUrl: _webPage.trim(),
-                                          propertyName: _propertyName.trim(),
-                                          country: _country,
-                                          city: _city.trim(),
-                                          telephone: _telephone.trim(),
-                                          infoEmail: _infoEmail.trim(),
-                                          contactName: _contactName.trim(),
-                                          approved: false,
-                                          timeStamp: DateTime.now()));
+                                    _fireStoreService.setAdminAccessRequest(
+                                        AdminRequestModel(
+                                            documentId: uuid.v4(),
+                                            propertyId: propertyId,
+                                            propertyCategory: _propertyCategory,
+                                            webSiteUrl: _webPage.trim(),
+                                            propertyName: _propertyName.trim(),
+                                            country: _country,
+                                            city: _city.trim(),
+                                            telephone: _telephone.trim(),
+                                            infoEmail: _infoEmail.trim(),
+                                            contactName: _contactName.trim(),
+                                            approved: false,
+                                            timeStamp: DateTime.now()));
 
-                                  _fireStoreService.setAdmins(AdminsModel(
-                                      documentId: uuid.v4(),
-                                      propertyId: propertyId,
-                                      propertyName: _propertyName,
-                                      propertyCategory: _propertyCategory,
-                                      contactName: _contactName,
-                                      admin: false,
-                                      password:
-                                          uuid.v1().toString().substring(0, 10),
-                                      timeStamp: DateTime.now()));
+                                    _fireStoreService.setAdmins(AdminsModel(
+                                        documentId: uuid.v4(),
+                                        propertyId: propertyId,
+                                        propertyName: _propertyName,
+                                        propertyCategory: _propertyCategory,
+                                        contactName: _contactName,
+                                        admin: false,
+                                        password: uuid
+                                            .v1()
+                                            .toString()
+                                            .substring(0, 10),
+                                        timeStamp: DateTime.now()));
 
-                                  Navigator.of(context).pop();
-                                }
-                              }),
+                                    Navigator.of(context).pop();
+                                  }
+                                }),
+                          ),
                         ],
                       ),
                       SizedBox(height: 50),

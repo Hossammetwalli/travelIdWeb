@@ -134,6 +134,7 @@ class AppFormCountryPicker extends StatelessWidget {
         child: Container(
           height: 50,
           child: CountryCodePicker(
+            textOverflow: TextOverflow.ellipsis,
             textStyle: AppTextStyles.formFontSecNavy17,
 
             searchDecoration: InputDecoration(

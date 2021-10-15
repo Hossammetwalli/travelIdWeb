@@ -4,10 +4,12 @@ import 'package:webapptrial/widgets/export_widget.dart';
 
 class ExploreDrawer extends StatelessWidget {
   final Color topColor;
+  final double width;
 
   const ExploreDrawer({
     Key key,
     @required this.topColor,
+    @required this.width,
   }) : super(key: key);
 
   @override
@@ -19,29 +21,38 @@ class ExploreDrawer extends StatelessWidget {
             decoration: BoxDecoration(
               color: topColor,
             ),
-            child: Row(
-              children: [
-                Image.network(
-                  "assets/logo_icon_white.png",
-                  scale: 2,
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Container(
-                  width: 5,
-                  height: 40,
-                  color: AppColors.primaryGreenB1,
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Image.network(
-                  "assets/logo_name_green.png",
-                  scale: 1.5,
-                ),
-              ],
-            ),
+            child: (width < 400)
+                ? Row(
+                    children: [
+                      Image.network(
+                        "assets/logo_icon_white.png",
+                        scale: 4,
+                      ),
+                    ],
+                  )
+                : Row(
+                    children: [
+                      Image.network(
+                        "assets/logo_icon_white.png",
+                        scale: 2,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        width: 5,
+                        height: 40,
+                        color: AppColors.primaryGreenB1,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Image.network(
+                        "assets/logo_name_green.png",
+                        scale: 1.5,
+                      ),
+                    ],
+                  ),
           ),
           ListTile(
             title: AutoSizeText(

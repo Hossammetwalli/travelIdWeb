@@ -53,8 +53,9 @@ class _MessageWidgetState extends State<MessageWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 600,
-      constraints: BoxConstraints(maxWidth: 550),
+      height: widget.height,
+      width: widget.width,
+      constraints: BoxConstraints(maxWidth: 600),
       child: Form(
         key: _formKey,
         autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -72,9 +73,7 @@ class _MessageWidgetState extends State<MessageWidget> {
               height: 30,
             ),
             AppTextFormFieldOriginal(
-              width: ResponsiveWidget.isSmallScreen(context)
-                  ? widget.width * 0.8
-                  : widget.width * 0.4,
+              width: widget.width - 50,
               height: 50,
               maxLine: 1,
               keyboardType: TextInputType.name,
@@ -91,9 +90,7 @@ class _MessageWidgetState extends State<MessageWidget> {
               height: 40,
             ),
             AppTextFormFieldOriginal(
-              width: ResponsiveWidget.isSmallScreen(context)
-                  ? widget.width * 0.8
-                  : widget.width * 0.4,
+              width: widget.width - 50,
               height: 50,
               maxLine: 1,
               keyboardType: TextInputType.emailAddress,
@@ -110,9 +107,7 @@ class _MessageWidgetState extends State<MessageWidget> {
               height: 40,
             ),
             AppTextFormFieldOriginal(
-              width: ResponsiveWidget.isSmallScreen(context)
-                  ? widget.width * 0.8
-                  : widget.width * 0.4,
+              width: widget.width - 50,
               height: 180,
               maxLine: 15,
               maxLength: 500,
@@ -134,7 +129,7 @@ class _MessageWidgetState extends State<MessageWidget> {
               radius: 8.0,
               textStyle: AppTextStyles.mainTitleRegularWhite10,
               height: 40,
-              width: 180,
+              width: 160,
               title: "Send",
               primaryColor: AppColors.primaryGreenB1,
               onPress: () async {

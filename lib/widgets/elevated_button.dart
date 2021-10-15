@@ -58,6 +58,7 @@ class AppElevatedButton extends StatelessWidget {
     return Container(
       width: width,
       height: height,
+      constraints: BoxConstraints(minWidth: width),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           primary: primaryColor,

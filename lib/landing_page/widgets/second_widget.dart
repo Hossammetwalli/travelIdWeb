@@ -42,7 +42,7 @@ class SecondWidget extends StatelessWidget {
                           ConstString.secondPageContent2,
                           style: AppTextStyles.mainTitleRegularWhite10,
                           minFontSize: 20,
-                          strutStyle: StrutStyle(height: 2),
+                          strutStyle: StrutStyle(height: 1),
                           textAlign: TextAlign.start,
                         ),
                       ),

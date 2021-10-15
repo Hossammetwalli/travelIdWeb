@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Image.network(
                             "assets/logo_icon_white.png",
-                            scale: 4,
+                            scale: 10,
                           ),
                         ],
                       )
@@ -114,6 +114,7 @@ class _HomePageState extends State<HomePage> {
               ),
         drawer: ExploreDrawer(
           topColor: AppColors.primaryNavyColor,
+          width: screenSize.width,
         ),
         body: SingleChildScrollView(
           controller: _scrollController,
@@ -137,6 +138,7 @@ class _HomePageState extends State<HomePage> {
               DownloadAppWidget(screenSize: screenSize),
               BottomBar(
                 containerColor: AppColors.primaryNavyColor,
+                screenSize: screenSize,
               ),
             ],
           ),
