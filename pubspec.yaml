@@ -25,6 +25,7 @@ dependencies:
   firebase_auth: any
   firebase_storage:
   fluttertoast: any
+  firebase_analytics: ^8.3.3
 
   auto_size_text: any
   flutter_form_builder: ^6.0.0

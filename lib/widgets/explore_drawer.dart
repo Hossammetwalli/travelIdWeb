@@ -36,7 +36,7 @@ class ExploreDrawer extends StatelessWidget {
                         "assets/logo_icon_white.png",
                         scale: 2,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       Container(
@@ -44,7 +44,7 @@ class ExploreDrawer extends StatelessWidget {
                         height: 40,
                         color: AppColors.primaryGreenB1,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       Image.network(

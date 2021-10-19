@@ -44,7 +44,6 @@ class _SubscriptionDialogState extends State<SubscriptionDialog> {
 
   @override
   Widget build(BuildContext context) {
-    var _width = MediaQuery.of(context).size.width;
     var _adminFireStoreService =
         Provider.of<AdminFirestoreService>(context, listen: false);
     return Dialog(

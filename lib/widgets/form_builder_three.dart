@@ -37,7 +37,7 @@ class EmptyTextField extends StatelessWidget {
         maxLines: maximumLines,
         maxLength: maximumLength,
         decoration: buildFormTextDecoration(hintText, labelText),
-        style: AppTextStyles.formFontSecNavy17,
+        style: AppTextStyles.formFontSecNavy16,
         cursorColor: AppColors.secondaryBlack64,
         textCapitalization: TextCapitalization.sentences,
         textInputAction: TextInputAction.next,
@@ -90,7 +90,7 @@ class AppFormTextField extends StatelessWidget {
         maxLines: maximumLines,
         maxLength: maximumLength,
         decoration: buildFormTextDecoration(hintText, labelText),
-        style: AppTextStyles.formFontSecNavy17,
+        style: AppTextStyles.formFontSecNavy16,
         cursorColor: AppColors.secondaryBlack64,
         textCapitalization: TextCapitalization.sentences,
         textInputAction: TextInputAction.next,
@@ -135,7 +135,7 @@ class AppFormCountryPicker extends StatelessWidget {
           height: 50,
           child: CountryCodePicker(
             textOverflow: TextOverflow.ellipsis,
-            textStyle: AppTextStyles.formFontSecNavy17,
+            textStyle: AppTextStyles.formFontSecNavy16,
 
             searchDecoration: InputDecoration(
               contentPadding: EdgeInsets.only(left: 30, right: 30),
@@ -147,12 +147,12 @@ class AppFormCountryPicker extends StatelessWidget {
             showOnlyCountryWhenClosed: true,
             alignLeft: true,
             enabled: true,
-            dialogTextStyle: AppTextStyles.formFontSecNavy17,
+            dialogTextStyle: AppTextStyles.formFontSecNavy16,
             flagWidth: 20,
             showFlagDialog: true,
             dialogSize: Size(300, 600),
             showCountryOnly: true,
-            searchStyle: AppTextStyles.formFontSecNavy17,
+            searchStyle: AppTextStyles.formFontSecNavy16,
             padding: EdgeInsets.all(0),
 
             //  initialSelection: initialValue,
@@ -200,11 +200,11 @@ class AppFormDropDown extends StatelessWidget {
                     value: category,
                     child: Text(
                       '$category',
-                      style: AppTextStyles.formFontSecNavy17,
+                      style: AppTextStyles.formFontSecNavy16,
                     ),
                   ))
               .toList(),
-          style: AppTextStyles.formFontSecNavy17,
+          style: AppTextStyles.formFontSecNavy16,
           allowClear: false,
           onSaved: onSave),
     );
@@ -246,7 +246,7 @@ class AppFormEmailField extends StatelessWidget {
         maxLines: 1,
 
         decoration: buildFormTextDecoration(" ", labelText),
-        style: AppTextStyles.formFontSecNavy17,
+        style: AppTextStyles.formFontSecNavy16,
         onSaved: onSave,
       ),
     );
@@ -286,7 +286,7 @@ class AppFormDatePicker extends StatelessWidget {
         autovalidateMode: AutovalidateMode.onUserInteraction,
         initialEntryMode: DatePickerEntryMode.calendar,
         initialDatePickerMode: DatePickerMode.day,
-        style: AppTextStyles.formFontSecNavy17,
+        style: AppTextStyles.formFontSecNavy16,
         decoration: buildFormTextDecoration(" ", labelText),
         initialDate: DateTime.now(),
         alwaysUse24HourFormat: true,
@@ -337,7 +337,7 @@ class AppFormDatePickerTwo extends StatelessWidget {
         autovalidateMode: AutovalidateMode.onUserInteraction,
         initialEntryMode: DatePickerEntryMode.calendar,
         initialDatePickerMode: DatePickerMode.day,
-        style: AppTextStyles.formFontSecNavy17,
+        style: AppTextStyles.formFontSecNavy16,
         decoration: buildFormTextDecoration(" ", labelText),
         initialDate: DateTime.now(),
         alwaysUse24HourFormat: true,
@@ -373,7 +373,7 @@ class AppFormTimePicker extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: FormBuilderDateTimePicker(
-        style: AppTextStyles.formFontSecNavy17,
+        style: AppTextStyles.formFontSecNavy16,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         alwaysUse24HourFormat: true,
         textInputAction: TextInputAction.next,
@@ -407,7 +407,7 @@ class AppFormDateRangePicker extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: FormBuilderDateRangePicker(
-        style: AppTextStyles.formFontSecNavy17,
+        style: AppTextStyles.formFontSecNavy16,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         name: formName,
         textInputAction: TextInputAction.next,
@@ -532,7 +532,7 @@ class AppFormWebsite extends StatelessWidget {
         maxLength: maximumLength,
 
         decoration: buildFormTextDecoration(" ", labelText),
-        style: AppTextStyles.formFontSecNavy17,
+        style: AppTextStyles.formFontSecNavy16,
         onSaved: onSave,
       ),
     );
@@ -562,7 +562,7 @@ class AppFormBuilderRangeSlider extends StatelessWidget {
         initialValue: 5.0,
         divisions: 5,
         autovalidateMode: AutovalidateMode.onUserInteraction,
-        minTextStyle: AppTextStyles.formFontSecNavy17,
+        minTextStyle: AppTextStyles.formFontSecNavy16,
         activeColor: Colors.green,
         inactiveColor: Colors.red,
         decoration: buildFormTextDecoration(" ", labelText),
@@ -617,7 +617,7 @@ class AppFormNumericField extends StatelessWidget {
         maxLines: maximumLines,
 
         decoration: buildFormTextDecoration(hintText, labelText),
-        style: AppTextStyles.formFontSecNavy17,
+        style: AppTextStyles.formFontSecNavy16,
         onSaved: onSave,
       ),
     );
@@ -662,8 +662,8 @@ InputDecoration buildFormTextDecoration(
           )),
       labelText: label,
       hintText: hint,
-      hintStyle: AppTextStyles.mainRegularGrey18,
-      labelStyle: AppTextStyles.mainRegularGrey18,
+      hintStyle: AppTextStyles.mainRegularGrey16,
+      labelStyle: AppTextStyles.mainRegularGrey16,
       contentPadding: EdgeInsets.only(left: 15, top: 20));
 }
 

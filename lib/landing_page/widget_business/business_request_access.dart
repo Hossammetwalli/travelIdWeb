@@ -76,7 +76,7 @@ class _AdminRequestAccessState extends State<AdminRequestAccess> {
                         "Business Registration form",
                         style: AppTextStyles.mainTitleRegularNavy10,
                         textAlign: TextAlign.start,
-                        minFontSize: 15,
+                        minFontSize: 16,
                       ),
                       const SizedBox(
                         height: 50,
@@ -149,7 +149,7 @@ class _AdminRequestAccessState extends State<AdminRequestAccess> {
                           Flexible(
                             fit: FlexFit.loose,
                             child: AppElevatedButton(
-                                fontSize: 12,
+                                fontSize: 14,
                                 height: 40,
                                 width: 168,
                                 radius: 8,
@@ -198,7 +198,7 @@ class _AdminRequestAccessState extends State<AdminRequestAccess> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 50),
+                      const SizedBox(height: 50),
                     ],
                   ),
                 ),

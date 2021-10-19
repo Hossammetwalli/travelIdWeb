@@ -4,44 +4,49 @@ import 'package:webapptrial/widgets/export_widget.dart';
 
 class AboutUs extends StatelessWidget {
   final double width;
-  final double height;
 
-  const AboutUs({Key key, @required this.width, @required this.height})
-      : super(key: key);
+  const AboutUs({
+    Key key,
+    @required this.width,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        constraints: BoxConstraints(maxWidth: 500, minWidth: 300),
-        width: width,
-        height: height,
+        constraints: const BoxConstraints(maxWidth: 400),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(
-              height: 50,
-            ),
             AutoSizeText(
               "Who we are",
               style: AppTextStyles.mainTitleRegularWhite10,
-              minFontSize: 15,
+              minFontSize: 18,
+              textAlign: TextAlign.start,
             ),
             const SizedBox(
               height: 10,
             ),
-            AutoSizeText(
-              ConstString.aboutContent,
-              style: AppTextStyles.mainTitleRegularWhite10,
-              minFontSize: 14,
+            Container(
+              width: width,
+              child: AutoSizeText(
+                ConstString.aboutContent,
+                style: AppTextStyles.mainTitleRegularWhite10,
+                textAlign: TextAlign.justify,
+                minFontSize: 16,
+              ),
             ),
             const SizedBox(
               height: 30,
             ),
-            AutoSizeText(
-              ConstString.aboutMission,
-              style: AppTextStyles.mainTitleRegularWhite10,
-              minFontSize: 14,
+            Container(
+              width: width,
+              child: AutoSizeText(
+                ConstString.aboutMission,
+                style: AppTextStyles.mainTitleRegularWhite10,
+                textAlign: TextAlign.justify,
+                minFontSize: 16,
+              ),
             ),
           ],
         ));

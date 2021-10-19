@@ -37,9 +37,9 @@ class TopBarContents extends StatelessWidget {
               children: [
                 Image.network(
                   "assets/logo_icon_white.png",
-                  scale: 2,
+                  scale: 3,
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Container(
@@ -47,19 +47,19 @@ class TopBarContents extends StatelessWidget {
                   height: 40,
                   color: AppColors.primaryGreenB1,
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Image.network(
                   "assets/logo_name_green.png",
-                  scale: 1.5,
+                  scale: 2,
                 ),
-                SizedBox(width: screenSize.width * .1),
+                SizedBox(width: screenSize.width * .05),
                 AppTextButton(
-                    fontSize: 12,
+                    fontSize: 14,
                     radius: 5,
                     height: 40,
-                    width: 160,
+                    width: 100,
                     title: buttonOneName,
                     textStyle: AppTextStyles.mainTitleRegularWhite10,
                     backGroundColor: Colors.transparent,
@@ -72,10 +72,10 @@ class TopBarContents extends StatelessWidget {
                       */
                     ),
                 AppTextButton(
-                    fontSize: 12,
+                    fontSize: 14,
                     radius: 5,
                     height: 40,
-                    width: 160,
+                    width: 130,
                     title: buttonTwoName,
                     textStyle: AppTextStyles.mainTitleRegularWhite10,
                     backGroundColor: Colors.transparent,

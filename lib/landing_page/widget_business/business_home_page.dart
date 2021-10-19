@@ -9,14 +9,12 @@ class HomePageBusiness extends StatefulWidget {
 }
 
 class _HomePageBusinessState extends State<HomePageBusiness> {
-  double _scrollPosition = 0;
-  double _opacity = 1;
   ScrollController _scrollController =
       ScrollController(initialScrollOffset: 0.0);
 
   _scrollListener() {
     setState(() {
-      _scrollPosition = _scrollController.position.pixels;
+      // _scrollPosition = _scrollController.position.pixels;
     });
   }
 
@@ -43,53 +41,63 @@ class _HomePageBusinessState extends State<HomePageBusiness> {
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
-    _opacity = _scrollPosition < screenSize.height * 0.40
-        ? _scrollPosition / (screenSize.height * 0.40)
-        : 1;
+    // _opacity = _scrollPosition < screenSize.height * 0.40
+    //     ? _scrollPosition / (screenSize.height * 0.40)
+    //     : 1;
 
     return Scrollbar(
       isAlwaysShown: true,
       controller: _scrollController,
       hoverThickness: 15,
+      thickness: 15,
       showTrackOnHover: true,
       interactive: true,
+      radius: Radius.zero,
       child: Scaffold(
         backgroundColor: AppColors.primaryWhite,
-        extendBodyBehindAppBar: true,
         appBar: ResponsiveWidget.isSmallScreen(context)
             ? AppBar(
-                backgroundColor: AppColors.primaryNavyColor,
+                backgroundColor: AppColors.primaryBlueColor,
                 elevation: 0,
                 centerTitle: true,
                 iconTheme: IconThemeData(color: AppColors.primaryWhite),
-                title: Row(
-                  children: [
-                    Image.network(
-                      "assets/logo_icon_white.png",
-                      scale: 4,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Container(
-                      width: 5,
-                      height: 40,
-                      color: AppColors.primaryGreenB1,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Image.network(
-                      "assets/logo_name_green.png",
-                      scale: 2,
-                    ),
-                  ],
-                ),
+                title: (screenSize.width < 300)
+                    ? Row(
+                        children: [
+                          Image.network(
+                            "assets/logo_icon_white.png",
+                            scale: 5,
+                          ),
+                        ],
+                      )
+                    : Row(
+                        children: [
+                          Image.network(
+                            "assets/logo_icon_white.png",
+                            scale: 4,
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Container(
+                            width: 5,
+                            height: 40,
+                            color: AppColors.primaryGreenB1,
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Image.network(
+                            "assets/logo_name_green.png",
+                            scale: 2,
+                          ),
+                        ],
+                      ),
               )
             : PreferredSize(
                 preferredSize: Size(screenSize.width, 1000),
                 child: TopBarContents(
-                  topBarColor: AppColors.primaryNavyColor,
+                  topBarColor: AppColors.primaryBlueColor,
                   opacity: 1,
                   buttonOneName: "Home Page",
                   buttonTwoName: "Business Login",
@@ -105,18 +113,18 @@ class _HomePageBusinessState extends State<HomePageBusiness> {
                 ),
               ),
         drawer: ExploreDrawer(
-          topColor: AppColors.primaryNavyColor,
+          topColor: AppColors.primaryBlueColor,
           width: screenSize.width,
         ),
         body: SingleChildScrollView(
           controller: _scrollController,
-          padding: EdgeInsets.only(right: 15),
-          physics: ClampingScrollPhysics(),
+          padding: const EdgeInsets.only(right: 15),
+          physics: const ClampingScrollPhysics(),
           child: Column(children: [
             LandingPageBusiness(screenSize: screenSize),
             BusinessWhyTravelIdWidget(screenSize: screenSize),
             BottomBar(
-              containerColor: AppColors.primaryNavyColor,
+              containerColor: AppColors.primaryBlueColor,
               screenSize: screenSize,
             ),
           ]),

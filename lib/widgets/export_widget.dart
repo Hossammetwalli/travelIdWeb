@@ -40,8 +40,3 @@ export 'package:webapptrial/widgets/form_builder_three.dart';
 export 'package:webapptrial/widgets/responsive.dart';
 export 'package:webapptrial/widgets/subscription_dialog.dart';
 export 'package:webapptrial/widgets/text_form_field.dart';
-export 'package:webapptrial/zzdelete/business_landingpage_large.dart';
-export 'package:webapptrial/zzdelete/business_landingpage_small.dart';
-export 'package:webapptrial/zzdelete/custom_dialog.dart';
-export 'package:webapptrial/zzdelete/home_page_freelancer.dart';
-export 'package:webapptrial/zzdelete/multiple_items_widget.dart';

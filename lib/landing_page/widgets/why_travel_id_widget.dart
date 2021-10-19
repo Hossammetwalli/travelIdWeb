@@ -14,7 +14,7 @@ class WhyTravelIdWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return (ResponsiveWidget.isLargeScreen(context))
+    return ResponsiveWidget.isLargeScreen(context)
         ? BigScreenWhy(screenSize: screenSize)
         :
         //Small Screen
@@ -35,40 +35,28 @@ class BigScreenWhy extends StatelessWidget {
     return Column(
       children: [
         //title
-        Container(
-          width: screenSize.width,
-          constraints: BoxConstraints(maxWidth: 500),
-          padding: const EdgeInsets.only(bottom: 100, top: 100),
-          child: AutoSizeText(
-            ConstString.whyMainTitle,
-            style: AppTextStyles.mainTitleRegularNavy10,
-            textAlign: TextAlign.center,
-            minFontSize: 30,
-          ),
-        ),
+
         //First row
 
-        Container(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                constraints: BoxConstraints(
-                    maxWidth: (screenSize.width >= 1100) ? 550 : 480,
-                    maxHeight: 550),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Flexible(
+              fit: FlexFit.loose,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 25, top: 25, bottom: 25),
                 child: Image.network(
                   ConstString.assetFirstRow,
-                  scale: 1,
-
-                  fit: BoxFit.cover,
+                  scale: 2,
+                  fit: BoxFit.fill,
                   // scale: 2,
                 ),
               ),
-              SizedBox(
-                width: 50,
-              ),
-              RowContent(
+            ),
+            Flexible(
+              fit: FlexFit.loose,
+              child: RowContent(
                 screenSize: screenSize,
                 width: 450,
                 rowMainTitle: ConstString.firstRowMainTitle,
@@ -79,21 +67,18 @@ class BigScreenWhy extends StatelessWidget {
                 rowSubtitle22: ConstString.firstRowSubtitle22,
                 rowSubtitle33: ConstString.firstRowSubtitle33,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-        SizedBox(
-          height: 50,
-        ),
+
         //2nd row
-        Container(
-          //color: AppColors.lightGreyColorF7,
-          padding: const EdgeInsets.only(top: 50, bottom: 50),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              RowContent(
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Flexible(
+              fit: FlexFit.loose,
+              child: RowContent(
                 screenSize: screenSize,
                 width: 450,
                 rowMainTitle: ConstString.secondRowMainTitle,
@@ -104,48 +89,43 @@ class BigScreenWhy extends StatelessWidget {
                 rowSubtitle22: ConstString.secondRowSubtitle22,
                 rowSubtitle33: ConstString.secondRowSubtitle33,
               ),
-              SizedBox(
-                width: 50,
-              ),
-              Container(
-                constraints: BoxConstraints(
-                    maxWidth: (screenSize.width >= 1100) ? 550 : 480,
-                    maxHeight: 550),
+            ),
+            Flexible(
+              fit: FlexFit.loose,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 25, top: 25, bottom: 25),
                 child: Image.network(
                   ConstString.assetSecondRow,
-                  scale: 1,
+                  scale: 2,
 
-                  fit: BoxFit.cover,
+                  fit: BoxFit.fill,
                   // scale: 2,
                 ),
               ),
-            ],
-          ),
-        ),
-        SizedBox(
-          height: 80,
+            ),
+          ],
         ),
         //3rd row
-        Container(
-          padding: const EdgeInsets.only(bottom: 50),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                constraints: BoxConstraints(
-                    maxWidth: (screenSize.width >= 1100) ? 550 : 480,
-                    maxHeight: 550),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Flexible(
+              fit: FlexFit.loose,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 25, top: 25, bottom: 25),
                 child: Image.network(
                   ConstString.assetThirdRow,
-                  scale: 1,
+                  scale: 2,
 
                   fit: BoxFit.cover,
                   // scale: 2,
                 ),
               ),
-              SizedBox(width: 50),
-              RowContent(
+            ),
+            Flexible(
+              fit: FlexFit.loose,
+              child: RowContent(
                 screenSize: screenSize,
                 width: 450,
                 rowMainTitle: ConstString.thirdRowMainTitle,
@@ -156,8 +136,8 @@ class BigScreenWhy extends StatelessWidget {
                 rowSubtitle22: ConstString.thirdRowSubtitle22,
                 rowSubtitle33: ConstString.thirdRowSubtitle33,
               ),
-            ],
-          ),
+            ),
+          ],
         )
       ],
     );
@@ -178,34 +158,22 @@ class SmallScreenWhy extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        SizedBox(
-          height: 100,
-        ),
-        Container(
-          constraints: BoxConstraints(maxWidth: 500),
-          child: AutoSizeText(
-            ConstString.whyMainTitle,
-            style: AppTextStyles.mainTitleRegularNavy10,
-            textAlign: TextAlign.center,
-            minFontSize: 30,
+        Padding(
+          padding: const EdgeInsets.all(25.0),
+          child: Image.network(
+            ConstString.assetFirstRow,
+            scale: 1,
+
+            fit: BoxFit.fill,
+            // scale: 2,
           ),
         ),
-        SizedBox(
-          height: 50,
-        ),
-        Image.network(
-          ConstString.assetFirstRow,
-          scale: 2,
-
-          fit: BoxFit.cover,
-          // scale: 2,
-        ),
-        SizedBox(
-          height: 50,
+        const SizedBox(
+          height: 15,
         ),
         RowContent(
           screenSize: screenSize,
-          width: (screenSize.width > 500) ? 500 : screenSize.width * .9,
+          width: (screenSize.width > 500) ? 500 : screenSize.width,
           rowMainTitle: ConstString.firstRowMainTitle,
           rowSubtitle1: ConstString.firstRowSubtitle1,
           rowSubtitle2: ConstString.firstRowSubtitle2,
@@ -214,23 +182,26 @@ class SmallScreenWhy extends StatelessWidget {
           rowSubtitle22: ConstString.firstRowSubtitle22,
           rowSubtitle33: ConstString.firstRowSubtitle33,
         ),
-        SizedBox(
-          height: 70,
+        const SizedBox(
+          height: 15,
         ),
         //2nd secreen
-        Image.network(
-          ConstString.assetSecondRow,
-          scale: 2,
+        Padding(
+          padding: const EdgeInsets.all(25.0),
+          child: Image.network(
+            ConstString.assetSecondRow,
+            scale: 1,
 
-          fit: BoxFit.cover,
-          // scale: 2,
+            fit: BoxFit.fill,
+            // scale: 2,
+          ),
         ),
-        SizedBox(
-          height: 50,
+        const SizedBox(
+          height: 15,
         ),
         RowContent(
           screenSize: screenSize,
-          width: (screenSize.width > 500) ? 500 : screenSize.width * .9,
+          width: (screenSize.width > 500) ? 500 : screenSize.width,
           rowMainTitle: ConstString.secondRowMainTitle,
           rowSubtitle1: ConstString.secondRowSubtitle1,
           rowSubtitle2: ConstString.secondRowSubtitle2,
@@ -239,25 +210,28 @@ class SmallScreenWhy extends StatelessWidget {
           rowSubtitle22: ConstString.secondRowSubtitle22,
           rowSubtitle33: ConstString.secondRowSubtitle33,
         ),
-        SizedBox(
-          height: 70,
+        const SizedBox(
+          height: 15,
         ),
 
         //3rd screen
 
-        Image.network(
-          ConstString.assetThirdRow,
-          scale: 2,
+        Padding(
+          padding: const EdgeInsets.all(25.0),
+          child: Image.network(
+            ConstString.assetThirdRow,
+            scale: 1,
 
-          fit: BoxFit.cover,
-          // scale: 2,
+            fit: BoxFit.cover,
+            // scale: 2,
+          ),
         ),
-        SizedBox(
-          height: 50,
+        const SizedBox(
+          height: 15,
         ),
         RowContent(
           screenSize: screenSize,
-          width: (screenSize.width > 500) ? 500 : screenSize.width * .9,
+          width: (screenSize.width > 500) ? 500 : screenSize.width,
           rowMainTitle: ConstString.thirdRowMainTitle,
           rowSubtitle1: ConstString.thirdRowSubtitle1,
           rowSubtitle2: ConstString.thirdRowSubtitle2,
@@ -300,8 +274,9 @@ class RowContent extends StatelessWidget {
     return Container(
       width: width,
       constraints: BoxConstraints(maxWidth: width),
+      padding: const EdgeInsets.only(left: 25, right: 15),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Column(
@@ -310,23 +285,24 @@ class RowContent extends StatelessWidget {
             children: [
               AutoSizeText(
                 rowMainTitle,
-                style: AppTextStyles.mainTitleRegularNavy10,
-                minFontSize: 25,
+                style: AppTextStyles.mainTitleRegularGreen10,
+                minFontSize: 22,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               AutoSizeText(
                 rowSubtitle1,
                 style: AppTextStyles.mainTitleRegularNavy10,
-                minFontSize: 15,
+                minFontSize: 16,
               ),
-              SizedBox(
-                height: 15,
+              const SizedBox(
+                height: 10,
               ),
               AutoSizeText(
                 rowSubtitle11,
-                style: AppTextStyles.mainTitleRegularNavy10,
+                style: AppTextStyles.mainTitleRegularPrimNavy10,
+                minFontSize: 16,
                 textAlign: TextAlign.justify,
               ),
             ],
@@ -336,20 +312,21 @@ class RowContent extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               AutoSizeText(
                 rowSubtitle2,
                 style: AppTextStyles.mainTitleRegularNavy10,
-                minFontSize: 15,
+                minFontSize: 16,
               ),
-              SizedBox(
-                height: 15,
+              const SizedBox(
+                height: 10,
               ),
               AutoSizeText(
                 rowSubtitle22,
-                style: AppTextStyles.mainTitleRegularNavy10,
+                style: AppTextStyles.mainTitleRegularPrimNavy10,
+                minFontSize: 16,
                 textAlign: TextAlign.justify,
               ),
             ],
@@ -360,20 +337,21 @@ class RowContent extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               AutoSizeText(
                 rowSubtitle3,
                 style: AppTextStyles.mainTitleRegularNavy10,
-                minFontSize: 15,
+                minFontSize: 16,
               ),
-              SizedBox(
-                height: 15,
+              const SizedBox(
+                height: 10,
               ),
               AutoSizeText(
                 rowSubtitle33,
-                style: AppTextStyles.mainTitleRegularNavy10,
+                style: AppTextStyles.mainTitleRegularPrimNavy10,
+                minFontSize: 16,
                 textAlign: TextAlign.justify,
               ),
             ],

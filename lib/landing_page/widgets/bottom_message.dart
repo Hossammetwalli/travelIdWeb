@@ -4,11 +4,9 @@ import 'package:uuid/uuid.dart';
 import 'package:webapptrial/widgets/export_widget.dart';
 
 class MessageWidget extends StatefulWidget {
-  final double height;
   final double width;
 
-  const MessageWidget({Key key, @required this.height, @required this.width})
-      : super(key: key);
+  const MessageWidget({Key key, @required this.width}) : super(key: key);
 
   @override
   _MessageWidgetState createState() => _MessageWidgetState();
@@ -53,9 +51,7 @@ class _MessageWidgetState extends State<MessageWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: widget.height,
-      width: widget.width,
-      constraints: BoxConstraints(maxWidth: 600),
+      constraints: const BoxConstraints(maxWidth: 500),
       child: Form(
         key: _formKey,
         autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -73,7 +69,7 @@ class _MessageWidgetState extends State<MessageWidget> {
               height: 30,
             ),
             AppTextFormFieldOriginal(
-              width: widget.width - 50,
+              width: widget.width,
               height: 50,
               maxLine: 1,
               keyboardType: TextInputType.name,
@@ -90,7 +86,7 @@ class _MessageWidgetState extends State<MessageWidget> {
               height: 40,
             ),
             AppTextFormFieldOriginal(
-              width: widget.width - 50,
+              width: widget.width,
               height: 50,
               maxLine: 1,
               keyboardType: TextInputType.emailAddress,
@@ -107,7 +103,7 @@ class _MessageWidgetState extends State<MessageWidget> {
               height: 40,
             ),
             AppTextFormFieldOriginal(
-              width: widget.width - 50,
+              width: widget.width,
               height: 180,
               maxLine: 15,
               maxLength: 500,
@@ -125,7 +121,7 @@ class _MessageWidgetState extends State<MessageWidget> {
               height: 40,
             ),
             AppElevatedButton(
-              fontSize: 15,
+              fontSize: 16,
               radius: 8.0,
               textStyle: AppTextStyles.mainTitleRegularWhite10,
               height: 40,
@@ -173,7 +169,7 @@ class _MessageWidgetState extends State<MessageWidget> {
               },
             ),
             const SizedBox(
-              height: 40,
+              height: 20,
             ),
             showAlert(),
           ],
@@ -216,42 +212,47 @@ class _MessageWidgetState extends State<MessageWidget> {
 
   Widget showAlert() {
     if (_messageResult != null) {
-      return Container(
-        color: AppColors.primaryWhite,
-        width: double.infinity,
-        padding: EdgeInsets.all(8.0),
-        child: Row(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(right: 8.0),
-              child: Icon(
-                messageIsError == true
-                    ? Icons.error_outline
-                    : Icons.verified_outlined,
-                color: messageIsError == true ? Colors.red : Colors.green,
-              ),
-            ),
-            Expanded(
-              child: AutoSizeText(
-                _messageResult,
-                style: TextStyle(
+      return Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Container(
+          color: AppColors.lightGreyColorE5,
+          child: Row(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: Icon(
+                  messageIsError == true
+                      ? Icons.error_outline
+                      : Icons.verified_outlined,
                   color: messageIsError == true ? Colors.red : Colors.green,
                 ),
-                maxLines: 3,
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 8.0),
-              child: IconButton(
-                icon: Icon(Icons.close),
-                onPressed: () {
-                  setState(() {
-                    _messageResult = null;
-                  });
-                },
+              Expanded(
+                child: AutoSizeText(
+                  _messageResult,
+                  style: TextStyle(
+                      color: messageIsError == true ? Colors.red : Colors.green,
+                      fontFamily: 'SF-Pro-Text-Light',
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16,
+                      height: 1.1,
+                      letterSpacing: -0.41),
+                  maxLines: 3,
+                ),
               ),
-            )
-          ],
+              Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: IconButton(
+                  icon: Icon(Icons.close),
+                  onPressed: () {
+                    setState(() {
+                      _messageResult = null;
+                    });
+                  },
+                ),
+              )
+            ],
+          ),
         ),
       );
     }

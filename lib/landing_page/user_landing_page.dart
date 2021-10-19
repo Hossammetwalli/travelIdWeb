@@ -15,18 +15,14 @@ class LandingPageLarge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: (screenSize.width > 400)
-          ? 800
-          : (screenSize.width >= 400 && screenSize.width <= 700)
-              ? 700
-              : 900,
+      height: (screenSize.width >= 400) ? 750 : 850,
       width: screenSize.width,
       child: Stack(
         children: [
           BackgroundColorWidget(screenSize: screenSize),
-          (screenSize.width > 400) ? BigCircleWidget() : Container(),
-          (screenSize.width > 700) ? MediumCircleWidget() : Container(),
-          (screenSize.width > 700) ? SmallCircleWidget() : Container(),
+          (screenSize.width > 480) ? BigCircleWidget() : Container(),
+          (screenSize.width > 750) ? MediumCircleWidget() : Container(),
+          (screenSize.width > 750) ? SmallCircleWidget() : Container(),
           LandingPageContent(screenSize: screenSize),
         ],
       ),
@@ -48,7 +44,6 @@ class BigCircleWidget extends StatelessWidget {
         height: 300,
         width: 300,
         decoration: BoxDecoration(
-            //  color: AppColors.primaryWhite,
             gradient: AppColors.buttonPrimaryColorGradient,
             shape: BoxShape.circle),
       ),
@@ -72,7 +67,6 @@ class MediumCircleWidget extends StatelessWidget {
         width: 150,
         decoration: BoxDecoration(
             gradient: AppColors.buttonPrimaryColorGradient,
-            //color: AppColors.primaryGreenB1,
             shape: BoxShape.circle),
       ),
     );
@@ -114,11 +108,7 @@ class BackgroundColorWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: screenSize.width,
-      height: (screenSize.width > 400)
-          ? 700
-          : (screenSize.width >= 400 && screenSize.width <= 700)
-              ? 700
-              : 900,
+      height: (screenSize.width >= 400) ? 750 : 850,
       color: AppColors.primaryBlueColor,
       child: Opacity(
         opacity: 0.3,
@@ -143,8 +133,7 @@ class LandingPageContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: (screenSize.width < 700) ? 50 : 200,
-      left: 0,
+      top: (screenSize.width >= 350) ? 100 : 50,
       child: Container(
         width: screenSize.width,
         padding: const EdgeInsets.only(left: 25, right: 25),
@@ -153,7 +142,7 @@ class LandingPageContent extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 90,
               ),
               AnimatedTextKit(
@@ -164,8 +153,8 @@ class LandingPageContent extends StatelessWidget {
                       textStyle: TextStyle(
                           fontFamily: 'SF-Pro-Text-Light',
                           color: AppColors.lightGreyColorC4,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w900,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
                           letterSpacing: .5),
                       textAlign: TextAlign.start,
                       speed: const Duration(milliseconds: 150)),
@@ -175,7 +164,7 @@ class LandingPageContent extends StatelessWidget {
                 height: 20,
               ),
               Container(
-                constraints: BoxConstraints(maxWidth: 500),
+                constraints: const BoxConstraints(maxWidth: 500),
                 child: AutoSizeText(
                   ConstString.appMainTitle,
                   style: AppTextStyles.mainTitleRegularWhite10,
@@ -186,38 +175,42 @@ class LandingPageContent extends StatelessWidget {
               const SizedBox(
                 height: 50,
               ),
-              AutoSizeText(
-                ConstString.appCoveValueTwo,
-                style: AppTextStyles.mainTitleRegularGreen10,
-                textAlign: TextAlign.start,
-                minFontSize: 17,
+              Container(
+                constraints: BoxConstraints(maxWidth: 500),
+                child: AutoSizeText(
+                  ConstString.appCoveValueTwo,
+                  style: AppTextStyles.mainTitleRegularGreen10,
+                  textAlign: TextAlign.start,
+                  minFontSize: 16,
+                ),
               ),
               const SizedBox(
                 height: 50,
               ),
               Container(
-                width: 350,
+                width: 400,
+                padding: const EdgeInsets.only(left: 15, right: 15),
                 child: Column(
                   children: [
                     AutoSizeText(
                       ConstString.getEarlyAccess,
                       style: AppTextStyles.mainTitleRegularWhite10,
                       textAlign: TextAlign.center,
-                      minFontSize: 12,
+                      minFontSize: 16,
                     ),
                     const SizedBox(
                       height: 15,
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Expanded(
                           child: SubscriptionButton(
-                            fontSize: 10,
-                            width: 140,
-                            height: 40,
-                            tittle: "I\'m A Traveler",
+                            fontSize: 16,
+                            width: 150,
+                            height: 50,
+                            tittle: "I\'m a Traveler",
                             dialog: () {
                               showDialog(
                                 context: context,
@@ -231,10 +224,10 @@ class LandingPageContent extends StatelessWidget {
                         ),
                         Expanded(
                           child: SubscriptionButton(
-                            width: 140,
-                            height: 40,
-                            fontSize: 10,
-                            tittle: "I'm A Freelancer",
+                            width: 150,
+                            height: 50,
+                            fontSize: 16,
+                            tittle: "I'm a Freelancer",
                             dialog: () {
                               // print(screenSize.height);
                               // print(screenSize.width);

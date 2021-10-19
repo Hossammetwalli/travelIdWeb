@@ -13,95 +13,43 @@ class SecondWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
-    return (ResponsiveWidget.isLargeScreen(context))
-        ? Container(
-            width: width,
-            height: 850,
-            // color: AppColors.primaryBlueColor,
-            child: Column(
-              children: [
-                SizedBox(height: 200),
-                Container(
-                  width: 1000,
-                  height: 500,
-                  color: AppColors.primaryNavyColor,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        width: 50,
-                      ),
-                      Container(
-                        width: 300,
-                        constraints: BoxConstraints(
-                          maxWidth: 300,
-                        ),
-                        child: AutoSizeText(
-                          ConstString.secondPageContent2,
-                          style: AppTextStyles.mainTitleRegularWhite10,
-                          minFontSize: 20,
-                          strutStyle: StrutStyle(height: 1),
-                          textAlign: TextAlign.start,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      Image.network(
-                        "assets/first_image3.png",
-                        scale: 1,
-                        fit: BoxFit.fill,
-                        // scale: 2,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          )
-        :
-
+    return
         //Small screen
+        Column(
+      children: [
         Container(
-            width: width * .85,
-            height: 900,
-            child: Column(
-              children: [
-                SizedBox(height: 200),
-                Container(
-                  width: width * .85,
-                  height: 700,
-                  color: AppColors.primaryNavyColor,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 300,
-                        constraints: BoxConstraints(
-                          maxWidth: 300,
-                        ),
-                        child: AutoSizeText(
-                          ConstString.secondPageContent2,
-                          style: AppTextStyles.mainTitleRegularWhite10,
-                          minFontSize: 15,
-                          strutStyle: StrutStyle(height: 1),
-                          textAlign: TextAlign.start,
-                        ),
-                      ),
-                      Image.network(
-                        "assets/first_image3.png",
-                        scale: 1,
-                        fit: BoxFit.fill,
-                        // scale: 2,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          );
+          width: 700,
+          height: 300,
+          constraints: const BoxConstraints(maxWidth: 650),
+          padding: const EdgeInsets.only(left: 20, right: 20),
+          alignment: Alignment.center,
+          child: AutoSizeText(
+            ConstString.secondPageContent2,
+            style: AppTextStyles.mainTitleRegularNavy10,
+            minFontSize: 30,
+            textAlign: TextAlign.center,
+          ),
+        ),
+        Image.network(
+          "assets/second_image1.png",
+          scale: .8,
+          fit: BoxFit.fill,
+          // scale: 2,
+        ),
+        Container(
+          width: 700,
+          height: 300,
+          alignment: Alignment.center,
+          constraints: const BoxConstraints(maxWidth: 650),
+          padding: const EdgeInsets.only(left: 20, right: 20),
+          child: AutoSizeText(
+            ConstString.whyMainTitle,
+            style: AppTextStyles.mainTitleRegularNavy10,
+            textAlign: TextAlign.center,
+            minFontSize: 30,
+          ),
+        ),
+      ],
+    );
   }
 }

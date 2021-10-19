@@ -4,46 +4,50 @@ abstract class ConstString {
       'World\'s First Marketplace For On Demand Travel Services & Deals';
 
   static String get appSubtitle =>
-      'Everything you need to travel from inspiration to destination.';
+      'Everything you need to travel from inspiration to destination';
 
   static String get appCoveValueTwo =>
-      "Find on demand freelancers and deals for any travel\nservices at enormous speed of a click of a button."; //End-To-End Contactless Travel Solution
-  static String get getEarlyAccess => "Get early access";
+      "Find on demand freelancers and deals for any travel services with a single click of a button"; //End-To-End Contactless Travel Solution
+  static String get getEarlyAccess => "Get an early access";
 
 // Second page
   static String get secondPageContent1 =>
-      "Thousands of travel professionals & freelancers will provide you with everything you need to have a perfect holiday ";
+      "Thousands of travel professionals and experts are ready to do everything you need to have a perfect holiday!";
 
   static String get secondPageContent2 =>
-      "Travel ID is web and mobile app that empowers millions of travelers around the world to travel easier, faster and get richer travel experience"
-      " by connecting them directly with a network of independent travel professionals and businesses at enormous speed of a click of a button."; //End-To-End Contactless Travel Solution
+      "Easier, faster and richer travel experience for millions of travelers around the world!"; //End-To-End Contactless Travel Solution
+
+  /*
+    "Travel ID is web and mobile app that empowers millions of travelers around the world to travel easier, faster and get richer travel experience"
+      " by connecting them directly with a network of independent travel professionals and businesses at enormous speed of a click of a button."; //
+   */
 
   /// Why to choose
   static String get whyMainTitle =>
-      "Travel professional at your hand anytime, anywhere";
+      "Travel professional at your hand anytime, anywhere!";
 
   ///BigScreenWhyFirstRow()///
   ///
   static String get firstRowMainTitle =>
-      "Travel planning & logistics just got simpler.";
+      "Travel planning & logistics just got simpler";
 
   static String get firstRowSubtitle1 =>
-      "Save your time & efforts-focus only on what matters to you.";
+      "Save your time & efforts-focus only on what matters to you";
 
   static String get firstRowSubtitle11 =>
-      "Time has an almost infinite opportunity cost. Travel ID save you countless of hours spent on thousands of digital travel content,"
-      " blogs, sites, applications and more unsavory tasks that are anything but relaxing.";
+      "Time has an almost infinite opportunity cost. Travel ID saves you countless of hours spent on thousands of digital travel content,"
+      " blogs, sites, applications and more unsavory tasks that are anything but relaxing";
 
   static String get firstRowSubtitle2 =>
       "Avoid costly mistakes, Traveling is expensive enough";
 
   static String get firstRowSubtitle22 =>
       "Travel mistakes can cost you time, money and most importantly experiences. Travel ID is one stop shop to find trusted independent travel professionals"
-      " who can open doors to experiences and activities that you might"
-      " otherwise not be able to find, in one click as easy as it sound..";
+      " who can open the doors to experiences and activities that you might won't be able to find at your own,"
+      " in one click as easy as it sounds";
 
   static String get firstRowSubtitle3 =>
-      "Confusion and decision paralysis - The biggest challenges with modern days travel.";
+      "Confusion and decision paralysis - The biggest challenges with modern days travel";
 
   static String get firstRowSubtitle33 =>
       "Get professional help if you're confused with your travel destination, worry about buying a travel package only to see the price drop later,"
@@ -66,16 +70,16 @@ abstract class ConstString {
 
   static String get secondRowSubtitle22 =>
       "In a world transformed by social distancing and implementing contactless technologies"
-      " into many areas of the travelers' touch points; use your Travel ID as Auto pass"
-      " to skip the long lines and fast track check in queues.";
+      " into many areas of the travelers' touch points, use your Travel ID as Auto pass"
+      " to skip the long lines and fast track check in queues";
 
   static String get secondRowSubtitle3 =>
-      "Don't worry; you are in control of your personal data.";
+      "Don't worry, you are in control of your personal data";
 
   static String get secondRowSubtitle33 =>
       "While your data is processed within 5 to 10 systems during your travel journey,"
       " Travel ID auto pass will put you in control of your personal data to share it only with "
-      "service providers & trace when and who have seen your data..";
+      "service providers & trace when and who has seen your data";
 
   ///BigScreenWhyThirdRow()///
   ///
@@ -88,23 +92,23 @@ abstract class ConstString {
   static String get thirdRowSubtitle11 =>
       "Find instant discounts and exclusive offers"
       " from our business partners around the world. Check every"
-      " day new deals for top hotels, packages, things to do & much more.";
+      " day new deals for top hotels, packages, things to do & much more";
 
   static String get thirdRowSubtitle2 =>
-      "Flexible and more spontaneous holidays you love.";
+      "Flexible and more spontaneous holidays you love";
 
   static String get thirdRowSubtitle22 =>
       "Use your travel ID to get tailor-made packages and personalized offers where"
       " every part of the trip has been created individually to suit your needs,"
-      " preferences, taste, budget, and your bucket list..";
+      " preferences, taste, budget, and your bucket list";
 
   static String get thirdRowSubtitle3 =>
-      "Uncover travel secrets and meet with travel hackers.";
+      "Uncover travel secrets and meet with travel hackers";
 
   static String get thirdRowSubtitle33 =>
       " Meet with travel hackers and handful of travel experts who make it their"
       " business to hunt down insider tricks and loopholes to get you freebies,"
-      " upgrades, all kinds of perks and even cashback.";
+      " upgrades, all kinds of perks and even cashback";
 
   //////
 
@@ -127,11 +131,11 @@ abstract class ConstString {
       " and nothing more stressful than travel logistics. There are times when travel can be frustrating,"
       " overwhelming and even frightening. Sometimes it all goes horribly wrong. On the other side there are"
       " millions on travel hackers and professional who can handle all the travel logistics and empower travelers"
-      " to focus only on rediscover the joy in travelling. Travel ID brings together travelers with independent"
+      " to focus only on rediscovering the joy in travelling. Travel ID brings together travelers with independent"
       " travel freelancers and service providers in one place to make it faster, easier and rewarding for everyone to experience the world.";
 
   static String get aboutMission =>
-      "Our mission is to simplify all traveling process, empowers travelers to make faster and better travel decisions,"
+      "Our mission is to simplify all traveling process, empower travelers to make faster and better travel decisions,"
       " focus only on fun and earn money by helping others to travel!";
 
   ///////////////////////////////////////////////////////////////////////////////////////////////////////

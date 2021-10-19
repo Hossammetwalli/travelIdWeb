@@ -47,7 +47,7 @@ class _BusinessSignInViewState extends State<BusinessSignInView> {
                   textAlign: TextAlign.start,
                   minFontSize: 30,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
                 FormBuilderTextField(
@@ -61,7 +61,7 @@ class _BusinessSignInViewState extends State<BusinessSignInView> {
                   name: "Property Id",
                   maxLines: 1,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
-                  style: AppTextStyles.formFontSecNavy17,
+                  style: AppTextStyles.formFontSecNavy16,
                   textAlign: TextAlign.center,
                   decoration: InputDecoration(
                     filled: true,
@@ -97,8 +97,8 @@ class _BusinessSignInViewState extends State<BusinessSignInView> {
                         )),
                     labelText: "PropertyID",
                     hintText: "PropertyID",
-                    hintStyle: AppTextStyles.mainRegularGrey18,
-                    labelStyle: AppTextStyles.mainRegularGrey18,
+                    hintStyle: AppTextStyles.mainRegularGrey16,
+                    labelStyle: AppTextStyles.mainRegularGrey16,
                     contentPadding: EdgeInsets.only(left: 15, top: 20),
                     prefixIcon: Icon(
                       Icons.hotel,
@@ -106,7 +106,7 @@ class _BusinessSignInViewState extends State<BusinessSignInView> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 FormBuilderTextField(
@@ -121,7 +121,7 @@ class _BusinessSignInViewState extends State<BusinessSignInView> {
                   name: "Password",
                   maxLines: 1,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
-                  style: AppTextStyles.formFontSecNavy17,
+                  style: AppTextStyles.formFontSecNavy16,
                   obscureText: _passwordVisible,
                   decoration: InputDecoration(
                     filled: true,
@@ -157,8 +157,8 @@ class _BusinessSignInViewState extends State<BusinessSignInView> {
                         )),
                     labelText: "Passport",
                     hintText: "Passport",
-                    hintStyle: AppTextStyles.mainRegularGrey18,
-                    labelStyle: AppTextStyles.mainRegularGrey18,
+                    hintStyle: AppTextStyles.mainRegularGrey16,
+                    labelStyle: AppTextStyles.mainRegularGrey16,
                     contentPadding: EdgeInsets.only(left: 15, top: 20),
                     suffixIcon: IconButton(
                       icon: Icon(
@@ -194,7 +194,7 @@ class _BusinessSignInViewState extends State<BusinessSignInView> {
                       children: [
                         TextSpan(
                           text: 'Keep me sign in',
-                          style: AppTextStyles.formFontSecNavy17,
+                          style: AppTextStyles.formFontSecNavy16,
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
                               _signInChecked = !_signInChecked;
@@ -211,7 +211,7 @@ class _BusinessSignInViewState extends State<BusinessSignInView> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     AppElevatedButton(
-                      fontSize: 12,
+                      fontSize: 16,
                       width: 160,
                       height: 40,
                       primaryColor: AppColors.primaryGreenB1,

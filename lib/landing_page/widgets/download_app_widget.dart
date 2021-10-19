@@ -15,72 +15,65 @@ class DownloadAppWidget extends StatelessWidget {
     // var width = MediaQuery.of(context).size.width;
     // var height = MediaQuery.of(context).size.height;
     return (ResponsiveWidget.isLargeScreen(context))
-        ? Container(
-            width: (screenSize.width < 1000) ? screenSize.width : 1000,
-            height: 1000,
-            //  color: AppColors.lightGreyColorF7,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+        ? Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                flex: 1,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    SizedBox(
-                      height: 150,
+                    const SizedBox(
+                      height: 200,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        AutoSizeText(
-                          "Coming soon",
-                          style: AppTextStyles.mainTitleRegularNavy10,
-                          minFontSize: 15,
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
+                    Container(
+                      width: 190,
+                      child: AutoSizeText(
+                        "Coming soon",
+                        style: AppTextStyles.mainTitleRegularNavy10,
+                        minFontSize: 16,
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
-                    // Row(
-                    //   mainAxisAlignment: MainAxisAlignment.start,
-                    //   crossAxisAlignment: CrossAxisAlignment.start,
-                    //   children: [
-                    //     AutoSizeText(
-                    //       "Everything you need to travel\nBetter - Faster - Cheaper",
-                    //       style: AppTextStyles.textRegularBlackBold17,
-                    //       textAlign: TextAlign.start,
-                    //     ),
-                    //   ],
-                    // ),
-                    // SizedBox(
-                    //   height: 15,
-                    // ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Image.network(
-                          "assets/download_google.png",
-                          scale: 3.5,
+                    Container(
+                      height: 50,
+                      width: 190,
+                      child: Center(
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              flex: 1,
+                              child: Image.network(
+                                "assets/download_google.png",
+                                scale: 1,
+                              ),
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: Image.network(
+                                "assets/download_apple.png",
+                                scale: 1,
+                              ),
+                            ),
+                          ],
                         ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        Image.network(
-                          "assets/download_apple.png",
-                          scale: 3.5,
-                        ),
-                      ],
+                      ),
                     ),
                   ],
                 ),
-                Column(
+              ),
+              Expanded(
+                flex: 2,
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Image.network(
                       "assets/travel_id_image_1.png",
@@ -90,70 +83,58 @@ class DownloadAppWidget extends StatelessWidget {
                     ),
                   ],
                 ),
-              ],
-            ),
+              ),
+            ],
           )
         //Small screen
-        : Container(
-            width: screenSize.width,
-            //  color: AppColors.lightGreyColorF7,
-            height: 1000,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Image.network(
-                  "assets/travel_id_image_1.png",
-                  scale: .7,
-                  fit: BoxFit.fill,
-                  // scale: 2,
-                ),
-                AutoSizeText(
-                  "Coming soon",
-                  style: AppTextStyles.mainTitleRegularNavy10,
-                  minFontSize: 15,
-                  textAlign: TextAlign.center,
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                (screenSize.width < 400)
-                    ? Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.network(
-                            "assets/download_google.png",
-                            scale: 8,
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Image.network(
-                            "assets/download_apple.png",
-                            scale: 8,
-                          ),
-                        ],
-                      )
-                    : Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.network(
-                            "assets/download_google.png",
-                            scale: 4,
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Image.network(
-                            "assets/download_apple.png",
-                            scale: 4,
-                          ),
-                        ],
+        : Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Image.network(
+                "assets/travel_id_image_1.png",
+                scale: 1,
+                fit: BoxFit.fill,
+                // scale: 2,
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  AutoSizeText(
+                    "Coming soon",
+                    style: AppTextStyles.mainTitleRegularNavy10,
+                    minFontSize: 15,
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              Container(
+                height: 50,
+                width: 190,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: Image.network(
+                        "assets/download_google.png",
+                        scale: 1,
                       ),
-              ],
-            ),
+                    ),
+                    Expanded(
+                      child: Image.network(
+                        "assets/download_apple.png",
+                        scale: 1,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           );
   }
 }

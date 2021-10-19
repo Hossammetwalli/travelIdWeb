@@ -1,4 +1,6 @@
 import 'package:country_code_picker/country_localizations.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -37,8 +39,15 @@ class _MyAppState extends State<MyApp> {
       ],
       child: MaterialApp(
         title: 'TRAVEL ID',
+        navigatorObservers: [
+          FirebaseAnalyticsObserver(analytics: FirebaseAnalytics()),
+        ],
         theme: ThemeData(
-          scrollbarTheme: ScrollbarThemeData(isAlwaysShown: true),
+          // scrollbarTheme: ScrollbarThemeData(
+          //   isAlwaysShown: true,
+          //   interactive: true,
+          //   minThumbLength: 1,
+          // ),
           backgroundColor: AppColors.primaryWhite,
           primaryColor: AppColors.primaryWhite,
         ),
@@ -72,12 +81,6 @@ abstract class Routes {
         return MaterialPageRoute(builder: (context) => HomePage());
       case HomePageBusiness.route:
         return MaterialPageRoute(builder: (context) => HomePageBusiness());
-
-      case BottomBar.route:
-        return MaterialPageRoute(
-            builder: (context) => BottomBar(
-                  containerColor: Colors.transparent,
-                ));
 
       default:
         return MaterialPageRoute(builder: (context) => HomePage());

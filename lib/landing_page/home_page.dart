@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:webapptrial/landing_page/widgets/multiple_carsoul_widget.dart';
 import 'package:webapptrial/widgets/export_widget.dart';
@@ -13,7 +14,7 @@ class _HomePageState extends State<HomePage> {
   double _scrollPosition = 0;
   double _opacity = 0;
   ScrollController _scrollController =
-      ScrollController(initialScrollOffset: 0.0);
+  ScrollController(initialScrollOffset: 0.0);
 
   _scrollListener() {
     setState(() {
@@ -25,12 +26,12 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     _scrollController = ScrollController();
-    _scrollController.addListener(_scrollListener);
-    if (!_scrollController.hasClients) {
-      Future.delayed(Duration(milliseconds: 50), () {
-        _scrollController?.jumpTo(_scrollController.position.minScrollExtent);
-      });
-    }
+    //  _scrollController.addListener(_scrollListener);
+    // if (!_scrollController.hasClients) {
+    //   Future.delayed(Duration(milliseconds: 50), () {
+    //     _scrollController?.jumpTo(_scrollController.position.minScrollExtent);
+    //   });
+    // }
   }
 
   @override
@@ -51,18 +52,18 @@ class _HomePageState extends State<HomePage> {
     return Scrollbar(
       isAlwaysShown: true,
       controller: _scrollController,
-      // hoverThickness: 15.0,
-      // thickness: 12.0,
-      showTrackOnHover: true,
+      hoverThickness: 15,
+      thickness: 15,
+      // showTrackOnHover: true,
       interactive: true,
+      radius: Radius.zero,
       child: Scaffold(
         backgroundColor: AppColors.primaryWhite,
         extendBodyBehindAppBar: true,
         appBar: ResponsiveWidget.isSmallScreen(context)
             ? AppBar(
                 backgroundColor:
-                    AppColors.primaryNavyColor.withOpacity(_opacity),
-                // Theme.of(context).bottomAppBarColor.withOpacity(_opacity),
+                    AppColors.primaryBlueColor.withOpacity(_opacity),
                 elevation: 0,
                 centerTitle: true,
                 iconTheme: IconThemeData(color: AppColors.primaryWhite),
@@ -74,35 +75,35 @@ class _HomePageState extends State<HomePage> {
                             scale: 10,
                           ),
                         ],
-                      )
-                    : Row(
-                        children: [
-                          Image.network(
-                            "assets/logo_icon_white.png",
-                            scale: 4,
-                          ),
-                          SizedBox(
+          )
+              : Row(
+            children: [
+              Image.network(
+                "assets/logo_icon_white.png",
+                scale: 4,
+              ),
+              const SizedBox(
                             width: 10,
                           ),
-                          Container(
-                            width: 5,
-                            height: 40,
-                            color: AppColors.primaryGreenB1,
-                          ),
-                          SizedBox(
+              Container(
+                width: 5,
+                height: 40,
+                color: AppColors.primaryGreenB1,
+              ),
+              const SizedBox(
                             width: 10,
                           ),
-                          Image.network(
-                            "assets/logo_name_green.png",
-                            scale: 2,
-                          ),
-                        ],
-                      ),
-              )
+              Image.network(
+                "assets/logo_name_green.png",
+                scale: 2,
+              ),
+            ],
+          ),
+        )
             : PreferredSize(
-                preferredSize: Size(screenSize.width, 1000),
-                child: TopBarContents(
-                  topBarColor: AppColors.primaryNavyColor,
+          preferredSize: Size(screenSize.width, 1000),
+          child: TopBarContents(
+            topBarColor: AppColors.primaryBlueColor,
                   opacity: _opacity,
                   buttonOneName: "Home",
                   buttonTwoName: "Business Partners",
@@ -111,33 +112,37 @@ class _HomePageState extends State<HomePage> {
                   onPressTwo: () async =>
                       Navigator.of(context).pushNamed(HomePageBusiness.route),
                 ),
-              ),
+        ),
         drawer: ExploreDrawer(
-          topColor: AppColors.primaryNavyColor,
+          topColor: AppColors.primaryBlueColor,
           width: screenSize.width,
         ),
         body: SingleChildScrollView(
           controller: _scrollController,
-          padding: EdgeInsets.only(right: 15),
-          physics: ClampingScrollPhysics(),
+          padding: const EdgeInsets.only(right: 15),
+          physics: const NeverScrollableScrollPhysics(),
           child: Column(
             children: [
               LandingPageLarge(screenSize: screenSize),
               // MultipleItemDemo(),
-              (screenSize.width < 450)
-                  ? Container()
-                  : MultipleItemFreeLancer(
-                      screenSize: screenSize,
-                    ),
+              MultipleItemFreeLancer(
+                screenSize: screenSize,
+              ),
               SecondWidget(
                 screenSize: screenSize,
               ),
               WhyTravelIdWidget(
                 screenSize: screenSize,
               ),
+              const SizedBox(
+                height: 100,
+              ),
               DownloadAppWidget(screenSize: screenSize),
+              const SizedBox(
+                height: 100,
+              ),
               BottomBar(
-                containerColor: AppColors.primaryNavyColor,
+                containerColor: AppColors.primaryBlueColor,
                 screenSize: screenSize,
               ),
             ],

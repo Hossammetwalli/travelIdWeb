@@ -14,7 +14,7 @@ class BusinessWhyTravelIdWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return (ResponsiveWidget.isLargeScreen(context))
+    return (screenSize.width > 650)
         ? BusinessBigScreenWhy(screenSize: screenSize)
         :
         //Small Screen
@@ -56,49 +56,60 @@ class BusinessBigScreenWhy extends StatelessWidget {
                   right: 0,
                   left: 0,
                   child: Container(
-                    height: 400,
+                    height: 480,
                     width: screenSize.width,
-                    // constraints:
-                    //     BoxConstraints(maxWidth: screenSize.width * .7),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        BusinessRowContent(
-                          screenSize: screenSize,
-                          width: 310,
-                          image: BusinessConstString.businessRevenue,
-                          mainTitle: BusinessConstString.businessWhyRevenue1,
-                          subTitle1: BusinessConstString.businessWhyRevenue2,
-                          subTitle2: BusinessConstString.businessWhyRevenue3,
-                          subTitle3: BusinessConstString.businessWhyRevenue4,
+                        Flexible(
+                          fit: FlexFit.loose,
+                          child: BusinessRowContent(
+                            screenSize: screenSize,
+                            width: 310,
+                            height: (screenSize.width <= 800) ? 450 : 350,
+                            image: BusinessConstString.businessRevenue,
+                            mainTitle: BusinessConstString.businessWhyRevenue1,
+                            subTitle1: BusinessConstString.businessWhyRevenue2,
+                            subTitle2: BusinessConstString.businessWhyRevenue3,
+                            subTitle3: BusinessConstString.businessWhyRevenue4,
+                          ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
-                        BusinessRowContent(
-                          screenSize: screenSize,
-                          width: 310,
-                          image: BusinessConstString.businessContactless,
-                          mainTitle: BusinessConstString.businessWhyContactless,
-                          subTitle1:
-                              BusinessConstString.businessWhyContactless1,
-                          subTitle2:
-                              BusinessConstString.businessWhyContactless2,
-                          subTitle3:
-                              BusinessConstString.businessWhyContactless3,
+                        Flexible(
+                          fit: FlexFit.loose,
+                          child: BusinessRowContent(
+                            screenSize: screenSize,
+                            width: 310,
+                            height: (screenSize.width <= 900) ? 450 : 350,
+                            image: BusinessConstString.businessContactless,
+                            mainTitle:
+                                BusinessConstString.businessWhyContactless,
+                            subTitle1:
+                                BusinessConstString.businessWhyContactless1,
+                            subTitle2:
+                                BusinessConstString.businessWhyContactless2,
+                            subTitle3:
+                                BusinessConstString.businessWhyContactless3,
+                          ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
-                        BusinessRowContent(
-                          screenSize: screenSize,
-                          width: 310,
-                          image: BusinessConstString.businessHire,
-                          mainTitle: BusinessConstString.businessWhyHire,
-                          subTitle1: BusinessConstString.businessWhyHire1,
-                          subTitle2: BusinessConstString.businessWhyHire2,
-                          subTitle3: BusinessConstString.businessWhyHire3,
+                        Flexible(
+                          fit: FlexFit.loose,
+                          child: BusinessRowContent(
+                            screenSize: screenSize,
+                            width: 310,
+                            height: (screenSize.width <= 900) ? 450 : 350,
+                            image: BusinessConstString.businessHire,
+                            mainTitle: BusinessConstString.businessWhyHire,
+                            subTitle1: BusinessConstString.businessWhyHire1,
+                            subTitle2: BusinessConstString.businessWhyHire2,
+                            subTitle3: BusinessConstString.businessWhyHire3,
+                          ),
                         ),
                       ],
                     ),
@@ -107,20 +118,9 @@ class BusinessBigScreenWhy extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 300,
           ),
-          // Container(
-          //   height: 200,
-          //   width: screenSize.width,
-          //   constraints: BoxConstraints(maxWidth: 600),
-          //   child: AutoSizeText(
-          //     BusinessConstString.businessValue1,
-          //     style: AppTextStyles.titleHeavyNavy2,
-          //     textAlign: TextAlign.center,
-          //     minFontSize: 50,
-          //   ),
-          // ),
         ],
       ),
     );
@@ -144,38 +144,50 @@ class BusinessSmallScreenWhy extends StatelessWidget {
         const SizedBox(
           height: 50,
         ),
-        BusinessRowContent(
-          screenSize: screenSize,
-          width: 400,
-          image: BusinessConstString.businessRevenue,
-          mainTitle: BusinessConstString.businessWhyRevenue1,
-          subTitle1: BusinessConstString.businessWhyRevenue2,
-          subTitle2: BusinessConstString.businessWhyRevenue3,
-          subTitle3: BusinessConstString.businessWhyRevenue4,
+        Padding(
+          padding: const EdgeInsets.all(15),
+          child: BusinessRowContent(
+            screenSize: screenSize,
+            width: 350,
+            height: 350,
+            image: BusinessConstString.businessRevenue,
+            mainTitle: BusinessConstString.businessWhyRevenue1,
+            subTitle1: BusinessConstString.businessWhyRevenue2,
+            subTitle2: BusinessConstString.businessWhyRevenue3,
+            subTitle3: BusinessConstString.businessWhyRevenue4,
+          ),
         ),
         const SizedBox(
           height: 20,
         ),
-        BusinessRowContent(
-          screenSize: screenSize,
-          width: 400,
-          image: BusinessConstString.businessContactless,
-          mainTitle: BusinessConstString.businessWhyContactless,
-          subTitle1: BusinessConstString.businessWhyContactless1,
-          subTitle2: BusinessConstString.businessWhyContactless2,
-          subTitle3: BusinessConstString.businessWhyContactless3,
+        Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: BusinessRowContent(
+            screenSize: screenSize,
+            width: 350,
+            height: 350,
+            image: BusinessConstString.businessContactless,
+            mainTitle: BusinessConstString.businessWhyContactless,
+            subTitle1: BusinessConstString.businessWhyContactless1,
+            subTitle2: BusinessConstString.businessWhyContactless2,
+            subTitle3: BusinessConstString.businessWhyContactless3,
+          ),
         ),
         const SizedBox(
           height: 20,
         ),
-        BusinessRowContent(
-          screenSize: screenSize,
-          width: 400,
-          image: BusinessConstString.businessHire,
-          mainTitle: BusinessConstString.businessWhyHire,
-          subTitle1: BusinessConstString.businessWhyHire1,
-          subTitle2: BusinessConstString.businessWhyHire2,
-          subTitle3: BusinessConstString.businessWhyHire3,
+        Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: BusinessRowContent(
+            screenSize: screenSize,
+            width: 350,
+            height: 350,
+            image: BusinessConstString.businessHire,
+            mainTitle: BusinessConstString.businessWhyHire,
+            subTitle1: BusinessConstString.businessWhyHire1,
+            subTitle2: BusinessConstString.businessWhyHire2,
+            subTitle3: BusinessConstString.businessWhyHire3,
+          ),
         ),
         const SizedBox(
           height: 150,
@@ -194,109 +206,125 @@ class BusinessRowContent extends StatelessWidget {
       @required this.subTitle1,
       @required this.subTitle2,
       @required this.subTitle3,
-      @required this.image})
+      @required this.image,
+      @required this.height})
       : super(key: key);
 
   final Size screenSize;
-  final double width;
+  final double width, height;
   final String mainTitle, subTitle1, subTitle2, subTitle3, image;
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 20,
+      elevation: 10,
       shadowColor: AppColors.primaryBlueColor,
       child: Container(
         width: width,
-        height: 310,
+        height: height,
         constraints: BoxConstraints(maxWidth: width),
-        padding: EdgeInsets.only(left: 10),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Image.network(
-              image,
-              height: 150, width: 150,
+        child: Padding(
+          padding:
+              const EdgeInsets.only(left: 15, bottom: 15, top: 15, right: 15),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Image.network(
+                image,
+                height: 150, width: 150,
 
-              fit: BoxFit.cover,
-              // scale: 2,
-            ),
-            AutoSizeText(
-              mainTitle,
-              style: AppTextStyles.mainTitleRegularNavy10,
-              minFontSize: 20,
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.circle,
-                  size: 5,
-                  color: AppColors.primaryNavyColor,
+                fit: BoxFit.fill,
+                // scale: 2,
+              ),
+              AutoSizeText(
+                mainTitle,
+                style: AppTextStyles.mainTitleRegularPrimNavy10,
+                minFontSize: 20,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Flexible(
+                fit: FlexFit.loose,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.circle,
+                      size: 7,
+                      color: AppColors.primaryNavyColor,
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Expanded(
+                      child: AutoSizeText(
+                        subTitle1,
+                        style: AppTextStyles.mainTitleRegularNavy10,
+                        minFontSize: 16,
+                      ),
+                    )
+                  ],
                 ),
-                SizedBox(
-                  width: 5,
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              Flexible(
+                fit: FlexFit.loose,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.circle,
+                      size: 7,
+                      color: AppColors.primaryNavyColor,
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Expanded(
+                      child: AutoSizeText(
+                        subTitle2,
+                        style: AppTextStyles.mainTitleRegularNavy10,
+                        minFontSize: 16,
+                      ),
+                    )
+                  ],
                 ),
-                Expanded(
-                  child: AutoSizeText(
-                    subTitle1,
-                    style: AppTextStyles.mainTitleRegularNavy10,
-                  ),
-                )
-              ],
-            ),
-            SizedBox(
-              height: 5,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.circle,
-                  size: 5,
-                  color: AppColors.primaryNavyColor,
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              Flexible(
+                fit: FlexFit.loose,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.circle,
+                      size: 7,
+                      color: AppColors.primaryNavyColor,
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Expanded(
+                      child: AutoSizeText(
+                        subTitle3,
+                        style: AppTextStyles.mainTitleRegularNavy10,
+                        minFontSize: 16,
+                      ),
+                    )
+                  ],
                 ),
-                SizedBox(
-                  width: 5,
-                ),
-                Expanded(
-                  child: AutoSizeText(
-                    subTitle2,
-                    style: AppTextStyles.mainTitleRegularNavy10,
-                  ),
-                )
-              ],
-            ),
-            SizedBox(
-              height: 5,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.circle,
-                  size: 5,
-                  color: AppColors.primaryNavyColor,
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                Expanded(
-                  child: AutoSizeText(
-                    subTitle3,
-                    style: AppTextStyles.mainTitleRegularNavy10,
-                  ),
-                )
-              ],
-            ),
-          ],
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -200,7 +200,7 @@ class _FreelancerRequestAccessState extends State<FreelancerRequestAccess> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 50),
+                    const SizedBox(height: 50),
                   ],
                 ),
               ),

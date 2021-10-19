@@ -20,7 +20,7 @@ var carouselsData = [
   {"text": "Lodging & Hotels", "image": ConstString.hotelImage},
   {"text": "Problems Solving", "image": ConstString.problemSolvingImage},
   {"text": "Camping & Activities", "image": ConstString.activitiesImage},
-  {"text": "Researching & Planning", "image": ConstString.planningImage},
+  {"text": "Advisors & Planners", "image": ConstString.planningImage},
   {"text": "Corporate & Business", "image": ConstString.corporateImage},
   {"text": "Groups & Mice", "image": ConstString.groupsImage},
   {"text": "Family services", "image": ConstString.familyServicesImage},
@@ -68,77 +68,81 @@ class _MultipleItemFreeLancerState extends State<MultipleItemFreeLancer> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Column(
-        children: [
-          Container(
-            width: 700,
-            constraints: BoxConstraints(maxWidth: 650),
-            padding: const EdgeInsets.only(top: 50, bottom: 50),
-            child: AutoSizeText(
-              ConstString.secondPageContent1,
-              style: AppTextStyles.mainTitleRegularNavy10,
-              textAlign: TextAlign.center,
-              minFontSize: 30,
-            ),
+    return Column(
+      children: [
+        Container(
+          width: 700,
+          height: 300,
+          constraints: const BoxConstraints(maxWidth: 650),
+          padding: const EdgeInsets.only(left: 20, right: 20),
+          alignment: Alignment.center,
+          child: AutoSizeText(
+            ConstString.secondPageContent1,
+            style: AppTextStyles.mainTitleRegularNavy10,
+            textAlign: TextAlign.center,
+            minFontSize: 30,
           ),
-          SizedBox(height: 20),
-          SizedBox(
-            height: 300,
-            child: InfiniteCarousel.builder(
-              // key: _abcKey,
-              anchor: 0.0,
-              center: true,
-              velocityFactor: 0.8,
-              loop: true,
-              physics: InfiniteScrollPhysics(),
+        ),
+        const SizedBox(height: 20),
+        (widget.screenSize.width < 270)
+            ? Container()
+            : SizedBox(
+                height: (widget.screenSize.width <= 500) ? 150 : 270,
+                child: InfiniteCarousel.builder(
+                  // key: _abcKey,
+                  anchor: 0.0,
+                  center: true,
+                  velocityFactor: 0.8,
+                  loop: true,
+                  physics: const InfiniteScrollPhysics(),
 
-              itemExtent: 400,
-              itemCount: serviceName.length,
-              controller: _controller,
-              onIndexChanged: (index) {
-                if (_selectedIndex != index) {
-                  setState(() {
-                    _selectedIndex = index;
-                  });
-                }
-              },
-              itemBuilder: (context, itemIndex, realIndex) {
-                return Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10.0),
-                  child: GestureDetector(
-                    onTap: () {
-                      _controller.animateToItem(realIndex);
-                    },
-                    child: Container(
-                      alignment: Alignment.bottomCenter,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        boxShadow: kElevationToShadow[2],
-                        image: DecorationImage(
-                          image: NetworkImage(serviceName[itemIndex].image),
-                          fit: BoxFit.fill,
+                  itemExtent: (widget.screenSize.width <= 500) ? 250 : 450,
+                  itemCount: serviceName.length,
+                  controller: _controller,
+                  onIndexChanged: (index) {
+                    if (_selectedIndex != index) {
+                      setState(() {
+                        _selectedIndex = index;
+                      });
+                    }
+                  },
+                  itemBuilder: (context, itemIndex, realIndex) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      child: GestureDetector(
+                        onTap: () {
+                          _controller.animateToItem(realIndex);
+                        },
+                        child: Container(
+                          alignment: Alignment.bottomCenter,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            boxShadow: kElevationToShadow[2],
+                            image: DecorationImage(
+                              image: NetworkImage(
+                                serviceName[itemIndex].image,
+                              ),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          child: Container(
+                            width: (widget.screenSize.width <= 500) ? 250 : 450,
+                            height: 35,
+                            color: AppColors.primaryNavyColor,
+                            alignment: Alignment.center,
+                            child: AutoSizeText(
+                              serviceName[itemIndex].text,
+                              style: AppTextStyles.mainTitleRegularWhite10,
+                              minFontSize: 16,
+                            ),
+                          ),
                         ),
                       ),
-                      child: Container(
-                        width: 400,
-                        height: 40,
-                        color: AppColors.primaryNavyColor,
-                        alignment: Alignment.center,
-                        child: AutoSizeText(
-                          serviceName[itemIndex].text,
-                          style: AppTextStyles.mainTitleRegularWhite10,
-                          minFontSize: 12,
-                        ),
-                      ),
-                    ),
-                  ),
-                );
-              },
-            ),
-          ),
-        ],
-      ),
+                    );
+                  },
+                ),
+              ),
+      ],
     );
   }
 }

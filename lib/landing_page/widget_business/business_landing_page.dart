@@ -15,7 +15,7 @@ class LandingPageBusiness extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: screenSize.width,
-      height: (ResponsiveWidget.isLargeScreen(context)) ? 670 : 800,
+      height: (ResponsiveWidget.isLargeScreen(context)) ? 850 : 900,
       color: AppColors.primaryWhite,
       child: Stack(
         children: [
@@ -43,91 +43,78 @@ class BusinessLandingContentLarge extends StatelessWidget {
       left: 0,
       child: Container(
         width: screenSize.width,
-
-        // padding: const EdgeInsets.only(left: 30),
-        child: Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 50,
-                  ),
-                  Container(
-                    constraints: BoxConstraints(
-                        maxWidth: (screenSize.width < 1200) ? 470 : 500),
-                    child: Column(
+        alignment: Alignment.center,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Flexible(
+              fit: FlexFit.loose,
+              child: Container(
+                padding: const EdgeInsets.only(left: 50),
+                constraints: const BoxConstraints(maxWidth: 500),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    AutoSizeText(
+                      BusinessConstString.businessMainTittle,
+                      style: AppTextStyles.mainTitleRegularNavy10,
+                      textAlign: TextAlign.start,
+                      minFontSize: 40,
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    AutoSizeText(
+                      BusinessConstString.businessCoreValue,
+                      style: AppTextStyles.mainTitleRegularNavy10,
+                      textAlign: TextAlign.start,
+                      minFontSize: 16,
+                    ),
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    AutoSizeText(
+                      "Get Business Access",
+                      style: AppTextStyles.mainTitleRegularNavy10,
+                      textAlign: TextAlign.center,
+                      minFontSize: 16,
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        AutoSizeText(
-                          BusinessConstString.businessMainTittle,
-                          style: AppTextStyles.mainTitleRegularNavy10,
-                          textAlign: TextAlign.start,
-                          minFontSize: 30,
-                        ),
-                        const SizedBox(
-                          height: 30,
-                        ),
-                        Container(
-                          constraints: BoxConstraints(
-                            maxWidth: 450,
-                          ),
-                          child: AutoSizeText(
-                            BusinessConstString.businessCoreValue,
-                            style: AppTextStyles.mainTitleRegularNavy10,
-                            textAlign: TextAlign.start,
-                            minFontSize: 14,
-                          ),
+                        SubscriptionButton(
+                          fontSize: 16,
+                          width: 150,
+                          height: 40,
+                          tittle: "Start",
+                          dialog: () {
+                            showDialog(
+                              context: context,
+                              builder: (context) => AdminRequestAccess(),
+                            );
+                          },
                         ),
                       ],
                     ),
-                  ),
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  AutoSizeText(
-                    "Get Business Access",
-                    style: AppTextStyles.mainTitleRegularNavy10,
-                    textAlign: TextAlign.center,
-                    minFontSize: 12,
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      SubscriptionButton(
-                        fontSize: 15,
-                        width: 150,
-                        height: 40,
-                        tittle: "Start",
-                        dialog: () {
-                          showDialog(
-                            context: context,
-                            builder: (context) => AdminRequestAccess(),
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                ],
+                  ],
+                ),
               ),
-              Column(
-                children: [
-                  Image.network(
-                    "assets/travel_id_image_2.png",
-                    scale: .75,
-                    fit: BoxFit.fill,
-                  )
-                ],
+            ),
+            Flexible(
+              fit: FlexFit.loose,
+              child: Image.network(
+                "assets/travel_id_image_2.png",
+                scale: .75,
+                fit: BoxFit.fill,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -145,7 +132,7 @@ class BusinessLandingContentSmall extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: 50,
+      top: 70,
       left: 0,
       child: Container(
         width: screenSize.width,
@@ -159,8 +146,11 @@ class BusinessLandingContentSmall extends StatelessWidget {
                 scale: 1,
                 fit: BoxFit.fill,
               ),
+              const SizedBox(
+                height: 40,
+              ),
               Container(
-                constraints: BoxConstraints(maxWidth: 500),
+                constraints: const BoxConstraints(maxWidth: 500),
                 padding: const EdgeInsets.only(left: 25, right: 25),
                 child: AutoSizeText(
                   BusinessConstString.businessMainTittle,
@@ -173,12 +163,13 @@ class BusinessLandingContentSmall extends StatelessWidget {
                 height: 20,
               ),
               Container(
-                constraints: BoxConstraints(maxWidth: 400),
+                constraints: BoxConstraints(maxWidth: 500),
+                padding: const EdgeInsets.only(left: 25, right: 25),
                 child: AutoSizeText(
                   BusinessConstString.businessCoreValue,
                   style: AppTextStyles.mainTitleRegularNavy10,
                   textAlign: TextAlign.center,
-                  minFontSize: 15,
+                  minFontSize: 16,
                 ),
               ),
               const SizedBox(
@@ -194,7 +185,7 @@ class BusinessLandingContentSmall extends StatelessWidget {
                       "Join now",
                       style: AppTextStyles.mainTitleRegularNavy10,
                       textAlign: TextAlign.center,
-                      minFontSize: 15,
+                      minFontSize: 16,
                     ),
                     const SizedBox(
                       height: 15,
@@ -204,7 +195,7 @@ class BusinessLandingContentSmall extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         SubscriptionButton(
-                          fontSize: 15,
+                          fontSize: 16,
                           width: 150,
                           height: 40,
                           tittle: "Start",

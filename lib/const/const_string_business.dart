@@ -1,16 +1,10 @@
 abstract class BusinessConstString {
   static String get businessMainTittle =>
-      'Boost your business with global network of independent travel freelancers';
+      'Boost Your Business With Global Network Of Independent Travel Freelancers';
 
   static String get businessCoreValue =>
-      'Connect with local and global travel hackers who are ready to support your business, Deliver 3X faster & hassle free contactless services and maximize direct sales revenue';
+      'Local and global travel hackers are ready to support your business, deliver 3X faster & hassle free contactless services and maximize direct sales revenue';
 
-  static String get businessValue1 =>
-      "Boost your business\'s growth with the largest network of both independent travel freelancers & travelers";
-
-  static String get businessValue2 => "Boost your business's growth.";
-
-  //
   ///Revenue
   static String get businessWhyRevenue1 => 'More Revenue';
 
@@ -18,10 +12,10 @@ abstract class BusinessConstString {
       "More hands in sales by experienced travel hackers ";
 
   static String get businessWhyRevenue3 =>
-      "More direct bookings at zero commission.";
+      "More direct bookings at zero commission";
 
   static String get businessWhyRevenue4 =>
-      "More visibility to on-demand packages bookers & agents.";
+      "More visibility to on-demand packages bookers & agents";
 
   ///Contactless
   static String get businessWhyContactless => 'Go Contactless';
