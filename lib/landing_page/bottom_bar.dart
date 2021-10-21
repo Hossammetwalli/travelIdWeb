@@ -137,8 +137,9 @@ class LastBottomBar extends StatelessWidget {
                     height: 20,
                     child: InkWell(
                       onTap: () {
-                        _launchSocial("https://www.facebook.com/",
-                            "https://www.facebook.com/");
+                        _launchSocial(
+                            "https://www.facebook.com/Travel-ID-1968705690076037/",
+                            "https://www.facebook.com/Travel-ID-1968705690076037/");
                       },
                       child: Image.network(
                         "assets/social_facebook.png",
@@ -155,50 +156,51 @@ class LastBottomBar extends StatelessWidget {
                     height: 20,
                     child: InkWell(
                       onTap: () {
-                        _launchSocial("https://www.linkedin.com/feed/?trk=",
-                            "https://www.linkedin.com/feed/?trk=");
+                        _launchSocial(
+                            "https://www.linkedin.com/company/etravelid/?viewAsMember=true",
+                            "https://www.linkedin.com/company/etravelid/?viewAsMember=true");
                       },
                       child: Image.network(
                         "assets/social_linkedin.png",
                       ),
                     )),
               ),
-              const SizedBox(
-                width: 20,
-              ),
-              Flexible(
-                fit: FlexFit.loose,
-                child: Container(
-                    width: 20,
-                    height: 20,
-                    child: InkWell(
-                      onTap: () {
-                        _launchSocial("https://www.linkedin.com/feed/?trk=",
-                            "https://www.linkedin.com/feed/?trk=");
-                      },
-                      child: Image.network(
-                        "assets/social_instagram.png",
-                      ),
-                    )),
-              ),
-              const SizedBox(
-                width: 20,
-              ),
-              Flexible(
-                fit: FlexFit.loose,
-                child: Container(
-                    width: 20,
-                    height: 20,
-                    child: InkWell(
-                      onTap: () {
-                        _launchSocial("https://www.linkedin.com/feed/?trk=",
-                            "https://www.linkedin.com/feed/?trk=");
-                      },
-                      child: Image.network(
-                        "assets/social_twitter.png",
-                      ),
-                    )),
-              ),
+              // const SizedBox(
+              //   width: 20,
+              // ),
+              // Flexible(
+              //   fit: FlexFit.loose,
+              //   child: Container(
+              //       width: 20,
+              //       height: 20,
+              //       child: InkWell(
+              //         onTap: () {
+              //           _launchSocial("https://www.linkedin.com/feed/?trk=",
+              //               "https://www.linkedin.com/feed/?trk=");
+              //         },
+              //         child: Image.network(
+              //           "assets/social_instagram.png",
+              //         ),
+              //       )),
+              // ),
+              // const SizedBox(
+              //   width: 20,
+              // ),
+              // Flexible(
+              //   fit: FlexFit.loose,
+              //   child: Container(
+              //       width: 20,
+              //       height: 20,
+              //       child: InkWell(
+              //         onTap: () {
+              //           _launchSocial("https://www.linkedin.com/feed/?trk=",
+              //               "https://www.linkedin.com/feed/?trk=");
+              //         },
+              //         child: Image.network(
+              //           "assets/social_twitter.png",
+              //         ),
+              //       )),
+              // ),
             ],
           ),
           const SizedBox(
@@ -214,7 +216,8 @@ class LastBottomBar extends StatelessWidget {
                     "Privacy policy -",
                     style: AppTextStyles.mainTitleRegularWhite10,
                   ),
-                  onTap: () {},
+                  onTap: () async => await Navigator.of(context)
+                      .pushNamed(PrivacyPolicyWidget.route),
                 ),
               ),
               Flexible(
@@ -224,7 +227,8 @@ class LastBottomBar extends StatelessWidget {
                     "Terms of use",
                     style: AppTextStyles.mainTitleRegularWhite10,
                   ),
-                  onTap: () {},
+                  onTap: () async => await Navigator.of(context)
+                      .pushNamed(TermsOfUseWidget.route),
                 ),
               ),
             ],

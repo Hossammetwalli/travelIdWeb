@@ -1,10 +1,18 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:webapptrial/landing_page/widgets/multiple_carsoul_widget.dart';
 import 'package:webapptrial/widgets/export_widget.dart';
 
 class HomePage extends StatefulWidget {
   static const String route = '/homePage';
+
+  final FirebaseAnalytics analytics;
+  final FirebaseAnalyticsObserver observer;
+
+  const HomePage({Key key, this.analytics, this.observer}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -12,6 +20,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   double _scrollPosition = 0;
+  bool _firstTime = true;
   double _opacity = 0;
   ScrollController _scrollController =
       ScrollController(initialScrollOffset: 0.0);
@@ -25,8 +34,18 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+    // if (_firstTime) {
+    //   WidgetsBinding.instance.addPostFrameCallback((_) => showDialog(
+    //         context: context,
+    //         builder: (context) => SubscriptionDialog(),
+    //       ));
+    //
+    //   setState(() {
+    //     _firstTime = false;
+    //   });
+    // }
     _scrollController = ScrollController();
-    //  _scrollController.addListener(_scrollListener);
+    _scrollController.addListener(_scrollListener);
     // if (!_scrollController.hasClients) {
     //   Future.delayed(Duration(milliseconds: 50), () {
     //     _scrollController?.jumpTo(_scrollController.position.minScrollExtent);
@@ -54,7 +73,7 @@ class _HomePageState extends State<HomePage> {
       controller: _scrollController,
       hoverThickness: 15,
       thickness: 15,
-      // showTrackOnHover: true,
+      showTrackOnHover: true,
       interactive: true,
       radius: Radius.zero,
       child: Scaffold(
@@ -66,53 +85,53 @@ class _HomePageState extends State<HomePage> {
                     AppColors.primaryBlueColor.withOpacity(_opacity),
                 elevation: 0,
                 centerTitle: true,
-                iconTheme: IconThemeData(color: AppColors.primaryWhite),
-                title: (screenSize.width < 300)
-                    ? Row(
-                        children: [
-                          Image.network(
-                            "assets/logo_icon_white.png",
-                            scale: 10,
-                          ),
-                        ],
-                      )
-                    : Row(
-                        children: [
-                          Image.network(
-                            "assets/logo_icon_white.png",
-                            scale: 4,
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Container(
-                            width: 5,
-                            height: 40,
-                            color: AppColors.primaryGreenB1,
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Image.network(
-                            "assets/logo_name_green.png",
-                            scale: 2,
-                          ),
-                        ],
-                      ),
-              )
+          iconTheme: IconThemeData(color: AppColors.primaryWhite),
+          title: (screenSize.width < 300)
+              ? Row(
+            children: [
+              Image.network(
+                "assets/logo_icon_white.png",
+                scale: 10,
+              ),
+            ],
+          )
+              : Row(
+            children: [
+              Image.network(
+                "assets/logo_icon_white.png",
+                scale: 4,
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              Container(
+                width: 5,
+                height: 40,
+                color: AppColors.primaryGreenB1,
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              Image.network(
+                "assets/logo_name_green.png",
+                scale: 2,
+              ),
+            ],
+          ),
+        )
             : PreferredSize(
-                preferredSize: Size(screenSize.width, 1000),
-                child: TopBarContents(
-                  topBarColor: AppColors.primaryBlueColor,
+          preferredSize: Size(screenSize.width, 1000),
+          child: TopBarContents(
+            topBarColor: AppColors.primaryBlueColor,
                   opacity: _opacity,
                   buttonOneName: "Home",
                   buttonTwoName: "Business Partners",
                   onPressOne: () async =>
                       await Navigator.of(context).pushNamed(HomePage.route),
-                  onPressTwo: () async =>
-                      Navigator.of(context).pushNamed(HomePageBusiness.route),
+                  onPressTwo: () async => await Navigator.of(context)
+                      .pushNamed(HomePageBusiness.route),
                 ),
-              ),
+        ),
         drawer: ExploreDrawer(
           topColor: AppColors.primaryBlueColor,
           width: screenSize.width,

@@ -6,7 +6,8 @@ abstract class AppTextStyles {
       fontFamily: 'SF-Pro-Text-Light',
       color: AppColors.secondaryNavyColor,
       fontWeight: FontWeight.w600,
-      fontSize: 16,
+      fontSize: 17,
+      height: 1.1,
       letterSpacing: -0.41);
 
   ///Currently used//////
@@ -14,9 +15,10 @@ abstract class AppTextStyles {
   ///Main fonts
   static TextStyle get mainRegularGrey16 => TextStyle(
       fontFamily: 'SF-Pro-Text-Light',
-      color: AppColors.lightGreyColorC4,
+      color: AppColors.secondaryBlack64,
       fontWeight: FontWeight.w600,
-      fontSize: 16,
+      fontSize: 17,
+      height: 1.1,
       letterSpacing: -0.41);
 
   static TextStyle get mainTitleRegularWhite10 => TextStyle(

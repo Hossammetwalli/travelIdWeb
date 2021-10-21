@@ -1,7 +1,9 @@
 export 'package:webapptrial/const/colors.dart';
 export 'package:webapptrial/const/const_freelancer_firestore.dart';
+export 'package:webapptrial/const/const_privacy_policy.dart';
 export 'package:webapptrial/const/const_string.dart';
 export 'package:webapptrial/const/const_string_business.dart';
+export 'package:webapptrial/const/const_terms.dart';
 export 'package:webapptrial/const/text_style.dart';
 //landing page
 
@@ -18,9 +20,12 @@ export 'package:webapptrial/landing_page/widget_business/business_why.dart';
 
 export 'package:webapptrial/landing_page/widgets/bottom_about_us.dart';
 export 'package:webapptrial/landing_page/widgets/bottom_message.dart';
+export 'package:webapptrial/landing_page/widgets/contact_us.dart';
 export 'package:webapptrial/landing_page/widgets/download_app_widget.dart';
 export 'package:webapptrial/landing_page/widgets/freelancer_request_access.dart';
+export 'package:webapptrial/landing_page/widgets/privacy_policy.dart';
 export 'package:webapptrial/landing_page/widgets/second_widget.dart';
+export 'package:webapptrial/landing_page/widgets/terms_ofuse.dart';
 export 'package:webapptrial/landing_page/widgets/top_bar_contents.dart';
 export 'package:webapptrial/landing_page/widgets/why_travel_id_widget.dart';
 export 'package:webapptrial/models/business_model.dart';

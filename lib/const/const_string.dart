@@ -123,7 +123,7 @@ abstract class ConstString {
 
   static String get dialogTerms3 => ' and confirm you have read our ';
 
-  static String get dialogTerms4 => ' Privacy Policy.';
+  static String get dialogTerms4 => ' Privacy Policy';
 
   static String get aboutContent =>
       "We are a team of travelers and developers who are passionate"

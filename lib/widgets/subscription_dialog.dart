@@ -2,7 +2,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:uuid/uuid.dart';
 import 'package:webapptrial/widgets/export_widget.dart';
 
@@ -64,9 +63,9 @@ class _SubscriptionDialogState extends State<SubscriptionDialog> {
                   children: [
                     AutoSizeText(
                       ConstString.dialogCondition1,
-                      style: AppTextStyles.mainTitleRegularNavy10,
+                      style: AppTextStyles.mainTitleRegularPrimNavy10,
                       textAlign: TextAlign.start,
-                      maxFontSize: 18,
+                      minFontSize: 18,
                     ),
                     const SizedBox(height: 30),
                     AppFormTextField(
@@ -81,13 +80,7 @@ class _SubscriptionDialogState extends State<SubscriptionDialog> {
                       onSave: (value) => setState(() => _fullName = value),
                     ),
                     const SizedBox(height: 20),
-                    AutoSizeText(
-                      'Email address',
-                      textAlign: TextAlign.left,
-                      maxFontSize: 15,
-                      style: AppTextStyles.mainTitleRegularNavy10,
-                    ),
-                    const SizedBox(height: 5),
+
                     AppFormEmailField(
                       formName: "Personal email",
                       initialValue: "",
@@ -158,24 +151,24 @@ class _SubscriptionDialogState extends State<SubscriptionDialog> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Expanded(
+                            Flexible(
+                              fit: FlexFit.loose,
                               child: AutoSizeText(
                                 ConstString.dialogTerms1,
                                 maxLines: 2,
-                                maxFontSize: 12,
+                                minFontSize: 12,
                                 style: AppTextStyles.mainTitleRegularNavy10,
                               ),
                             ),
-                            Expanded(
+                            Flexible(
+                              fit: FlexFit.loose,
                               child: InkWell(
-                                onTap: () {
-                                  _launchSocial("https://www.facebook.com/",
-                                      "https://www.facebook.com/");
-                                },
+                                onTap: () async => await Navigator.of(context)
+                                    .pushNamed(TermsOfUseWidget.route),
                                 child: AutoSizeText(
                                   ConstString.dialogTerms2,
                                   maxLines: 2,
-                                  maxFontSize: 12,
+                                  minFontSize: 12,
                                   style: AppTextStyles.mainTitleRegularGreen10,
                                 ),
                               ),
@@ -186,24 +179,24 @@ class _SubscriptionDialogState extends State<SubscriptionDialog> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Expanded(
+                            Flexible(
+                              fit: FlexFit.loose,
                               child: AutoSizeText(
                                 ConstString.dialogTerms3,
                                 maxLines: 2,
-                                maxFontSize: 12,
+                                minFontSize: 12,
                                 style: AppTextStyles.mainTitleRegularNavy10,
                               ),
                             ),
-                            Expanded(
+                            Flexible(
+                              fit: FlexFit.loose,
                               child: InkWell(
-                                onTap: () {
-                                  _launchSocial("https://www.facebook.com/",
-                                      "https://www.facebook.com/");
-                                },
+                                onTap: () async => await Navigator.of(context)
+                                    .pushNamed(PrivacyPolicyWidget.route),
                                 child: AutoSizeText(
                                   ConstString.dialogTerms4,
                                   maxLines: 2,
-                                  maxFontSize: 12,
+                                  minFontSize: 12,
                                   style: AppTextStyles.mainTitleRegularGreen10,
                                 ),
                               ),
@@ -239,7 +232,7 @@ class _SubscriptionDialogState extends State<SubscriptionDialog> {
             Expanded(
               child: AutoSizeText(
                 _messageResult,
-                maxFontSize: 14,
+                minFontSize: 14,
                 style: TextStyle(
                   color: messageIsError == true ? Colors.red : Colors.green,
                 ),
@@ -265,18 +258,5 @@ class _SubscriptionDialogState extends State<SubscriptionDialog> {
     return const SizedBox(
       height: 0,
     );
-  }
-
-  void _launchSocial(String url, String fallbackUrl) async {
-    // Don't use canLaunch because of fbProtocolUrl (fb://)
-    try {
-      bool launched =
-          await launch(url, forceSafariVC: false, forceWebView: false);
-      if (!launched) {
-        await launch(fallbackUrl, forceSafariVC: false, forceWebView: false);
-      }
-    } catch (e) {
-      await launch(fallbackUrl, forceSafariVC: false, forceWebView: false);
-    }
   }
 }

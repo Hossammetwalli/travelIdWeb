@@ -10,14 +10,14 @@
     "prefer_related_applications": false,
     "icons": [
         {
-            "src": "icons/Icon-192.png",
-            "sizes": "192x192",
-            "type": "image/png"
+          "src": "icons/travel_id_icon.png",
+          "sizes": "192x192",
+          "type": "image/png"
         },
-        {
-            "src": "icons/Icon-512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
+      {
+        "src": "icons/travel_id_icon.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
     ]
 }

@@ -19,8 +19,8 @@ class SubscriptionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppElevatedButton(
-      fontSize: 12,
-      textStyle: AppTextStyles.mainTitleRegularNavy10,
+      fontSize: fontSize,
+      textStyle: AppTextStyles.mainTitleRegularPrimNavy10,
       width: width,
       height: height,
       primaryColor: AppColors.primaryGreenB1,

@@ -153,7 +153,7 @@ class LandingPageContent extends StatelessWidget {
                       textStyle: TextStyle(
                           fontFamily: 'SF-Pro-Text-Light',
                           color: AppColors.lightGreyColorC4,
-                          fontSize: 16,
+                          fontSize: 18,
                           fontWeight: FontWeight.w600,
                           letterSpacing: .5),
                       textAlign: TextAlign.start,
@@ -181,7 +181,7 @@ class LandingPageContent extends StatelessWidget {
                   ConstString.appCoveValueTwo,
                   style: AppTextStyles.mainTitleRegularGreen10,
                   textAlign: TextAlign.start,
-                  minFontSize: 16,
+                  minFontSize: 18,
                 ),
               ),
               const SizedBox(
@@ -196,50 +196,89 @@ class LandingPageContent extends StatelessWidget {
                       ConstString.getEarlyAccess,
                       style: AppTextStyles.mainTitleRegularWhite10,
                       textAlign: TextAlign.center,
-                      minFontSize: 16,
+                      minFontSize: 18,
                     ),
                     const SizedBox(
                       height: 15,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          child: SubscriptionButton(
-                            fontSize: 16,
-                            width: 150,
-                            height: 50,
-                            tittle: "I\'m a Traveler",
-                            dialog: () {
-                              showDialog(
-                                context: context,
-                                builder: (context) => SubscriptionDialog(),
-                              );
-                            },
+                    (screenSize.width < 420)
+                        ? Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              SubscriptionButton(
+                                fontSize: 18,
+                                width: 160,
+                                height: 50,
+                                tittle: "I\'m a Traveler",
+                                dialog: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (context) => SubscriptionDialog(),
+                                  );
+                                },
+                              ),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              SubscriptionButton(
+                                width: 160,
+                                height: 50,
+                                fontSize: 18,
+                                tittle: "I'm a Freelancer",
+                                dialog: () {
+                                  // print(screenSize.height);
+                                  // print(screenSize.width);
+                                  showDialog(
+                                    context: context,
+                                    builder: (context) =>
+                                        FreelancerRequestAccess(),
+                                  );
+                                },
+                              ),
+                            ],
+                          )
+                        : Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                child: SubscriptionButton(
+                                  fontSize: 18,
+                                  width: 160,
+                                  height: 50,
+                                  tittle: "I\'m a Traveler",
+                                  dialog: () {
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) =>
+                                          SubscriptionDialog(),
+                                    );
+                                  },
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 20,
+                              ),
+                              Expanded(
+                                child: SubscriptionButton(
+                                  width: 160,
+                                  height: 50,
+                                  fontSize: 18,
+                                  tittle: "I'm a Freelancer",
+                                  dialog: () {
+                                    // print(screenSize.height);
+                                    // print(screenSize.width);
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) =>
+                                          FreelancerRequestAccess(),
+                                    );
+                                  },
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
-                        const SizedBox(
-                          width: 30,
-                        ),
-                        Expanded(
-                          child: SubscriptionButton(
-                            width: 150,
-                            height: 50,
-                            fontSize: 16,
-                            tittle: "I'm a Freelancer",
-                            dialog: () {
-                              // print(screenSize.height);
-                              // print(screenSize.width);
-                              showDialog(
-                                context: context,
-                                builder: (context) => FreelancerRequestAccess(),
-                              );
-                            },
-                          ),
-                        ),
-                      ],
-                    ),
                   ],
                 ),
               ),

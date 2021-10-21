@@ -9,7 +9,7 @@ import 'package:webapptrial/widgets/export_widget.dart';
 
 void main() async {
   runApp(MyApp());
-
+  WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
   ));
@@ -26,9 +26,12 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   void initState() {
-    // getUserInfo();
     super.initState();
   }
+
+  static FirebaseAnalytics analytics = FirebaseAnalytics();
+  static FirebaseAnalyticsObserver observer =
+      FirebaseAnalyticsObserver(analytics: analytics);
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +55,11 @@ class _MyAppState extends State<MyApp> {
           primaryColor: AppColors.primaryWhite,
         ),
         debugShowCheckedModeBanner: false,
-        home: HomePage(),
+        home: HomePage(
+          analytics: analytics,
+          observer: observer,
+        ),
+        // HomePage(),
         onGenerateRoute: Routes.materialRoutes,
         supportedLocales: [
           Locale('en'),
@@ -75,12 +82,29 @@ class _MyAppState extends State<MyApp> {
 }
 
 abstract class Routes {
+  static FirebaseAnalytics analytics = FirebaseAnalytics();
+  static FirebaseAnalyticsObserver observer =
+      FirebaseAnalyticsObserver(analytics: analytics);
+
   static MaterialPageRoute materialRoutes(RouteSettings settings) {
     switch (settings.name) {
       case HomePage.route:
-        return MaterialPageRoute(builder: (context) => HomePage());
+        return MaterialPageRoute(
+            builder: (context) => HomePage(
+                  analytics: analytics,
+                  observer: observer,
+                ));
       case HomePageBusiness.route:
         return MaterialPageRoute(builder: (context) => HomePageBusiness());
+
+      case PrivacyPolicyWidget.route:
+        return MaterialPageRoute(builder: (context) => PrivacyPolicyWidget());
+
+      case ContactUs.route:
+        return MaterialPageRoute(builder: (context) => ContactUs());
+
+      case TermsOfUseWidget.route:
+        return MaterialPageRoute(builder: (context) => TermsOfUseWidget());
 
       default:
         return MaterialPageRoute(builder: (context) => HomePage());

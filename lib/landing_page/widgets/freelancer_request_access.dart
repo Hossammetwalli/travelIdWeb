@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:provider/provider.dart';
@@ -197,6 +198,73 @@ class _FreelancerRequestAccessState extends State<FreelancerRequestAccess> {
                                                   _whyDoYouWantToJoin));
                                 }
                               }),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+                    Divider(
+                      height: 1,
+                      color: AppColors.primaryBlack00,
+                    ),
+                    const SizedBox(height: 10),
+                    Column(
+                      children: [
+                        // todo inkwell
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Flexible(
+                              fit: FlexFit.loose,
+                              child: AutoSizeText(
+                                ConstString.dialogTerms1,
+                                maxLines: 2,
+                                minFontSize: 12,
+                                style: AppTextStyles.mainTitleRegularNavy10,
+                              ),
+                            ),
+                            Flexible(
+                              fit: FlexFit.loose,
+                              child: InkWell(
+                                onTap: () async => await Navigator.of(context)
+                                    .pushNamed(TermsOfUseWidget.route),
+                                child: AutoSizeText(
+                                  ConstString.dialogTerms2,
+                                  maxLines: 2,
+                                  minFontSize: 12,
+                                  style: AppTextStyles.mainTitleRegularGreen10,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Flexible(
+                              fit: FlexFit.loose,
+                              child: AutoSizeText(
+                                ConstString.dialogTerms3,
+                                maxLines: 2,
+                                minFontSize: 12,
+                                style: AppTextStyles.mainTitleRegularNavy10,
+                              ),
+                            ),
+                            Flexible(
+                              fit: FlexFit.loose,
+                              child: InkWell(
+                                onTap: () async => await Navigator.of(context)
+                                    .pushNamed(PrivacyPolicyWidget.route),
+                                child: AutoSizeText(
+                                  ConstString.dialogTerms4,
+                                  maxLines: 2,
+                                  minFontSize: 12,
+                                  style: AppTextStyles.mainTitleRegularGreen10,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
