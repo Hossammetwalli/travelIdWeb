@@ -85,44 +85,44 @@ class _HomePageState extends State<HomePage> {
                     AppColors.primaryBlueColor.withOpacity(_opacity),
                 elevation: 0,
                 centerTitle: true,
-          iconTheme: IconThemeData(color: AppColors.primaryWhite),
-          title: (screenSize.width < 300)
-              ? Row(
-            children: [
-              Image.network(
-                "assets/logo_icon_white.png",
-                scale: 10,
-              ),
-            ],
-          )
-              : Row(
-            children: [
-              Image.network(
-                "assets/logo_icon_white.png",
-                scale: 4,
-              ),
-              const SizedBox(
-                width: 10,
-              ),
-              Container(
-                width: 5,
-                height: 40,
-                color: AppColors.primaryGreenB1,
-              ),
-              const SizedBox(
-                width: 10,
-              ),
-              Image.network(
-                "assets/logo_name_green.png",
-                scale: 2,
-              ),
-            ],
-          ),
-        )
+                iconTheme: IconThemeData(color: AppColors.primaryWhite),
+                title: (screenSize.width < 300)
+                    ? Row(
+                        children: [
+                          Image.network(
+                            "assets/logo_icon_white.png",
+                            scale: 10,
+                          ),
+                        ],
+                      )
+                    : Row(
+                        children: [
+                          Image.network(
+                            "assets/logo_icon_white.png",
+                            scale: 4,
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Container(
+                            width: 5,
+                            height: 40,
+                            color: AppColors.primaryGreenB1,
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Image.network(
+                            "assets/logo_name_green.png",
+                            scale: 2,
+                          ),
+                        ],
+                      ),
+              )
             : PreferredSize(
-          preferredSize: Size(screenSize.width, 1000),
-          child: TopBarContents(
-            topBarColor: AppColors.primaryBlueColor,
+                preferredSize: Size(screenSize.width, 1000),
+                child: TopBarContents(
+                  topBarColor: AppColors.primaryBlueColor,
                   opacity: _opacity,
                   buttonOneName: "Home",
                   buttonTwoName: "Business Partners",
@@ -131,7 +131,7 @@ class _HomePageState extends State<HomePage> {
                   onPressTwo: () async => await Navigator.of(context)
                       .pushNamed(HomePageBusiness.route),
                 ),
-        ),
+              ),
         drawer: ExploreDrawer(
           topColor: AppColors.primaryBlueColor,
           width: screenSize.width,
