@@ -34,23 +34,14 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    // if (_firstTime) {
-    //   WidgetsBinding.instance.addPostFrameCallback((_) => showDialog(
-    //         context: context,
-    //         builder: (context) => SubscriptionDialog(),
-    //       ));
-    //
-    //   setState(() {
-    //     _firstTime = false;
-    //   });
-    // }
+
     _scrollController = ScrollController();
     _scrollController.addListener(_scrollListener);
-    // if (!_scrollController.hasClients) {
-    //   Future.delayed(Duration(milliseconds: 50), () {
-    //     _scrollController?.jumpTo(_scrollController.position.minScrollExtent);
-    //   });
-    // }
+    if (!_scrollController.hasClients) {
+      Future.delayed(Duration(milliseconds: 50), () {
+        _scrollController?.jumpTo(_scrollController.position.minScrollExtent);
+      });
+    }
   }
 
   @override
@@ -139,7 +130,7 @@ class _HomePageState extends State<HomePage> {
         body: SingleChildScrollView(
           controller: _scrollController,
           padding: const EdgeInsets.only(right: 15),
-          physics: const NeverScrollableScrollPhysics(),
+          physics: const ClampingScrollPhysics(),
           child: Column(
             children: [
               LandingPageLarge(screenSize: screenSize),
