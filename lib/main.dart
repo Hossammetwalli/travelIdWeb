@@ -42,15 +42,11 @@ class _MyAppState extends State<MyApp> {
       ],
       child: MaterialApp(
         title: 'TRAVEL ID',
+
         navigatorObservers: [
           FirebaseAnalyticsObserver(analytics: FirebaseAnalytics()),
         ],
         theme: ThemeData(
-          // scrollbarTheme: ScrollbarThemeData(
-          //   isAlwaysShown: true,
-          //   interactive: true,
-          //   minThumbLength: 1,
-          // ),
           backgroundColor: AppColors.primaryWhite,
           primaryColor: AppColors.primaryWhite,
         ),
