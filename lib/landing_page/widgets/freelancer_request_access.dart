@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
 import 'package:webapptrial/widgets/export_widget.dart';
@@ -88,7 +89,6 @@ class _FreelancerRequestAccessState extends State<FreelancerRequestAccess> {
               width: 450,
               child: FormBuilder(
                 key: _formKey,
-                autovalidateMode: AutovalidateMode.onUserInteraction,
                 enabled: true,
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
@@ -181,7 +181,7 @@ class _FreelancerRequestAccessState extends State<FreelancerRequestAccess> {
                                 if (_formKey.currentState.saveAndValidate()) {
                                   _formKey.currentState.save();
 
-                                  _adminFireStoreService
+                                  await _adminFireStoreService
                                       .setFreelancerAccessRequest(
                                           FreelancerRequestModel(
                                               businessEmail: _businessEmail,
@@ -196,6 +196,18 @@ class _FreelancerRequestAccessState extends State<FreelancerRequestAccess> {
                                               userID: uuid.v4(),
                                               whyDoYouWantToJoin:
                                                   _whyDoYouWantToJoin));
+
+                                  Fluttertoast.showToast(
+                                      msg:
+                                          "Freelancer request added, our team will contact you soon",
+                                      toastLength: Toast.LENGTH_SHORT,
+                                      gravity: ToastGravity.CENTER,
+                                      timeInSecForIosWeb: 10,
+                                      backgroundColor: AppColors.primaryWhite,
+                                      textColor: AppColors.primaryGreenB1,
+                                      fontSize: 15.0);
+
+                                  Navigator.of(context).pop();
                                 }
                               }),
                         ),

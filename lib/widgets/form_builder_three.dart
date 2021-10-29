@@ -646,7 +646,7 @@ InputDecoration buildFormTextDecoration(
           borderRadius: BorderRadius.circular(8),
           borderSide: BorderSide(
             width: 0.5,
-            color: AppColors.secondaryBlack64,
+            color: AppColors.lightGreyColorD7,
           )),
       enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),

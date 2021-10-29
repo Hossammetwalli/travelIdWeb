@@ -15,7 +15,7 @@ abstract class AppTextStyles {
   ///Main fonts
   static TextStyle get mainRegularGrey16 => TextStyle(
       fontFamily: 'SF-Pro-Text-Light',
-      color: AppColors.secondaryBlack64,
+      color: AppColors.lightGreyColorC4,
       fontWeight: FontWeight.w600,
       fontSize: 17,
       height: 1.1,
