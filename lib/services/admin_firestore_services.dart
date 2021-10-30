@@ -7,23 +7,6 @@ class AdminFirestoreService {
   AuthBloc _auth = AuthBloc();
   var uuid = Uuid();
 
-  // Future<void> setProperty(PropertyModel property) async {
-  //   return _db
-  //       .collection(CollectionsFireStore.properties)
-  //       .doc(property.documentId)
-  //       .set(property.hotelToMap());
-  // }
-  //
-  // Future<PropertyModel> fetchProperty(String documentId) async {
-  //   return await _db
-  //       .collection(CollectionsFireStore.properties)
-  //       .doc(documentId)
-  //       .get()
-  //       .then((snapshot) => PropertyModel.fromFirestore(snapshot.data()));
-  // }
-
-  // Request Freelancer Access
-
   Future<void> setFreelancerAccessRequest(
       FreelancerRequestModel freelancerRequestModel) async {
     return _db
@@ -66,4 +49,14 @@ class AdminFirestoreService {
         .get()
         .then((snapshot) => AdminsModel.fromFirestore(snapshot.data()));
   }
+
+// Future<ImagesModel> getImagesFromFirestore() async {
+//   final uid = "VkNWwp7WqBMxcCq1xFmo";
+//
+//   return await _db
+//       .collection("webpageImages")
+//       .doc(uid)
+//       .get()
+//       .then((snapshot) => ImagesModel.fromFirestore(snapshot.data()));
+// }
 }

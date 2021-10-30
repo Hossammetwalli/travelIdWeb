@@ -43,15 +43,15 @@ abstract class BusinessConstString {
 
   /// IMAGES /////////////////////////////////////////////////////////////--------------------------
 
-  static String get businessHire => 'assets/business_hire.png';
-
-  static String get businessContactless => 'assets/business_contactless.jpeg';
-
-  static String get businessRevenue => 'assets/business_revenue.png';
-
-  static String get businessConnect => 'assets/business_connect.png';
-
-  static String get connect => 'assets/connect.jpeg';
-
-  static String get businessBackground => 'assets/business_background1.jpeg';
+// static String get businessHire => 'assets/business_hire.png';
+//
+// static String get businessContactless => 'assets/business_contactless.jpeg';
+//
+// static String get businessRevenue => 'assets/business_revenue.png';
+//
+// static String get businessConnect => 'assets/business_connect.png';
+//
+// static String get connect => 'assets/connect.jpeg';
+//
+// static String get businessBackground => 'assets/business_background1.jpeg';
 }

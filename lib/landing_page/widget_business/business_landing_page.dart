@@ -109,7 +109,7 @@ class BusinessLandingContentLarge extends StatelessWidget {
             Flexible(
               fit: FlexFit.loose,
               child: Image.network(
-                "assets/travel_id_image_2.png",
+                ConstString.travelIdImage2,
                 scale: .75,
                 fit: BoxFit.fill,
               ),
@@ -142,7 +142,7 @@ class BusinessLandingContentSmall extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Image.network(
-                "assets/travel_id_image_2.png",
+                ConstString.travelIdImage2,
                 scale: 1,
                 fit: BoxFit.fill,
               ),

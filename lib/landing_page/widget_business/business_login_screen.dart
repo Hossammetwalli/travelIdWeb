@@ -61,7 +61,7 @@ class _BusinessSignInViewState extends State<BusinessSignInView> {
                   name: "Property Id",
                   maxLines: 1,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
-                  style: AppTextStyles.formFontSecNavy16,
+                  style: AppTextStyles.mainRegularGrey16,
                   textAlign: TextAlign.center,
                   decoration: InputDecoration(
                     filled: true,
@@ -121,7 +121,7 @@ class _BusinessSignInViewState extends State<BusinessSignInView> {
                   name: "Password",
                   maxLines: 1,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
-                  style: AppTextStyles.formFontSecNavy16,
+                  style: AppTextStyles.mainRegularGrey16,
                   obscureText: _passwordVisible,
                   decoration: InputDecoration(
                     filled: true,
@@ -194,7 +194,7 @@ class _BusinessSignInViewState extends State<BusinessSignInView> {
                       children: [
                         TextSpan(
                           text: 'Keep me sign in',
-                          style: AppTextStyles.formFontSecNavy16,
+                          style: AppTextStyles.mainRegularGrey16,
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
                               _signInChecked = !_signInChecked;

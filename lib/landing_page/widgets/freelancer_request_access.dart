@@ -198,6 +198,7 @@ class _FreelancerRequestAccessState extends State<FreelancerRequestAccess> {
                                                   _whyDoYouWantToJoin));
 
                                   Fluttertoast.showToast(
+                                      webPosition: "center",
                                       msg:
                                           "Freelancer request added, our team will contact you soon",
                                       toastLength: Toast.LENGTH_SHORT,

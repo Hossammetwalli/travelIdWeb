@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:universal_html/html.dart';
 import 'package:webapptrial/widgets/export_widget.dart';
 
 void main() async {
@@ -27,6 +28,10 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+    final loader = document.getElementsByClassName('loader');
+    if (loader.isNotEmpty) {
+      loader.first.remove();
+    }
   }
 
   static FirebaseAnalytics analytics = FirebaseAnalytics();
@@ -89,21 +94,32 @@ abstract class Routes {
             builder: (context) => HomePage(
                   analytics: analytics,
                   observer: observer,
-                ));
+                ),
+            settings: RouteSettings(name: ""));
       case HomePageBusiness.route:
-        return MaterialPageRoute(builder: (context) => HomePageBusiness());
+        return MaterialPageRoute(
+            builder: (context) => HomePageBusiness(),
+            settings: RouteSettings(name: "business"));
 
       case PrivacyPolicyWidget.route:
-        return MaterialPageRoute(builder: (context) => PrivacyPolicyWidget());
+        return MaterialPageRoute(
+            builder: (context) => PrivacyPolicyWidget(),
+            settings: RouteSettings(name: "privacy"));
 
       case ContactUs.route:
-        return MaterialPageRoute(builder: (context) => ContactUs());
+        return MaterialPageRoute(
+            builder: (context) => ContactUs(),
+            settings: RouteSettings(name: "contact"));
 
       case TermsOfUseWidget.route:
-        return MaterialPageRoute(builder: (context) => TermsOfUseWidget());
+        return MaterialPageRoute(
+            builder: (context) => TermsOfUseWidget(),
+            settings: RouteSettings(name: "terms"));
 
       default:
-        return MaterialPageRoute(builder: (context) => HomePage());
+        return MaterialPageRoute(
+            builder: (context) => HomePage(),
+            settings: RouteSettings(name: ""));
     }
   }
 }

@@ -32,6 +32,7 @@ export 'package:webapptrial/models/business_model.dart';
 export 'package:webapptrial/models/business_request_model.dart';
 //models
 export 'package:webapptrial/models/email_send_model.dart';
+export 'package:webapptrial/models/email_send_model.dart';
 export 'package:webapptrial/models/freelancer_request_model.dart';
 export 'package:webapptrial/models/usser_subscription_model.dart';
 //services

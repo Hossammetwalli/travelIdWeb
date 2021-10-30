@@ -142,52 +142,109 @@ abstract class ConstString {
 
   ///Services images
 
-  static String get planningImage => 'assets/services/1planning.png';
+  static String get planningImage =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F1planning.png?alt=media&token=e13e012a-d23e-46c6-bc63-fedf30b0e534';
 
-  static String get flightImage => 'assets/services/2flight.png';
+  static String get flightImage =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F2flight.png?alt=media&token=7bd4c509-4ac0-4089-8838-21d0d824c5fc';
 
-  static String get hotelImage => 'assets/services/3hotel.png';
+  static String get hotelImage =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F3hotel.png?alt=media&token=fcbfbcb4-5682-46b6-b6d4-154b151256cd';
 
-  static String get conciergeImage => 'assets/services/4concierge.png';
+  static String get conciergeImage =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F4concierge.png?alt=media&token=d41ef9ef-1866-4062-a5e7-810ea691ab21';
 
-  static String get luxuryImage => 'assets/services/5luxury.png';
+  static String get luxuryImage =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F5luxury.png?alt=media&token=4f6604b8-6af1-4a7f-be4c-d208c36b1d82';
 
   static String get problemSolvingImage =>
-      'assets/services/6problem_solving.png';
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F6problem_solving.png?alt=media&token=d566199e-11d2-42be-9a57-36b5e1b42efb';
 
-  static String get activitiesImage => 'assets/services/7activity.png';
+  static String get activitiesImage =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F7activity.png?alt=media&token=790752e1-09d7-47ef-84da-2eb866571146';
 
-  static String get corporateImage => 'assets/services/8corporate.png';
+  static String get corporateImage =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F8corporate.png?alt=media&token=1d6e2b07-1ac5-41de-bb15-94c0385d59e1';
 
-  static String get groupsImage => 'assets/services/9group.png';
+  static String get groupsImage =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F9group.png?alt=media&token=0733796c-1da1-48fe-b7bb-350b4c5db547';
 
-  static String get eventsImage => 'assets/services/10events.png';
+  static String get eventsImage =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F10events.png?alt=media&token=bff02914-76bf-4e7a-a21f-005085a238d1';
 
   static String get familyServicesImage =>
-      'assets/services/11family_services.png';
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F11family_services.png?alt=media&token=7975a491-e9c6-47a9-8db1-911b53b3a245';
 
-  static String get shoppingImage => 'assets/services/12shopping.png';
+  static String get shoppingImage =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F12shopping.png?alt=media&token=071d7e43-10ae-435d-b057-f7c09f79070d';
 
-  static String get foodImage => 'assets/services/13food.png';
+  static String get foodImage =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F13food.png?alt=media&token=cbcc7bf5-6886-4e1c-b5f7-840d3cb45018';
 
-  static String get driverImage => 'assets/services/14driver.png';
+  static String get driverImage =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F14driver.png?alt=media&token=fdd617df-850e-4446-82ab-c89ae559a028';
 
-  static String get houseKeepingImage => 'assets/services/15housekeeping.png';
+  static String get houseKeepingImage =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F15housekeeping.png?alt=media&token=bbd360e9-e37c-48a4-ba5e-cbeb6424c5cb';
 
-  static String get hourlyJobsImage => 'assets/services/16hourly.png';
+  static String get hourlyJobsImage =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F16hourly.png?alt=media&token=a6d5f5a8-7096-453b-86ae-77e44d028d9c';
 
-  static String get virtualImage => 'assets/services/17Virtual.png';
+  static String get virtualImage =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F17Virtual.png?alt=media&token=26be210f-d55a-44fd-bc3b-7cb1acbbf9bd';
 
-  static String get remoteImage => 'assets/services/18remote.png';
+  static String get remoteImage =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F18remote.png?alt=media&token=12ad963b-041c-4e98-b3c5-251b0e6adbca';
 
-  static String get othersImage => 'assets/services/19Other.png';
+  static String get othersImage =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F19Other.png?alt=media&token=ff472110-843f-4d8c-a2da-40accaf9a1bd';
 
-  static String get packages => 'assets/services/packages.png';
+  static String get packages =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2Fpackages.png?alt=media&token=bdf7eceb-d0b3-4171-a4e6-f0f7d4373998';
+
+  static String get backgroundImage =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F21background_image.jpeg?alt=media&token=f47fe44a-43be-482b-9243-430ca923e036';
+
+  static String get businessBackground1 =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F22business_background1.jpeg?alt=media&token=73e92433-6011-4c6d-9b61-8a14eaafb736';
+
+  static String get businessContactless =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F23business_contactless.jpeg?alt=media&token=04b0b6f2-283e-49fe-a14b-6bdda2784911';
+
+  static String get businessHire =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F24business_hire.png?alt=media&token=a831cf4f-d1d3-4513-9dcc-238006cdc3c3';
+
+  static String get businessRevenue =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F25business_revenue.png?alt=media&token=5a671173-d2b7-42e1-becc-06c47380ef8a';
+
+  static String get contactusBackground =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F26contactus_background.jpeg?alt=media&token=04a8e428-b32d-4055-9a60-ca3952a96ec2';
+
+  static String get downloadApple =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F27download_apple.png?alt=media&token=1d336fc2-5c58-41ba-af24-a96f4ed48b83';
+
+  static String get downloadGoogle =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F28download_google.png?alt=media&token=8c9aae4c-3b30-4663-88c2-907cf647a6c7';
+
+  static String get firstImage =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F29first_image3.png?alt=media&token=48879a8d-7012-4f15-aa4e-64abad0ccf12';
+
+  static String get secondImage =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F30second_image1.png?alt=media&token=ae628b7b-8664-45d1-a0c6-41488d14940c';
+
+  static String get travelIdImage1 =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F31travel_id_image_1.png?alt=media&token=cff39125-c967-404e-8f65-0510b4959bf3';
+
+  static String get travelIdImage2 =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F32travel_id_image_2.png?alt=media&token=b49e9a85-e94d-457e-ab96-f06442e2aff6';
 
   ///Why assets
-  static String get assetFirstRow => 'assets/why_1.jpeg';
+  static String get assetFirstRow =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F33why_1.jpeg?alt=media&token=e48baf24-1da6-4a16-b262-dc121e7d26fc';
 
-  static String get assetSecondRow => 'assets/why_2.jpeg';
+  static String get assetSecondRow =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F34why_2.jpeg?alt=media&token=18c7c9ee-55ec-4568-b161-5e52ab3098a7';
 
-  static String get assetThirdRow => 'assets/why_3.jpeg';
+  static String get assetThirdRow =>
+      'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F35why_3.jpeg?alt=media&token=46906c93-e45b-449e-b82f-a82785a22b74';
 }

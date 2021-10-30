@@ -38,7 +38,7 @@ class AppTextFormFieldOriginal extends StatelessWidget {
         maxLines: maxLine,
         maxLength: maxLength,
         focusNode: textFocusNode,
-        style: AppTextStyles.formFontSecNavy16,
+        style: AppTextStyles.mainRegularGrey16,
         textInputAction: TextInputAction.done,
         textCapitalization: TextCapitalization.sentences,
         autofocus: false,

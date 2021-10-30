@@ -133,7 +133,9 @@ class _HomePageState extends State<HomePage> {
           physics: const ClampingScrollPhysics(),
           child: Column(
             children: [
-              LandingPageLarge(screenSize: screenSize),
+              LandingPageLarge(
+                screenSize: screenSize,
+              ),
               // MultipleItemDemo(),
               MultipleItemFreeLancer(
                 screenSize: screenSize,

@@ -31,7 +31,7 @@ class SecondWidget extends StatelessWidget {
           ),
         ),
         Image.network(
-          "assets/second_image1.png",
+          ConstString.secondImage,
           scale: .8,
           fit: BoxFit.fill,
           // scale: 2,

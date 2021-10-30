@@ -47,7 +47,7 @@ abstract class ConstPrivacyPolicy {
   static String get howWeUseYourInformation7 => "How we use your information";
 
   static String get howWeUseYourInformationContent8 =>
-      "We use the information we collect in various ways, including to:\n\n•	Provide, operate, and maintain our website \n•	Improve, personalize, and expand our website \n•	Understand and analyze how you use our website\n•	Develop new products, services, features, and functionality\n•	Communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the website, and for marketing and promotional purposes\n•	Send you emails\n•	Find and prevent fraud";
+      "We use the information we collect in various ways, including to:\n\n•Provide, operate, and maintain our website \n•Improve, personalize, and expand our website \n•Understand and analyze how you use our website\n•Develop new products, services, features, and functionality\n•Communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the website, and for marketing and promotional purposes\n•Send you emails\n•Find and prevent fraud";
 
   static String get aggregatedData21 => "Aggregated Data";
 
@@ -65,9 +65,9 @@ abstract class ConstPrivacyPolicy {
       " for a business purpose, we enter into a contract that describes the purpose and requires the recipient to both keep that personal information confidential"
       " and not use it for any purpose except performing the contract. We also take reasonable measures to ensure that these third parties provide "
       "sufficient guarantees to implement appropriate technical and organizational measures.  We share your personal information with the following categories of third parties:\n"
-      "•	Service providers such as payment service providers who will utilize your credit card and other payment information in accordance with their respective privacy policies.\n"
-      "•	TravelID’s registered API application providers which deliver relevant design stories and inspiration. We invite you to review their applicable data protection policies.\n"
-      "•	TravelID’s related, subsidiary, and affiliate companies.";
+      "•Service providers such as payment service providers who will utilize your credit card and other payment information in accordance with their respective privacy policies.\n"
+      "•TravelID’s registered API application providers which deliver relevant design stories and inspiration. We invite you to review their applicable data protection policies.\n"
+      "•TravelID’s related, subsidiary, and affiliate companies.";
 
   static String get logFiles9 => "Log Files";
 
@@ -186,13 +186,13 @@ abstract class ConstPrivacyPolicy {
       " we collected from you and retained, subject to certain exceptions. Once we receive and confirm your verifiable"
       " consumer request we will delete (and direct our service providers to delete) your personal information from our"
       " records unless an exception applies. We may deny your deletion request if retaining the information is necessary for us or our service providers to:\n\n"
-      "•	Complete the transaction for which we collected the personal information, provide a good or service that you requested,"
+      "•Complete the transaction for which we collected the personal information, provide a good or service that you requested,"
       " or take actions reasonably anticipated within the context of our ongoing business relationship with you, or otherwise perform the Services.\n"
-      "•	Detect security incidents, protect against malicious, deceptive, fraudulent or illegal activity, or prosecute those responsible for such activities.\n"
-      "•	Debug products to identify and repair errors that impair existing intended functionality.\n"
-      "•	Exercise free speech, ensure the right of another consumer to exercise their free speech rights, or exercise another right provided for by law.\n"
-      "•	Comply with a legal obligation.\n"
-      "•	Make other internal and lawful uses of that information that are compatible with the context in which you provide it.";
+      "•Detect security incidents, protect against malicious, deceptive, fraudulent or illegal activity, or prosecute those responsible for such activities.\n"
+      "•Debug products to identify and repair errors that impair existing intended functionality.\n"
+      "•Exercise free speech, ensure the right of another consumer to exercise their free speech rights, or exercise another right provided for by law.\n"
+      "•Comply with a legal obligation.\n"
+      "•Make other internal and lawful uses of that information that are compatible with the context in which you provide it.";
 
   static String get aChangeOfOwnership29 =>
       "Change of Ownership or Business Transition";

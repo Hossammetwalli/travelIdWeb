@@ -19,7 +19,9 @@ class LandingPageLarge extends StatelessWidget {
       width: screenSize.width,
       child: Stack(
         children: [
-          BackgroundColorWidget(screenSize: screenSize),
+          BackgroundColorWidget(
+            screenSize: screenSize,
+          ),
           (screenSize.width > 480) ? BigCircleWidget() : Container(),
           (screenSize.width > 750) ? MediumCircleWidget() : Container(),
           (screenSize.width > 750) ? SmallCircleWidget() : Container(),
@@ -110,14 +112,15 @@ class BackgroundColorWidget extends StatelessWidget {
       width: screenSize.width,
       height: (screenSize.width >= 400) ? 750 : 850,
       color: AppColors.primaryBlueColor,
-      child: Opacity(
-        opacity: 0.3,
-        child: Image.network(
-          "assets/background_image.jpeg",
-          //  height: (screenSize.width < 1400) ? 800 : 1500,
-          fit: BoxFit.cover,
-        ),
-      ),
+      // child: Opacity(
+      //   opacity: 0.3,
+      //   child: Image.network(
+      //     ConstString.backgroundImage,
+      //
+      //     //  height: (screenSize.width < 1400) ? 800 : 1500,
+      //     fit: BoxFit.cover,
+      //   ),
+      // ),
     );
   }
 }

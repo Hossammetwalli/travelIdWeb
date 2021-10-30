@@ -51,14 +51,14 @@ class DownloadAppWidget extends StatelessWidget {
                             Expanded(
                               flex: 1,
                               child: Image.network(
-                                "assets/download_google.png",
+                                ConstString.downloadGoogle,
                                 scale: 1,
                               ),
                             ),
                             Expanded(
                               flex: 1,
                               child: Image.network(
-                                "assets/download_apple.png",
+                                ConstString.downloadApple,
                                 scale: 1,
                               ),
                             ),
@@ -76,7 +76,7 @@ class DownloadAppWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Image.network(
-                      "assets/travel_id_image_1.png",
+                      ConstString.travelIdImage1,
                       scale: .7,
                       fit: BoxFit.fill,
                       // scale: 2,
@@ -92,7 +92,7 @@ class DownloadAppWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Image.network(
-                "assets/travel_id_image_1.png",
+                ConstString.travelIdImage1,
                 scale: 1,
                 fit: BoxFit.fill,
                 // scale: 2,
@@ -121,13 +121,13 @@ class DownloadAppWidget extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Image.network(
-                        "assets/download_google.png",
+                        ConstString.downloadGoogle,
                         scale: 1,
                       ),
                     ),
                     Expanded(
                       child: Image.network(
-                        "assets/download_apple.png",
+                        ConstString.downloadApple,
                         scale: 1,
                       ),
                     ),

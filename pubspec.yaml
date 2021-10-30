@@ -15,33 +15,23 @@ dependencies:
     sdk: flutter
 
 
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  #cupertino_icons: ^1.0.1
+
   provider: any
-  #shared_preferences: any
   firebase_core:
   cloud_firestore: any
   firebase_auth: any
   firebase_storage:
   fluttertoast: any
   firebase_analytics: ^8.3.3
-
+  google_fonts: ^2.1.0
   auto_size_text: any
   flutter_form_builder: ^6.0.0
-  #date_range_picker:
-  #flutter_swiper: any
-
+  universal_html: ^2.0.8
   url_launcher: any
   uuid:
-  #flutter_custom_clippers: any
   country_code_picker: any
   animated_text_kit: any
-  csc_picker: any
   flutter_typeahead: any
-  #flutter_rating_bar: any
-  #carousel_slider: ^4.0.0
-  # draggable_scrollbar: ^0.1.0
   infinite_carousel: ^1.0.1
 
 
@@ -68,33 +58,31 @@ flutter:
 
   fonts:
     # SF-PRO font
-    - family: SF-Pro
-      fonts:
-        - asset: fonts/SF-Pro.ttf
 
-    - family: SF-Pro-Text-Bold
-      fonts:
-        - asset: fonts/SF-Pro-Text-Bold.otf
 
-    - family: SF-Pro-Text-Heavy
-      fonts:
-        - asset: fonts/SF-Pro-Text-Heavy.otf
+    # - family: SF-Pro-Text-Bold
+    #  fonts:
+    #   - asset: fonts/SF-Pro-Text-Bold.otf
+
+    #  - family: SF-Pro-Text-Heavy
+    #    fonts:
+    #      - asset: fonts/SF-Pro-Text-Heavy.otf
 
     - family: SF-Pro-Text-Light
       fonts:
         - asset: fonts/SF-Pro-Text-Light.otf
 
-    - family: SF-Pro-Text-Regular
-      fonts:
-        - asset: fonts/SF-Pro-Text-Regular.otf
+      # - family: SF-Pro-Text-Regular
+      # fonts:
+      #   - asset: fonts/SF-Pro-Text-Regular.otf
 
-    - family: SF-Pro-Text-Semibold
-      fonts:
-        - asset: fonts/SF-Pro-Text-Semibold.otf
+      # - family: SF-Pro-Text-Semibold
+      #   fonts:
+      #  - asset: fonts/SF-Pro-Text-Semibold.otf
 
-    - family: SF-Pro-Text-Thin
-      fonts:
-        - asset: fonts/SF-Pro-Text-Thin.otf
+    # - family: SF-Pro-Text-Thin
+    #  fonts:
+    #    - asset: fonts/SF-Pro-Text-Thin.otf
 
 
 

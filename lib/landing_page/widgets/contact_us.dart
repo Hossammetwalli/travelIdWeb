@@ -19,7 +19,7 @@ class ContactUs extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.network(
-              "assets/contactus_background.jpeg",
+              ConstString.contactusBackground,
             ),
             AutoSizeText(
               "Contact Us",

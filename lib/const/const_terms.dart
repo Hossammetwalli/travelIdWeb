@@ -43,7 +43,7 @@ abstract class ConstTerms {
   static String get userAccount4 => 'User Account';
 
   static String get userAccount5 =>
-      '1.	Your Travel ID Account. If you create an account on the Service (your “Account”),'
+      '1.Your Travel ID Account. If you create an account on the Service (your “Account”),'
       ' you are responsible for maintaining the security of your Account and its Content (as defined below), and you are'
       ' fully responsible for all activities that occur under your Account and any other actions taken on the Service.'
       ' You must not describe or assign Content to your Account in a misleading or unlawful manner, including in a manner'
@@ -56,7 +56,7 @@ abstract class ConstTerms {
       ' card or other payment method, that corporation or organization is deemed to be the owner. If any dispute arises as to who owns or controls a Paid Account,'
       ' your most recently provided payment method will continue to be charged and you will be responsible to pay for the Service until Travel ID receives written'
       ' confirmation from the Paid Account email address confirming a change in ownership and control of the Paid Account.\n\n'
-      '2.	Fees and Renewals. Pricing for Paid Accounts will be provided at the time of purchase. Unless otherwise set out at the time'
+      '2.Fees and Renewals. Pricing for Paid Accounts will be provided at the time of purchase. Unless otherwise set out at the time'
       ' of purchase or as agreed to by Travel ID, fees for a Paid Account will be billed in advance for each year and are non-refundable.'
       ' There will be no refunds or credits for partial months of service or for periods in which your Paid Account remains open but you do not use the Service.\n'
       'We reserve the right to modify our billing rates at any time upon thirty (30) days written notice by posting such fee changes to the Service or'
@@ -96,27 +96,27 @@ abstract class ConstTerms {
 
   static String get usingTravelID9 =>
       "While using the Website, you will not attempt to or otherwise do any of the following:\n\n"
-      "1.	post content or items in inappropriate categories or areas on our Websites and services;\n"
-      "2.	infringe any laws, third party rights or our policies;\n"
-      "3.	fail to deliver payment for services delivered to you;\n"
-      "4.	fail to deliver Seller Services purchased from you;\n"
-      "5.	circumvent or manipulate our fee structure, the billing process, or fees owed to Travel ID;\n"
-      "6.	post false, inaccurate, misleading, deceptive, defamatory or offensive content (including personal information);\n"
-      "7.	take any action that may undermine the feedback or reputation systems (such as displaying, importing or exporting "
+      "1.post content or items in inappropriate categories or areas on our Websites and services;\n"
+      "2.infringe any laws, third party rights or our policies;\n"
+      "3.fail to deliver payment for services delivered to you;\n"
+      "4.fail to deliver Seller Services purchased from you;\n"
+      "5.circumvent or manipulate our fee structure, the billing process, or fees owed to Travel ID;\n"
+      "6.post false, inaccurate, misleading, deceptive, defamatory or offensive content (including personal information);\n"
+      "7.take any action that may undermine the feedback or reputation systems (such as displaying, importing or exporting "
       "feedback information or using it for purposes unrelated to the Website);\n"
-      "8.	transfer your Travel ID account (including feedback) and Username to another party without our consent;\n"
-      "9.	distribute or post spam, unsolicited, or bulk electronic communications, chain letters, or pyramid schemes;\n"
-      "10.	distribute viruses or any other technologies that may harm Travel ID, the Website, or the interests or "
+      "8.transfer your Travel ID account (including feedback) and Username to another party without our consent;\n"
+      "9.distribute or post spam, unsolicited, or bulk electronic communications, chain letters, or pyramid schemes;\n"
+      "10.distribute viruses or any other technologies that may harm Travel ID, the Website, or the interests or "
       "property of Travel ID users (including their Intellectual Property Rights, privacy and publicity rights) or is unlawful,"
       " threatening, abusive, defamatory, invasive of privacy, vulgar, obscene, profane or which may"
       " harass or cause distress or inconvenience to, or incite hatred of, any person;\n"
-      "11.	download and aggregate listings from our website for display with"
+      "11.download and aggregate listings from our website for display with"
       " listings from other websites without our express written permission or otherwise incorporate any part of the Website"
       " into any other website without our prior written authorisation;\n"
-      "12.	attempt to modify, translate, adapt, edit, decompile, disassemble,"
+      "12.attempt to modify, translate, adapt, edit, decompile, disassemble,"
       " or reverse engineer any software programs used by us in connection with the Website;\n"
-      "13.	copy, modify or distribute rights or content from the Website or Travel ID 's copyrights and trademarks; or\n"
-      "14.	harvest or otherwise collect information about Users, including email addresses, without their consent.\n";
+      "13.copy, modify or distribute rights or content from the Website or Travel ID 's copyrights and trademarks; or\n"
+      "14.harvest or otherwise collect information about Users, including email addresses, without their consent.\n";
 
   static String get acceptableUsePolicy10 => "Acceptable Use Policy";
 
@@ -153,13 +153,13 @@ abstract class ConstTerms {
 
   static String get copyRights19 =>
       "Company respects the intellectual property of others and asks that users of our Site do the same.  In connection with our Site, we have adopted and implemented a policy respecting copyright law that provides for the removal of any infringing materials and for the termination of users of our online Site who are repeated infringers of intellectual property rights, including copyrights.  If you believe that one of our users is, through the use of our Site, unlawfully infringing the copyright(s) in a work, and wish to have the allegedly infringing material removed, the following information in the form of a written notification (pursuant to 17 U.S.C. § 512(c)) must be provided to our designated Copyright Agent:\n\n"
-      "•	your physical or electronic signature;\n"
-      "•	identification of the copyrighted work(s) that you claim to have been infringed;\n"
-      "•	identification of the material on our services that you claim is infringing and that you request us to remove;\n"
-      "•	sufficient information to permit us to locate such material;\n"
-      "•	your address, telephone number, and e-mail address;\n"
-      "•	a statement that you have a good faith belief that use of the objectionable material is not authorized by the copyright owner, its agent, or under the law; and\n"
-      "•	a statement that the information in the notification is accurate, and under penalty of perjury, that you are either the owner"
+      "•your physical or electronic signature;\n"
+      "•identification of the copyrighted work(s) that you claim to have been infringed;\n"
+      "•identification of the material on our services that you claim is infringing and that you request us to remove;\n"
+      "•sufficient information to permit us to locate such material;\n"
+      "•your address, telephone number, and e-mail address;\n"
+      "•a statement that you have a good faith belief that use of the objectionable material is not authorized by the copyright owner, its agent, or under the law; and\n"
+      "•a statement that the information in the notification is accurate, and under penalty of perjury, that you are either the owner"
       " of the copyright that has allegedly been infringed or that you are authorized to act on behalf of the copyright owner.\n\n"
       "Please note that, pursuant to 17 U.S.C. § 512(f), any misrepresentation of material fact in a written notification automatically subjects the complaining party to liability for any damages, costs and attorney’s fees incurred by us in connection with the written notification and allegation of copyright infringement.";
 
