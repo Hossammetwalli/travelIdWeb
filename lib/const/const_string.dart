@@ -247,4 +247,7 @@ abstract class ConstString {
 
   static String get assetThirdRow =>
       'https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2F35why_3.jpeg?alt=media&token=46906c93-e45b-449e-b82f-a82785a22b74';
+
+  static String get activities10 =>
+      "https://firebasestorage.googleapis.com/v0/b/travelerid-57275.appspot.com/o/webpageImages%2Factivity10.jpeg?alt=media&token=cef02fb8-b1d6-47d6-8693-b00ce5426d1a";
 }

@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:seo_renderer/renderers/text_renderer/text_renderer_vm.dart';
 import 'package:webapptrial/const/const_string.dart';
 import 'package:webapptrial/widgets/export_widget.dart';
 
@@ -283,27 +284,33 @@ class RowContent extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AutoSizeText(
-                rowMainTitle,
-                style: AppTextStyles.mainTitleRegularGreen10,
-                minFontSize: 22,
+              TextRenderer(
+                text: AutoSizeText(
+                  rowMainTitle,
+                  style: AppTextStyles.mainTitleRegularGreen10,
+                  minFontSize: 22,
+                ),
               ),
               const SizedBox(
                 height: 15,
               ),
-              AutoSizeText(
-                rowSubtitle1,
-                style: AppTextStyles.mainTitleRegularNavy10,
-                minFontSize: 16,
+              TextRenderer(
+                text: AutoSizeText(
+                  rowSubtitle1,
+                  style: AppTextStyles.mainTitleRegularNavy10,
+                  minFontSize: 16,
+                ),
               ),
               const SizedBox(
                 height: 10,
               ),
-              AutoSizeText(
-                rowSubtitle11,
-                style: AppTextStyles.mainTitleRegularPrimNavy10,
-                minFontSize: 16,
-                textAlign: TextAlign.justify,
+              TextRenderer(
+                text: AutoSizeText(
+                  rowSubtitle11,
+                  style: AppTextStyles.mainTitleRegularPrimNavy10,
+                  minFontSize: 16,
+                  textAlign: TextAlign.justify,
+                ),
               ),
             ],
           ),
@@ -315,19 +322,23 @@ class RowContent extends StatelessWidget {
               const SizedBox(
                 height: 15,
               ),
-              AutoSizeText(
-                rowSubtitle2,
-                style: AppTextStyles.mainTitleRegularNavy10,
-                minFontSize: 16,
+              TextRenderer(
+                text: AutoSizeText(
+                  rowSubtitle2,
+                  style: AppTextStyles.mainTitleRegularNavy10,
+                  minFontSize: 16,
+                ),
               ),
               const SizedBox(
                 height: 10,
               ),
-              AutoSizeText(
-                rowSubtitle22,
-                style: AppTextStyles.mainTitleRegularPrimNavy10,
-                minFontSize: 16,
-                textAlign: TextAlign.justify,
+              TextRenderer(
+                text: AutoSizeText(
+                  rowSubtitle22,
+                  style: AppTextStyles.mainTitleRegularPrimNavy10,
+                  minFontSize: 16,
+                  textAlign: TextAlign.justify,
+                ),
               ),
             ],
           ),
@@ -340,19 +351,23 @@ class RowContent extends StatelessWidget {
               const SizedBox(
                 height: 15,
               ),
-              AutoSizeText(
-                rowSubtitle3,
-                style: AppTextStyles.mainTitleRegularNavy10,
-                minFontSize: 16,
+              TextRenderer(
+                text: AutoSizeText(
+                  rowSubtitle3,
+                  style: AppTextStyles.mainTitleRegularNavy10,
+                  minFontSize: 16,
+                ),
               ),
               const SizedBox(
                 height: 10,
               ),
-              AutoSizeText(
-                rowSubtitle33,
-                style: AppTextStyles.mainTitleRegularPrimNavy10,
-                minFontSize: 16,
-                textAlign: TextAlign.justify,
+              TextRenderer(
+                text: AutoSizeText(
+                  rowSubtitle33,
+                  style: AppTextStyles.mainTitleRegularPrimNavy10,
+                  minFontSize: 16,
+                  textAlign: TextAlign.justify,
+                ),
               ),
             ],
           ),

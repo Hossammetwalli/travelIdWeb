@@ -2,6 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:seo_renderer/renderers/text_renderer/text_renderer_vm.dart';
 import 'package:webapptrial/widgets/export_widget.dart';
 
 class LandingPageLarge extends StatelessWidget {
@@ -112,15 +113,15 @@ class BackgroundColorWidget extends StatelessWidget {
       width: screenSize.width,
       height: (screenSize.width >= 400) ? 750 : 850,
       color: AppColors.primaryBlueColor,
-      // child: Opacity(
-      //   opacity: 0.3,
-      //   child: Image.network(
-      //     ConstString.backgroundImage,
-      //
-      //     //  height: (screenSize.width < 1400) ? 800 : 1500,
-      //     fit: BoxFit.cover,
-      //   ),
-      // ),
+      child: Opacity(
+        opacity: 0.2,
+        child: Image.network(
+          ConstString.backgroundImage,
+
+          //  height: (screenSize.width < 1400) ? 800 : 1500,
+          fit: BoxFit.cover,
+        ),
+      ),
     );
   }
 }
@@ -168,11 +169,13 @@ class LandingPageContent extends StatelessWidget {
               ),
               Container(
                 constraints: const BoxConstraints(maxWidth: 500),
-                child: AutoSizeText(
-                  ConstString.appMainTitle,
-                  style: AppTextStyles.mainTitleRegularWhite10,
-                  textAlign: TextAlign.start,
-                  minFontSize: 40,
+                child: TextRenderer(
+                  text: AutoSizeText(
+                    ConstString.appMainTitle,
+                    style: AppTextStyles.mainTitleRegularWhite10,
+                    textAlign: TextAlign.start,
+                    minFontSize: 40,
+                  ),
                 ),
               ),
               const SizedBox(
@@ -180,11 +183,13 @@ class LandingPageContent extends StatelessWidget {
               ),
               Container(
                 constraints: BoxConstraints(maxWidth: 500),
-                child: AutoSizeText(
-                  ConstString.appCoveValueTwo,
-                  style: AppTextStyles.mainTitleRegularGreen10,
-                  textAlign: TextAlign.start,
-                  minFontSize: 18,
+                child: TextRenderer(
+                  text: AutoSizeText(
+                    ConstString.appCoveValueTwo,
+                    style: AppTextStyles.mainTitleRegularGreen10,
+                    textAlign: TextAlign.start,
+                    minFontSize: 18,
+                  ),
                 ),
               ),
               const SizedBox(

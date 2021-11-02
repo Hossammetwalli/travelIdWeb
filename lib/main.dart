@@ -5,11 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:seo_renderer/helpers/utils.dart';
 import 'package:universal_html/html.dart';
+import 'package:url_strategy/url_strategy.dart';
 import 'package:webapptrial/widgets/export_widget.dart';
 
 void main() async {
   runApp(MyApp());
+  setPathUrlStrategy();
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
@@ -47,8 +50,9 @@ class _MyAppState extends State<MyApp> {
       ],
       child: MaterialApp(
         title: 'TRAVEL ID',
-
+        initialRoute: '/',
         navigatorObservers: [
+          routeObserver,
           FirebaseAnalyticsObserver(analytics: FirebaseAnalytics()),
         ],
         theme: ThemeData(
@@ -99,7 +103,7 @@ abstract class Routes {
       case HomePageBusiness.route:
         return MaterialPageRoute(
             builder: (context) => HomePageBusiness(),
-            settings: RouteSettings(name: "business"));
+            settings: RouteSettings(name: "/business"));
 
       case PrivacyPolicyWidget.route:
         return MaterialPageRoute(
@@ -119,7 +123,7 @@ abstract class Routes {
       default:
         return MaterialPageRoute(
             builder: (context) => HomePage(),
-            settings: RouteSettings(name: ""));
+            settings: RouteSettings(name: "/home/"));
     }
   }
 }

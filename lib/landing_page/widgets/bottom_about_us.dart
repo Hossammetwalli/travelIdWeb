@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:seo_renderer/renderers/text_renderer/text_renderer_vm.dart';
 import 'package:webapptrial/widgets/export_widget.dart';
 
 class AboutUs extends StatelessWidget {
@@ -18,22 +19,26 @@ class AboutUs extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            AutoSizeText(
-              "Who we are",
-              style: AppTextStyles.mainTitleRegularWhite10,
-              minFontSize: 18,
-              textAlign: TextAlign.start,
+            TextRenderer(
+              text: AutoSizeText(
+                "Who we are",
+                style: AppTextStyles.mainTitleRegularWhite10,
+                minFontSize: 18,
+                textAlign: TextAlign.start,
+              ),
             ),
             const SizedBox(
               height: 10,
             ),
             Container(
               width: width,
-              child: AutoSizeText(
-                ConstString.aboutContent,
-                style: AppTextStyles.mainTitleRegularWhite10,
-                textAlign: TextAlign.justify,
-                minFontSize: 16,
+              child: TextRenderer(
+                text: AutoSizeText(
+                  ConstString.aboutContent,
+                  style: AppTextStyles.mainTitleRegularWhite10,
+                  textAlign: TextAlign.justify,
+                  minFontSize: 16,
+                ),
               ),
             ),
             const SizedBox(
@@ -41,11 +46,13 @@ class AboutUs extends StatelessWidget {
             ),
             Container(
               width: width,
-              child: AutoSizeText(
-                ConstString.aboutMission,
-                style: AppTextStyles.mainTitleRegularWhite10,
-                textAlign: TextAlign.justify,
-                minFontSize: 16,
+              child: TextRenderer(
+                text: AutoSizeText(
+                  ConstString.aboutMission,
+                  style: AppTextStyles.mainTitleRegularWhite10,
+                  textAlign: TextAlign.justify,
+                  minFontSize: 16,
+                ),
               ),
             ),
           ],

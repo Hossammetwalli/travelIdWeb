@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:seo_renderer/renderers/text_renderer/text_renderer_vm.dart';
 import 'package:webapptrial/widgets/export_widget.dart';
 
 class SecondWidget extends StatelessWidget {
@@ -23,11 +24,13 @@ class SecondWidget extends StatelessWidget {
           constraints: const BoxConstraints(maxWidth: 650),
           padding: const EdgeInsets.only(left: 20, right: 20),
           alignment: Alignment.center,
-          child: AutoSizeText(
-            ConstString.secondPageContent2,
-            style: AppTextStyles.mainTitleRegularNavy10,
-            minFontSize: 30,
-            textAlign: TextAlign.center,
+          child: TextRenderer(
+            text: AutoSizeText(
+              ConstString.secondPageContent2,
+              style: AppTextStyles.mainTitleRegularNavy10,
+              minFontSize: 30,
+              textAlign: TextAlign.center,
+            ),
           ),
         ),
         Image.network(
@@ -42,11 +45,13 @@ class SecondWidget extends StatelessWidget {
           alignment: Alignment.center,
           constraints: const BoxConstraints(maxWidth: 650),
           padding: const EdgeInsets.only(left: 20, right: 20),
-          child: AutoSizeText(
-            ConstString.whyMainTitle,
-            style: AppTextStyles.mainTitleRegularNavy10,
-            textAlign: TextAlign.center,
-            minFontSize: 30,
+          child: TextRenderer(
+            text: AutoSizeText(
+              ConstString.whyMainTitle,
+              style: AppTextStyles.mainTitleRegularNavy10,
+              textAlign: TextAlign.center,
+              minFontSize: 30,
+            ),
           ),
         ),
       ],

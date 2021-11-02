@@ -1,21 +1,21 @@
 {
-    "name": "webapptrial",
-    "short_name": "webapptrial",
-    "start_url": ".",
-    "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
-    "orientation": "portrait-primary",
-    "prefer_related_applications": false,
-    "icons": [
-      {
-        "src": "icons/travel_id_icon.png",
-        "sizes": "192x192",
-        "type": "image/png"
-      },
-      {
-        "src": "icons/travel_id_icon.png",
+  "name": "Travel ID",
+  "short_name": "Travel-iD",
+  "start_url": "www.travelid.ee",
+  "display": "TravelID",
+  "background_color": "#0175C2",
+  "theme_color": "#0175C2",
+  "description": "Travel ID creates an opportunity for all travel and hospitality gurus to work online doing on-demand jobs, deals, and remote work.",
+  "orientation": "portrait-primary",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "icons/travel_id_icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/travel_id_icon.png",
         "sizes": "512x512",
         "type": "image/png"
       },

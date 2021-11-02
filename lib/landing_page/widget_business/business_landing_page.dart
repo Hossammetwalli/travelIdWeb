@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:seo_renderer/renderers/text_renderer/text_renderer_vm.dart';
 import 'package:webapptrial/widgets/export_widget.dart';
 
 class LandingPageBusiness extends StatelessWidget {
@@ -57,20 +58,24 @@ class BusinessLandingContentLarge extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    AutoSizeText(
-                      BusinessConstString.businessMainTittle,
-                      style: AppTextStyles.mainTitleRegularNavy10,
-                      textAlign: TextAlign.start,
-                      minFontSize: 40,
+                    TextRenderer(
+                      text: AutoSizeText(
+                        BusinessConstString.businessMainTittle,
+                        style: AppTextStyles.mainTitleRegularNavy10,
+                        textAlign: TextAlign.start,
+                        minFontSize: 40,
+                      ),
                     ),
                     const SizedBox(
                       height: 30,
                     ),
-                    AutoSizeText(
-                      BusinessConstString.businessCoreValue,
-                      style: AppTextStyles.mainTitleRegularNavy10,
-                      textAlign: TextAlign.start,
-                      minFontSize: 16,
+                    TextRenderer(
+                      text: AutoSizeText(
+                        BusinessConstString.businessCoreValue,
+                        style: AppTextStyles.mainTitleRegularNavy10,
+                        textAlign: TextAlign.start,
+                        minFontSize: 16,
+                      ),
                     ),
                     const SizedBox(
                       height: 50,
@@ -152,11 +157,13 @@ class BusinessLandingContentSmall extends StatelessWidget {
               Container(
                 constraints: const BoxConstraints(maxWidth: 500),
                 padding: const EdgeInsets.only(left: 25, right: 25),
-                child: AutoSizeText(
-                  BusinessConstString.businessMainTittle,
-                  style: AppTextStyles.mainTitleRegularNavy10,
-                  textAlign: TextAlign.center,
-                  minFontSize: 30,
+                child: TextRenderer(
+                  text: AutoSizeText(
+                    BusinessConstString.businessMainTittle,
+                    style: AppTextStyles.mainTitleRegularNavy10,
+                    textAlign: TextAlign.center,
+                    minFontSize: 30,
+                  ),
                 ),
               ),
               const SizedBox(
@@ -165,11 +172,13 @@ class BusinessLandingContentSmall extends StatelessWidget {
               Container(
                 constraints: BoxConstraints(maxWidth: 500),
                 padding: const EdgeInsets.only(left: 25, right: 25),
-                child: AutoSizeText(
-                  BusinessConstString.businessCoreValue,
-                  style: AppTextStyles.mainTitleRegularNavy10,
-                  textAlign: TextAlign.center,
-                  minFontSize: 16,
+                child: TextRenderer(
+                  text: AutoSizeText(
+                    BusinessConstString.businessCoreValue,
+                    style: AppTextStyles.mainTitleRegularNavy10,
+                    textAlign: TextAlign.center,
+                    minFontSize: 16,
+                  ),
                 ),
               ),
               const SizedBox(

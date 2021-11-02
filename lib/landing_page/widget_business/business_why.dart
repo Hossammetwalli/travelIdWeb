@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:seo_renderer/renderers/text_renderer/text_renderer_vm.dart';
 import 'package:webapptrial/widgets/export_widget.dart';
 
 class BusinessWhyTravelIdWidget extends StatelessWidget {
@@ -237,10 +238,12 @@ class BusinessRowContent extends StatelessWidget {
                 fit: BoxFit.fill,
                 // scale: 2,
               ),
-              AutoSizeText(
-                mainTitle,
-                style: AppTextStyles.mainTitleRegularPrimNavy10,
-                minFontSize: 20,
+              TextRenderer(
+                text: AutoSizeText(
+                  mainTitle,
+                  style: AppTextStyles.mainTitleRegularPrimNavy10,
+                  minFontSize: 20,
+                ),
               ),
               const SizedBox(
                 height: 20,
@@ -260,10 +263,12 @@ class BusinessRowContent extends StatelessWidget {
                       width: 5,
                     ),
                     Expanded(
-                      child: AutoSizeText(
-                        subTitle1,
-                        style: AppTextStyles.mainTitleRegularNavy10,
-                        minFontSize: 16,
+                      child: TextRenderer(
+                        text: AutoSizeText(
+                          subTitle1,
+                          style: AppTextStyles.mainTitleRegularNavy10,
+                          minFontSize: 16,
+                        ),
                       ),
                     )
                   ],
@@ -287,10 +292,12 @@ class BusinessRowContent extends StatelessWidget {
                       width: 5,
                     ),
                     Expanded(
-                      child: AutoSizeText(
-                        subTitle2,
-                        style: AppTextStyles.mainTitleRegularNavy10,
-                        minFontSize: 16,
+                      child: TextRenderer(
+                        text: AutoSizeText(
+                          subTitle2,
+                          style: AppTextStyles.mainTitleRegularNavy10,
+                          minFontSize: 16,
+                        ),
                       ),
                     )
                   ],
@@ -314,10 +321,12 @@ class BusinessRowContent extends StatelessWidget {
                       width: 5,
                     ),
                     Expanded(
-                      child: AutoSizeText(
-                        subTitle3,
-                        style: AppTextStyles.mainTitleRegularNavy10,
-                        minFontSize: 16,
+                      child: TextRenderer(
+                        text: AutoSizeText(
+                          subTitle3,
+                          style: AppTextStyles.mainTitleRegularNavy10,
+                          minFontSize: 16,
+                        ),
                       ),
                     )
                   ],

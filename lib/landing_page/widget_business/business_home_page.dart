@@ -23,11 +23,11 @@ class _HomePageBusinessState extends State<HomePageBusiness> {
     super.initState();
     _scrollController = ScrollController();
     _scrollController.addListener(_scrollListener);
-    // if (!_scrollController.hasClients) {
-    //   Future.delayed(Duration(milliseconds: 50), () {
-    //     _scrollController?.jumpTo(_scrollController.position.minScrollExtent);
-    //   });
-    // }
+    if (!_scrollController.hasClients) {
+      Future.delayed(Duration(milliseconds: 50), () {
+        _scrollController?.jumpTo(_scrollController.position.minScrollExtent);
+      });
+    }
   }
 
   @override

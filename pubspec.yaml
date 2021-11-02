@@ -1,5 +1,5 @@
 name: webapptrial
-description: A new Flutter project.
+description: Travel ID connects travelers with independent travel experts to make faster and better travel decisions, find the right things to do and focusing only on fun, not logistics!.
 
 
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
@@ -33,6 +33,8 @@ dependencies:
   animated_text_kit: any
   flutter_typeahead: any
   infinite_carousel: ^1.0.1
+  seo_renderer: ^0.3.0
+  url_strategy: ^0.2.0
 
 
 
