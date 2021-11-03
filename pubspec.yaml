@@ -1,9 +1,7 @@
 name: webapptrial
 description: Travel ID connects travelers with independent travel experts to make faster and better travel decisions, find the right things to do and focusing only on fun, not logistics!.
 
-
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
-
 
 version: 1.0.1
 
@@ -13,8 +11,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-
 
   provider: any
   firebase_core:
@@ -36,15 +32,10 @@ dependencies:
   seo_renderer: ^0.3.0
   url_strategy: ^0.2.0
 
-
-
-
 dependency_overrides:
   intl: any
   http: any
   flutter_form_builder: any
-
-
 
 dev_dependencies:
   flutter_test:
@@ -52,15 +43,11 @@ dev_dependencies:
   integration_test:
     sdk: flutter
 
-
 flutter:
-
   uses-material-design: true
-
 
   fonts:
     # SF-PRO font
-
 
     # - family: SF-Pro-Text-Bold
     #  fonts:
@@ -85,8 +72,3 @@ flutter:
     # - family: SF-Pro-Text-Thin
     #  fonts:
     #    - asset: fonts/SF-Pro-Text-Thin.otf
-
-
-
-
-

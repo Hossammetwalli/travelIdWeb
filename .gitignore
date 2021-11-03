@@ -29,7 +29,7 @@
 .packages
 .pub-cache/
 .pub/
-/build/
+
 
 # Web related
 lib/generated_plugin_registrant.dart
@@ -48,7 +48,6 @@ lib/zzdelete/authentication.dart
 .gitignore
 
 web/config.js
-web/index.html
 Y/index.html
 .firebaserc
 firebase.json
